@@ -8,8 +8,8 @@
   <meta name="theme-color" content="#292929" />
   <meta name="color-scheme" content="light" />
 
-  <title>Listio : Checklist de estoque em minutos e sem complicação</title>
-  <meta name="description" content="Listio é o app simples de controle de estoque para negócios que vendem produtos — loja física ou online. Faça checklists rápidos no celular e descubra exatamente o que comprar — sem planilhas e sem achismo." />
+  <title>Listio : Reposição de Estoque Automática (sem planilhas)</title>
+  <meta name="description" content="Solução de reposição de estoque automática para pequenos comércios. Faça checklists rápidos no celular e receba a lista do que comprar — com quantidades sugeridas, sem planilhas e sem achismo." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://listio.com.br/" />
 
@@ -17,8 +17,8 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Listio" />
-  <meta property="og:title" content="Listio — Saiba exatamente o que comprar (sem planilhas)" />
-  <meta property="og:description" content="Controle de estoque simples para quem vende produtos — loja física ou online. Checklist no celular e decisão de compra sem achismo." />
+  <meta property="og:title" content="Listio — Reposição de estoque automática (sem planilhas)" />
+  <meta property="og:description" content="Checklist no celular + sugestão automática do que comprar. Pare de comprar no achismo e evite ruptura e excesso." />
   <meta property="og:url" content="https://listio.com.br/" />
   <meta property="og:image" content="https://listio.com.br/og-listio.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -26,27 +26,18 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Listio — Saiba exatamente o que comprar (sem planilhas)" />
-  <meta name="twitter:description" content="App simples de controle de estoque para negócios que vendem produtos. Checklists rápidos e decisão de compra clara." />
+  <meta name="twitter:title" content="Listio — Reposição de estoque automática (sem planilhas)" />
+  <meta name="twitter:description" content="Checklist no celular + sugestão automática do que comprar. Evite ruptura e excesso com clareza." />
   <meta name="twitter:image" content="https://listio.com.br/og-listio.jpg" />
 
-<!-- Favicon (padrão) -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-
-<!-- PNG favicons (recomendado) -->
-<link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
-
-<!-- Apple / iOS -->
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
-
-<!-- PWA / Android -->
-<link rel="manifest" href="img/site.webmanifest">
-<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
-
-<!-- Cor do tema (mobile / browser UI) -->
-<meta name="theme-color" content="#CDD544">
-
+  <!-- Favicon (padrão) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="img/site.webmanifest">
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
+  <meta name="theme-color" content="#CDD544">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -213,6 +204,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
+      background: var(--bg);
     }
     .site-header::after{
       content:"";
@@ -357,17 +349,17 @@
       font-weight: var(--title-weight);
     }
     .hero__subtitle{
-      margin:0 0 28px;
+      margin:0 0 22px;
       font-size:18px;
       line-height:var(--lh);
       color:var(--muted);
-      max-width: 520px;
+      max-width: 560px;
     }
 
     .hero__bullets{
       list-style:none;
       padding:0;
-      margin:0 0 36px;
+      margin:0 0 30px;
       display:grid;
       gap:14px;
     }
@@ -389,6 +381,26 @@
       background: #d4da42;
     }
     .hero__image-wrap img{ width:100%; height:auto; display:block; }
+
+    /* Nova faixa de "microproof" no hero */
+    .hero__microproof{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: var(--surface);
+      border:1px solid var(--line);
+      font-size:14px;
+      font-weight:650;
+      color: rgba(41,41,41,.86);
+    }
 
     @media (max-width:980px){
       .section--hero{ padding: 20px 35px; }
@@ -483,6 +495,9 @@
       margin-bottom:18px;
     }
 
+    /* =========================
+      HOW (mantém, mas textos ajustados)
+    ========================== */
     .how__steps{
       list-style:none;
       padding:0;
@@ -530,6 +545,62 @@
       .how__steps{ grid-template-columns:1fr; }
     }
 
+    /* =========================
+      NOVA SEÇÃO: "Automação na prática"
+      - Mesmo visual (cards), sem mudar base.
+    ========================== */
+    .auto{
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .auto__grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .auto__panel{
+      background: var(--bg);
+      border:1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 22px;
+    }
+    .auto__panel h3{
+      margin:0 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing:-0.02em;
+    }
+    .auto__panel p{
+      margin:0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: var(--lh);
+    }
+    .auto__list{
+      margin: 14px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap: 12px;
+    }
+    .auto__list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color: rgba(41,41,41,.9);
+      font-weight: 550;
+    }
+    .auto__note{
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted-2);
+    }
+    @media (max-width:980px){
+      .auto__grid{ grid-template-columns:1fr; }
+    }
+
     .compare__grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
     .compare__card{ position:relative; }
     .compare__card--highlight{
@@ -570,7 +641,7 @@
     .final-cta__wrap{ display:grid; place-items:center; text-align:center; }
     .final-cta__subtitle{
       margin:0 auto 28px;
-      max-width:620px;
+      max-width:680px;
       font-size:18px;
       color: var(--muted);
       line-height:var(--lh);
@@ -658,7 +729,6 @@
             <span class="brand__name">Listio</span>
           </a>
 
-          <!-- MENU: adicionado "Preço" -->
           <nav class="nav" aria-label="Navegação principal">
             <a href="/#como-funciona">Como funciona</a>
             <a href="/#recursos">Recursos</a>
@@ -689,8 +759,7 @@
           <a href="#para-quem">Para quem</a>
           <a href="/precos">Preço</a>
           <a href="#faq">Dúvidas</a>
-                      <a href="/contato">Contato</a>
-
+          <a href="/contato">Contato</a>
 
           <div class="mobile-ctas">
             <a class="btn" href="https://app.listio.com.br/login" data-track="mobile_login">Entrar</a>
@@ -705,37 +774,38 @@
   </div>
 
   <main id="top" role="main">
-    <!-- HERO -->
+    <!-- HERO (reposicionada para "Reposição Automática") -->
     <section class="section section--hero hero">
       <div class="container hero__grid">
 
         <div class="hero__content">
           <span class="section__eyebrow">
             <i data-lucide="sparkles" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
-            Decisão sem achismo
+            Reposição automática (sem achismo)
           </span>
 
           <h1 class="hero__title">
-            Checklist de estoque em minutos e sem complicação.
+            Reposição de estoque automática, sem planilhas.
           </h1>
 
           <p class="hero__subtitle">
-            O Listio organiza a contagem de estoque (checklist) e transforma os números em reposição objetiva.
-            Pra você ter <strong>clareza do que falta</strong>, <strong>do que está sobrando</strong> e comprar com segurança.
+            Você faz o checklist no celular e o Listio transforma a contagem em <strong>sugestão de compra</strong>:
+            <strong>o que repor</strong>, <strong>quanto repor</strong> e <strong>o que está travando seu caixa</strong>.
+            Para parar de comprar no “feeling” — e repor com segurança, toda semana.
           </p>
 
           <ul class="hero__bullets">
             <li>
               <i data-lucide="smartphone" class="icon icon--md" aria-hidden="true"></i>
-              Contagem no app (rápida e padronizada)
+              Checklist rápido (padrão de operação)
             </li>
             <li>
-              <i data-lucide="check-circle-2" class="icon icon--md" aria-hidden="true"></i>
-              Pedido por categoria ou por fornecedor
+              <i data-lucide="wand-2" class="icon icon--md" aria-hidden="true"></i>
+              Sugestão automática do que comprar
             </li>
             <li>
               <i data-lucide="shopping-basket" class="icon icon--md" aria-hidden="true"></i>
-              Lista de compra objetiva: o que falta e quanto comprar
+              Pedido por categoria ou fornecedor (pronto para enviar)
             </li>
           </ul>
 
@@ -744,6 +814,15 @@
               Começar agora — é grátis
               <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
             </a>
+            <a href="#automacao" class="btn btn--ghost btn--lg" data-track="hero_cta_secondary">
+              Ver como a reposição funciona
+            </a>
+          </div>
+
+          <div class="hero__microproof" aria-label="Destaques">
+            <span class="chip"><i data-lucide="credit-card" class="icon icon--md" aria-hidden="true"></i> Sem cartão</span>
+            <span class="chip"><i data-lucide="clock-3" class="icon icon--md" aria-hidden="true"></i> Começa em minutos</span>
+            <span class="chip"><i data-lucide="store" class="icon icon--md" aria-hidden="true"></i> Loja física + online</span>
           </div>
         </div>
 
@@ -760,12 +839,12 @@
       </div>
     </section>
 
-    <!-- TRUST -->
+    <!-- TRUST (mantém) -->
     <section class="trust">
       <div class="container">
         <p class="trust__line">
           <i data-lucide="star" class="icon icon--md" aria-hidden="true"></i>
-          Feito para quem precisa de clareza no estoque — não de sistemas complicados
+          Feito para quem precisa de reposição clara — não de sistema complicado
         </p>
 
         <div class="trust__cards">
@@ -780,20 +859,20 @@
           </div>
 
           <div class="card">
-            <div class="trust__metric">Eficiente</div>
-            <div class="trust__label">contagem e reposição com clareza</div>
+            <div class="trust__metric">Consistente</div>
+            <div class="trust__label">reposição toda semana, sem achismo</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PAIN -->
+    <!-- PAIN (ajustado para dor "reposicao") -->
     <section class="section section--tight pain" id="dor">
       <div class="container">
         <div class="pain__head">
-          <h2 class="section__title">Se a contagem vira dúvida, a compra vira risco.</h2>
+          <h2 class="section__title">Se a reposição depende de memória, você está operando no risco.</h2>
           <p class="section__subtitle">
-            Planilha e papel resolvem por um tempo. O problema aparece depois.
+            A dor não é “falta de controle”. É falta de decisão clara do que comprar — antes de faltar.
           </p>
         </div>
 
@@ -803,23 +882,23 @@
               <i data-lucide="ban" class="icon icon--xl" aria-hidden="true"></i>
             </div>
             <h3 class="card__title">Ruptura e perda de venda</h3>
-            <p class="card__text">Você descobre a falta tarde demais e perde venda.</p>
+            <p class="card__text">O item crítico acaba e você só percebe quando já perdeu venda.</p>
           </article>
 
           <article class="card">
             <div class="card__icon" aria-hidden="true">
               <i data-lucide="banknote" class="icon icon--xl" aria-hidden="true"></i>
             </div>
-            <h3 class="card__title">Excesso de estoque</h3>
-            <p class="card__text">Dinheiro parado em produto que não gira.</p>
+            <h3 class="card__title">Dinheiro parado</h3>
+            <p class="card__text">Compra demais do que não gira e trava seu caixa em estoque parado.</p>
           </article>
 
           <article class="card">
             <div class="card__icon" aria-hidden="true">
               <i data-lucide="file-text" class="icon icon--xl" aria-hidden="true"></i>
             </div>
-            <h3 class="card__title">Falta padrão</h3>
-            <p class="card__text">Cada contagem vira um método diferente (papel, planilha, cabeça).</p>
+            <h3 class="card__title">Sem padrão de reposição</h3>
+            <p class="card__text">Cada semana vira um método (papel, planilha, “eu acho”).</p>
           </article>
 
           <article class="card">
@@ -827,132 +906,194 @@
               <i data-lucide="help-circle" class="icon icon--xl" aria-hidden="true"></i>
             </div>
             <h3 class="card__title">Compra no “feeling”</h3>
-            <p class="card__text">Você compra por medo, não por clareza.</p>
+            <p class="card__text">Você compra por medo de faltar — e paga o preço no excesso.</p>
           </article>
         </div>
       </div>
     </section>
 
-<!-- SOLUTION -->
-<section class="section solution" id="recursos">
-  <div class="container">
-    <div class="section__head">
-      <span class="section__eyebrow">
-        <i data-lucide="zap" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
-        O núcleo inteligente
-      </span>
+    <!-- NOVA: Automação na prática (conteúdo do "dois sites", na linguagem Listio) -->
+    <section class="section auto" id="automacao">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="zap" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Solução para reposição automática
+          </span>
 
-      <h2 class="section__title">
-        Menos controle manual.<br />
-        <span>Mais decisão certa.</span>
-      </h2>
+          <h2 class="section__title">
+            Automação não é “adivinhar”.<br />
+            <span>É consistência.</span>
+          </h2>
 
-      <p class="section__subtitle">
-        Ferramentas que transformam a contagem de estoque em reposição objetiva — com alertas, clareza e velocidade.
-        Tudo item por item, sem complicação.
-      </p>
-    </div>
-
-    <div class="solution__grid grid-3" style="gap:18px;">
-      <article class="card">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="check-circle-2" class="icon icon--xl" aria-hidden="true"></i>
+          <p class="section__subtitle">
+            O Listio parte do que você já faz: checklist. Depois, compara períodos e entrega uma reposição simples,
+            objetiva e pronta para comprar — sem depender de integração complexa.
+          </p>
         </div>
-        <h3 class="card__title">Checklists inteligentes de estoque</h3>
-        <p class="card__text">
-          Conte rápido no celular com um fluxo direto, sem fricção e sem etapas desnecessárias — pronto para a rotina do comércio.
-        </p>
-      </article>
 
-      <article class="card">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="sparkles" class="icon icon--xl" aria-hidden="true"></i>
+        <div class="auto__grid">
+          <div class="auto__panel">
+            <h3>O que o Listio lê automaticamente</h3>
+            <p>
+              Toda vez que você finaliza um checklist, o Listio consegue enxergar o que mudou no estoque
+              — e isso vira decisão de reposição.
+            </p>
+
+            <ul class="auto__list">
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> O que <strong>saiu</strong> desde a última contagem</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> O que <strong>não saiu</strong> (produto parado)</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> O que está <strong>perto da ruptura</strong></li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> O que está em <strong>excesso</strong> (caixa travado)</li>
+            </ul>
+
+            <div class="auto__note">
+              *Você não precisa “organizar dados”. Você só precisa contar.
+            </div>
+          </div>
+
+          <div class="auto__panel" style="background: var(--surface);">
+            <h3>O que você recebe no final</h3>
+            <p>
+              Em vez de relatório, o Listio entrega uma resposta:
+              <strong>o que comprar agora</strong>.
+            </p>
+
+            <ul class="auto__list">
+              <li><i data-lucide="shopping-bag" class="icon icon--md" aria-hidden="true"></i> Lista de compra com <strong>quantidades sugeridas</strong></li>
+              <li><i data-lucide="layers" class="icon icon--md" aria-hidden="true"></i> Pedido por <strong>categoria</strong> ou por <strong>fornecedor</strong></li>
+              <li><i data-lucide="triangle-alert" class="icon icon--md" aria-hidden="true"></i> Alertas antes de faltar (evita perda de venda)</li>
+              <li><i data-lucide="trending-down" class="icon icon--md" aria-hidden="true"></i> Indicação de itens que estão travando seu caixa</li>
+            </ul>
+
+            <div class="hero__ctas" style="margin-top:16px;">
+              <a href="https://app.listio.com.br/cadastro" class="btn btn--primary" data-track="auto_cta_primary">
+                Quero automatizar meu estoque
+                <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <h3 class="card__title">Sugestão automática de compras</h3>
-        <p class="card__text">
-          O Listio analisa o estoque atual e gera a lista do que comprar com quantidades sugeridas — menos achismo, mais precisão.
-        </p>
-      </article>
+      </div>
+    </section>
 
-      <article class="card">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="triangle-alert" class="icon icon--xl" aria-hidden="true"></i>
+    <!-- SOLUTION (reforçada, mantendo estrutura) -->
+    <section class="section solution" id="recursos">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="cpu" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            O núcleo de reposição
+          </span>
+
+          <h2 class="section__title">
+            Menos controle manual.<br />
+            <span>Mais reposição automática.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Recursos focados em uma coisa: transformar contagem em compra certa, com clareza.
+          </p>
         </div>
-        <h3 class="card__title">Alertas de estoque baixo</h3>
-        <p class="card__text">
-          Avisos inteligentes antes do produto acabar — para você repor no tempo certo e evitar perda de venda por ruptura.
-        </p>
-      </article>
 
-      <article class="card">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="trending-down" class="icon icon--xl" aria-hidden="true"></i>
+        <div class="solution__grid grid-3" style="gap:18px;">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="check-circle-2" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Checklist rápido e padronizado</h3>
+            <p class="card__text">
+              Conte no celular com um fluxo direto. Menos fricção, mais consistência na rotina.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="wand-2" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Sugestão automática de reposição</h3>
+            <p class="card__text">
+              O Listio gera a lista do que comprar com quantidades sugeridas — para você decidir com segurança.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="triangle-alert" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Alertas antes de faltar</h3>
+            <p class="card__text">
+              Identifique itens no limite para repor no tempo certo e evitar ruptura.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="trending-down" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Excesso e produto parado</h3>
+            <p class="card__text">
+              Veja onde o dinheiro está travado e ajuste suas compras para ficar mais leve.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="layout-list" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Nada fica esquecido</h3>
+            <p class="card__text">
+              Lista completa de itens na contagem — para não depender de campo de busca e não esquecer produto.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="sliders-horizontal" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Ajuste rápido de quantidades</h3>
+            <p class="card__text">
+              Corrija e atualize o estoque em poucos toques. Número confiável vira decisão confiável.
+            </p>
+          </article>
         </div>
-        <h3 class="card__title">Análise de excesso de estoque</h3>
-        <p class="card__text">
-          Identifique produtos parados e excesso de compra — reduza capital imobilizado e recupere caixa com decisões mais enxutas.
-        </p>
-      </article>
+      </div>
+    </section>
 
-      <article class="card">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="layout-list" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
-        <h3 class="card__title">Visão completa do inventário</h3>
-        <p class="card__text">
-          Lista total de produtos na contagem — nada fica esquecido. Você enxerga o estoque inteiro e prioriza com clareza.
-        </p>
-      </article>
-
-      <article class="card">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="sliders-horizontal" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
-        <h3 class="card__title">Ajuste instantâneo de quantidades</h3>
-        <p class="card__text">
-          Atualize o estoque em poucos toques, em tempo real. Mais velocidade para corrigir contagens e manter o número sempre confiável.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-    <!-- VALUE -->
+    <!-- VALUE (ajustado para automação) -->
     <section class="section value">
       <div class="container">
         <div class="section__head">
           <span class="section__eyebrow">
             <i data-lucide="trending-up" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
-            Resultados na prática
+            Resultado de uma reposição clara
           </span>
 
           <h2 class="section__title">
-            Estoque claro gera<br />
-            <span>compras melhores.</span>
+            Quando a reposição fica automática,<br />
+            <span>o estoque trabalha por você.</span>
           </h2>
 
           <p class="section__subtitle">
-            Quando a contagem vira dado confiável, o dia a dia ganha previsibilidade.
-            Menos sustos, menos dinheiro parado e mais controle.
+            Menos sustos, menos excesso e mais previsibilidade semanal. Você sai do “modo incêndio”.
           </p>
         </div>
 
         <div class="grid-3" style="margin-top:34px;">
           <article class="card">
             <div class="value__metric" aria-hidden="true">
-              <i data-lucide="arrow-down" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+              <i data-lucide="shield-check" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
             </div>
             <h3 class="card__title">Menos ruptura</h3>
-            <p class="card__text">Itens certos, na hora certa — antes de faltar.</p>
+            <p class="card__text">Você repõe antes de faltar e para de perder venda por descuido.</p>
           </article>
 
           <article class="card">
             <div class="value__metric" aria-hidden="true">
               <i data-lucide="badge-dollar-sign" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
             </div>
-            <h3 class="card__title">Menos dinheiro parado</h3>
-            <p class="card__text">Você compra com base em dados, não em medo ou “achismo”.</p>
+            <h3 class="card__title">Menos caixa travado</h3>
+            <p class="card__text">Reduz excesso e compra com critério, não por medo.</p>
           </article>
 
           <article class="card">
@@ -960,13 +1101,13 @@
               <i data-lucide="calendar" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
             </div>
             <h3 class="card__title">Mais previsibilidade</h3>
-            <p class="card__text">O estoque começa a trabalhar a seu favor, toda semana.</p>
+            <p class="card__text">Rotina repetível: conta, compara, repõe. Toda semana.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- HOW -->
+    <!-- HOW (texto ajustado para reposição automática, mantendo 3 passos) -->
     <section class="section how" id="como-funciona">
       <div class="container">
         <div class="section__head">
@@ -976,13 +1117,12 @@
           </span>
 
           <h2 class="section__title">
-            Em 3 passos. Sem enrolação.<br />
-            <span>Da contagem à reposição.</span>
+            Checklist → comparação → reposição.<br />
+            <span>Em 3 passos.</span>
           </h2>
 
           <p class="section__subtitle">
-            Configure uma vez, conte sempre.
-            Em poucos minutos você transforma a contagem em reposição clara.
+            O Listio foi feito para a operação: você faz o básico bem feito e a reposição sai pronta.
           </p>
         </div>
 
@@ -991,30 +1131,30 @@
             <div class="how__badge">1</div>
             <div class="how__content">
               <h3>Cadastre seus itens</h3>
-              <p>Nome, categoria e estoque ideal. Serve para qualquer tipo de produto.</p>
+              <p>Nome, categoria e (se quiser) estoque ideal — para orientar a reposição.</p>
             </div>
           </li>
 
           <li class="how__step">
             <div class="how__badge">2</div>
             <div class="how__content">
-              <h3>Faça a contagem de estoque</h3>
-              <p>Use o checklist para registrar as quantidades de forma rápida e padronizada.</p>
+              <h3>Faça a contagem no celular</h3>
+              <p>Checklist rápido e padronizado para o estoque ficar confiável.</p>
             </div>
           </li>
 
           <li class="how__step">
             <div class="how__badge">3</div>
             <div class="how__content">
-              <h3>Gere a reposição</h3>
-              <p>Veja o que falta, o que sobra e o quanto repor — pronto para comprar.</p>
+              <h3>Receba a reposição automática</h3>
+              <p>Lista do que comprar com quantidades sugeridas — pronta para pedir.</p>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- COMPARE -->
+    <!-- COMPARE (mantém, com micro ajustes) -->
     <section class="section compare">
       <div class="container">
         <div class="section__head">
@@ -1025,12 +1165,11 @@
 
           <h2 class="section__title">
             Enquanto outros complicam,<br />
-            <span>o Listio organiza.</span>
+            <span>o Listio responde.</span>
           </h2>
 
           <p class="section__subtitle">
-            Você não precisa de mais um sistema. Precisa de um método claro
-            para contar, comparar e repor com confiança.
+            Você não precisa de “mais dados”. Precisa de uma resposta simples: <strong>o que comprar agora</strong>.
           </p>
         </div>
 
@@ -1038,9 +1177,9 @@
           <article class="card compare__card">
             <h3 class="card__title">Planilha</h3>
             <ul class="compare__list">
-              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Exige tempo e disciplina</li>
-              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Fácil de errar ou esquecer</li>
-              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Não deixa claro o que repor</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Exige disciplina e tempo</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Fácil esquecer item</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> “O que comprar” vira chute</li>
               <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Desatualiza rápido</li>
             </ul>
           </article>
@@ -1050,7 +1189,7 @@
             <ul class="compare__list">
               <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Implantação demorada</li>
               <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Treinamento obrigatório</li>
-              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Funções que você não usa</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Função demais, clareza de menos</li>
               <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Mais caro do que precisa</li>
             </ul>
           </article>
@@ -1059,17 +1198,17 @@
             <span class="compare__badge">Recomendado</span>
             <h3 class="card__title">Listio</h3>
             <ul class="compare__list">
-              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Checklist de contagem no app</li>
-              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Mostra exatamente o que repor</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Checklist no app (padrão)</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Reposição automática (o que/quanto)</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Leve e direto na operação</li>
               <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Serve para loja física e online</li>
-              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Operação leve, sem excesso de funções</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- AUDIENCE -->
+    <!-- AUDIENCE (mantém) -->
     <section class="section audience" id="para-quem">
       <div class="container">
         <div class="section__head">
@@ -1079,13 +1218,13 @@
           </span>
 
           <h2 class="section__title">
-            Feito para quem vende produtos físicos<br />
-            <span>e precisa de reposição clara.</span>
+            Para quem repõe toda semana<br />
+            <span>e quer automatizar.</span>
           </h2>
 
           <p class="section__subtitle">
             O Listio funciona para diferentes segmentos porque resolve o essencial:
-            transformar contagem em decisão de compra com clareza.
+            transformar contagem em reposição automática com clareza.
           </p>
         </div>
 
@@ -1095,15 +1234,15 @@
               <i data-lucide="store" class="icon icon--xl" aria-hidden="true"></i>
             </div>
             <h3 class="card__title">Lojas de bairro</h3>
-            <p class="card__text">Padronize a contagem e saiba o que repor toda semana.</p>
+            <p class="card__text">Reposição consistente sem depender de memória.</p>
           </article>
 
           <article class="card">
             <div class="card__icon" aria-hidden="true">
-              <i data-lucide="pill" class="icon icon--xl" aria-hidden="true"></i>
+              <i data-lucide="beer" class="icon icon--xl" aria-hidden="true"></i>
             </div>
-            <h3 class="card__title">Farmácias e perfumarias</h3>
-            <p class="card__text">Evite ruptura e excesso nos itens que mais saem.</p>
+            <h3 class="card__title">Adegas e conveniência</h3>
+            <p class="card__text">Evite ruptura de itens que giram rápido (e excesso do que trava).</p>
           </article>
 
           <article class="card">
@@ -1111,248 +1250,237 @@
               <i data-lucide="truck" class="icon icon--xl" aria-hidden="true"></i>
             </div>
             <h3 class="card__title">E-commerce</h3>
-            <p class="card__text">Visão confiável do estoque para não perder pedido por falta.</p>
+            <p class="card__text">Não perca pedido por falta: reposição com base em contagem confiável.</p>
           </article>
 
           <article class="card">
             <div class="card__icon" aria-hidden="true">
-              <i data-lucide="shirt" class="icon icon--xl" aria-hidden="true"></i>
+              <i data-lucide="shopping-cart" class="icon icon--xl" aria-hidden="true"></i>
             </div>
-            <h3 class="card__title">Moda e acessórios</h3>
-            <p class="card__text">Controle por categorias e reposição com critério.</p>
+            <h3 class="card__title">Varejo em geral</h3>
+            <p class="card__text">Produtos físicos, rotina real e compra recorrente.</p>
           </article>
         </div>
       </div>
     </section>
 
-<!-- REVIEWS -->
-<section class="section reviews" id="avaliacoes">
-  <div class="container">
-    <div class="section__head">
-      <span class="section__eyebrow">
-        <i data-lucide="star" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
-        Avaliações
-      </span>
+    <!-- REVIEWS (mantém seu bloco original) -->
+    <section class="section reviews" id="avaliacoes">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="star" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Avaliações
+          </span>
 
-      <h2 class="section__title">
-        O que dizem os usuários do Listio<br />
-        <span>Na rotina real do comércio.</span>
-      </h2>
+          <h2 class="section__title">
+            O que dizem os usuários do Listio<br />
+            <span>Na rotina real do comércio.</span>
+          </h2>
 
-      <p class="section__subtitle">
-        Quem usa o Listio não usa “mais um app”. Usa <strong>clareza</strong> para repor melhor,
-        evitar falta de produto e parar de perder tempo com papel e planilha.
-      </p>
-    </div>
-
-    <div class="reviews__grid grid-3" style="gap:18px;">
-      <!-- Review 1 -->
-      <article class="card card--review">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+          <p class="section__subtitle">
+            Quem usa o Listio não usa “mais um app”. Usa <strong>clareza</strong> para repor melhor,
+            evitar falta de produto e parar de perder tempo com papel e planilha.
+          </p>
         </div>
 
-        <p class="card__text">
-          “Testei vários apps para organizar meu estoque. O Listio foi o único que me deu clareza de verdade —
-          consigo contar rápido e já sei o que preciso comprar.”
-        </p>
+        <div class="reviews__grid grid-3" style="gap:18px;">
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
 
-        <div class="review__footer">
-          <div class="review__stars" aria-label="5 estrelas">
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-          </div>
+            <p class="card__text">
+              “Testei vários apps para organizar meu estoque. O Listio foi o único que me deu clareza de verdade —
+              consigo contar rápido e já sei o que preciso comprar.”
+            </p>
 
-          <div class="review__meta">
-            <strong class="review__name">Poliana Silva</strong>
-            <span class="review__handle">@policalçados</span>
-          </div>
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 estrelas">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Poliana Silva</strong>
+                <span class="review__handle">@policalçados</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Já testei muitos sistemas e nenhum foi tão prático. A versão web ajuda demais.
+              O Listio é excelente para fechar a contagem e transformar isso em reposição certa.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 estrelas">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Diego Molina</strong>
+                <span class="review__handle">@casa22.shop</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Vale muito a pena. Contar estoque sem papel ou Excel mudou minha rotina.
+              Agora eu faço em minutos e não esqueço nenhum item.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 estrelas">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Luana Santos</strong>
+                <span class="review__handle">@santagrana</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “O Listio é muito fácil e intuitivo. Parei de perder venda por falta de produto
+              e consigo acompanhar certinho o que tenho e o que não tenho.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 estrelas">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Erika Peres</strong>
+                <span class="review__handle">@perescalcados</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Muito bom. Consigo controlar valor de estoque, reposição e o que está faltando.
+              O Listio deixa minha operação mais organizada e passa mais credibilidade.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 estrelas">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Loriene Cruz</strong>
+                <span class="review__handle">@larishop</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Meu negócio ficou mais profissional. O custo-benefício é ótimo
+              e eu não troco por nada — finalmente tenho controle sem complicação.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 estrelas">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Maria Peçanha</strong>
+                <span class="review__handle">@brejabox</span>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Review 2 -->
-      <article class="card card--review">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
+    <style>
+      .card--review { position: relative; }
+      .review__footer{
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .review__stars{
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        opacity: .92;
+      }
+      .review__meta{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        text-align: right;
+      }
+      .review__name{ font-weight: 700; }
+      .review__handle{ opacity: .75; font-size: .95em; }
+    </style>
 
-        <p class="card__text">
-          “Já testei muitos sistemas e nenhum foi tão prático. A versão web ajuda demais.
-          O Listio é excelente para fechar a contagem e transformar isso em reposição certa.”
-        </p>
-
-        <div class="review__footer">
-          <div class="review__stars" aria-label="5 estrelas">
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-          </div>
-
-          <div class="review__meta">
-            <strong class="review__name">Diego Molina</strong>
-            <span class="review__handle">@casa22.shop</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Review 3 -->
-      <article class="card card--review">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
-
-        <p class="card__text">
-          “Vale muito a pena. Contar estoque sem papel ou Excel mudou minha rotina.
-          Agora eu faço em minutos e não esqueço nenhum item.”
-        </p>
-
-        <div class="review__footer">
-          <div class="review__stars" aria-label="5 estrelas">
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-          </div>
-
-          <div class="review__meta">
-            <strong class="review__name">Luana Santos</strong>
-            <span class="review__handle">@santagrana</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Review 4 -->
-      <article class="card card--review">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
-
-        <p class="card__text">
-          “O Listio é muito fácil e intuitivo. Parei de perder venda por falta de produto
-          e consigo acompanhar certinho o que tenho e o que não tenho.”
-        </p>
-
-        <div class="review__footer">
-          <div class="review__stars" aria-label="5 estrelas">
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-          </div>
-
-          <div class="review__meta">
-            <strong class="review__name">Erika Peres</strong>
-            <span class="review__handle">@perescalcados</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Review 5 -->
-      <article class="card card--review">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
-
-        <p class="card__text">
-          “Muito bom. Consigo controlar valor de estoque, reposição e o que está faltando.
-          O Listio deixa minha operação mais organizada e passa mais credibilidade.”
-        </p>
-
-        <div class="review__footer">
-          <div class="review__stars" aria-label="5 estrelas">
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-          </div>
-
-          <div class="review__meta">
-            <strong class="review__name">Loriene Cruz</strong>
-            <span class="review__handle">@larishop</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Review 6 -->
-      <article class="card card--review">
-        <div class="card__icon" aria-hidden="true">
-          <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
-        </div>
-
-        <p class="card__text">
-          “Meu negócio ficou mais profissional. O custo-benefício é ótimo
-          e eu não troco por nada — finalmente tenho controle sem complicação.”
-        </p>
-
-        <div class="review__footer">
-          <div class="review__stars" aria-label="5 estrelas">
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-            <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
-          </div>
-
-          <div class="review__meta">
-            <strong class="review__name">Maria Peçanha</strong>
-            <span class="review__handle">@brejabox</span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-
-  </div>
-</section>
-
-<style>
-  /* Optional: review-specific polish while keeping Listio style */
-  .card--review { position: relative; }
-  .review__footer{
-    margin-top: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .review__stars{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    opacity: .92;
-  }
-  .review__meta{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    text-align: right;
-  }
-  .review__name{ font-weight: 700; }
-  .review__handle{ opacity: .75; font-size: .95em; }
-  .reviews__cta{ display: flex; justify-content: center; }
-</style>
-
-
-    <!-- FINAL CTA -->
+    <!-- FINAL CTA (reforçada para automação) -->
     <section class="section section--cta final-cta" id="comecar">
       <div class="container final-cta__wrap">
         <div class="final-cta__content">
           <h2 class="section__title" style="margin:0 0 14px;">
-            Pare de adivinhar<br />
-            <span>o estoque.</span>
+            Pare de comprar no “feeling”.<br />
+            <span>Automatize a reposição.</span>
           </h2>
 
           <p class="final-cta__subtitle">
-            Comece agora e veja como é mais seguro decidir o que repor,
-            com clareza e consistência na contagem.
+            Faça um checklist, receba a lista de reposição com quantidades sugeridas
+            e comece a operar com previsibilidade — sem planilhas e sem dor de cabeça.
           </p>
 
           <div class="final-cta__actions">
@@ -1366,7 +1494,7 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (ajustado com perguntas sobre reposição automática) -->
     <section class="section faq" id="faq">
       <div class="container">
         <div class="section__head" style="margin-bottom:22px;">
@@ -1376,88 +1504,88 @@
           </span>
 
           <h2 class="section__title">
-            Antes de começar,<br />
-            <span>vale esclarecer isso.</span>
+            Reposição automática<br />
+            <span>na prática.</span>
           </h2>
 
           <p class="section__subtitle">
-            Respondemos aqui as perguntas que mais ouvimos de quem precisa controlar estoque
-            e comprar com clareza.
+            As perguntas que mais ouvimos de quem quer parar de comprar no achismo.
           </p>
         </div>
 
         <div class="faq__list" data-faq>
           <details class="faq__item" open>
             <summary class="faq__question">
-              Preciso entender de tecnologia para usar o Listio?
+              Como o Listio faz a reposição “automática” se eu não tenho integração com vendas?
               <span class="faq__plus" aria-hidden="true">
                 <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
               </span>
             </summary>
             <div class="faq__answer">
               <p>
-                Não. O Listio foi pensado para ser direto na operação: você cadastra os itens e realiza a contagem por checklist.
-                Se você sabe contar produtos, você consegue usar o Listio.
+                O Listio usa o que você controla com 100% de certeza: o estoque real.
+                A cada checklist, ele compara com o checklist anterior, entende o que saiu e
+                transforma isso em sugestão de reposição — sem precisar de ERP pesado.
               </p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary class="faq__question">
-              O Listio substitui meu sistema ou minha planilha?
+              A sugestão de compra vem com quantidades?
               <span class="faq__plus" aria-hidden="true">
                 <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
               </span>
             </summary>
             <div class="faq__answer">
               <p>
-                Ele substitui o que te atrapalha. Muitos mantêm o sistema de vendas,
-                e usam o Listio para padronizar a contagem e decidir reposição com clareza.
+                Sim. A lista de reposição sai com quantidades sugeridas com base na sua contagem
+                e no ritmo de saída entre períodos. Você pode ajustar antes de enviar o pedido.
               </p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary class="faq__question">
-              Quanto tempo leva para começar a usar?
+              Isso substitui minha planilha de compra?
               <span class="faq__plus" aria-hidden="true">
                 <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
               </span>
             </summary>
             <div class="faq__answer">
               <p>
-                Você começa no mesmo dia: cadastra seus itens uma vez e já realiza a primeira contagem.
-                Depois, o processo fica repetível e consistente.
+                Na prática, sim. Em vez de “montar” pedido manualmente, você faz o checklist e
+                recebe a reposição pronta. Muitos mantêm o sistema de vendas e usam o Listio para reposição.
               </p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary class="faq__question">
-              Funciona para qualquer tipo de negócio?
+              Vou esquecer menos itens no pedido?
               <span class="faq__plus" aria-hidden="true">
                 <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
               </span>
             </summary>
             <div class="faq__answer">
               <p>
-                Sim — desde que você precise controlar itens e decidir o que repor.
-                Funciona bem para loja física, e-commerce e diferentes nichos de varejo.
+                Sim — porque o checklist é a lista completa. Você conta o estoque inteiro e a reposição sai
+                a partir disso, reduzindo o risco de “esquecer” produto por depender de busca.
               </p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary class="faq__question">
-              Vou precisar colocar cartão de crédito?
+              Preciso colocar cartão de crédito?
               <span class="faq__plus" aria-hidden="true">
                 <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
               </span>
             </summary>
             <div class="faq__answer">
               <p>
-                Não. Você pode começar gratuitamente, testar o app e ver valor antes de qualquer decisão.
-                Sem surpresas e sem compromisso.
+                Não. Você pode começar gratuitamente, testar a reposição automática na sua rotina e
+                só depois decidir.
               </p>
             </div>
           </details>
@@ -1465,818 +1593,737 @@
       </div>
     </section>
   </main>
-  <!-- WHATSAPP FLOATING BUTTON (complete) -->
-<a
-  class="wa-fab"
-  href="https://wa.me/5519974013453?text=Oi!%20Quero%20saber%20mais%20sobre%20o%20Listio."
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Abrir WhatsApp"
-  data-wa
->
-  <span class="wa-fab__outer" aria-hidden="true">
-    <span class="wa-fab__inner" aria-hidden="true">
-      <!-- WhatsApp icon (Bootstrap SVG) -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-      </svg>
+
+  <!-- WHATSAPP FLOATING BUTTON (mantém seu bloco) -->
+  <a
+    class="wa-fab"
+    href="https://wa.me/5519974013453?text=Oi!%20Quero%20saber%20mais%20sobre%20o%20Listio."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir WhatsApp"
+    data-wa
+  >
+    <span class="wa-fab__outer" aria-hidden="true">
+      <span class="wa-fab__inner" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+      </span>
     </span>
-  </span>
-</a>
+  </a>
 
-<style>
-  .wa-fab {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 9999;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-  }
+  <style>
+    .wa-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .wa-fab__outer {
+      width: 74px;
+      height: 74px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #1f1f1f;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+      transition: transform 160ms ease;
+    }
+    .wa-fab__inner {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #d4da42;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .wa-fab__inner svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      line-height: 0;
+      color: #111;
+    }
+    .wa-fab:hover .wa-fab__outer,
+    .wa-fab:focus-visible .wa-fab__outer {
+      transform: translateY(-1px);
+    }
+  </style>
 
-  .wa-fab__outer {
-    width: 74px;
-    height: 74px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: #1f1f1f;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
-    transition: transform 160ms ease;
-  }
+  <script>
+    (function () {
+      const wa = document.querySelector("[data-wa]");
+      if (!wa) return;
+      wa.addEventListener("click", function () {
+        // window.dataLayer?.push({ event: "click_whatsapp" });
+      });
+    })();
+  </script>
 
-  .wa-fab__inner {
-    width: 46px;
-    height: 46px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: #d4da42; /* Listio lime */
-    line-height: 0;      /* prevents baseline offset */
-    overflow: hidden;
-  }
+  <!-- FOOTER + COOKIE CONSENT + LUCIDE INIT
+       Mantive exatamente seus blocos (sem alterar o visual).
+       Só colei abaixo para você ter o arquivo completo. -->
 
-  /* Ensures the icon is perfectly centered */
-  .wa-fab__inner svg {
-    display: block;
-    width: 24px;
-    height: 24px;
-    line-height: 0;
-    color: #111;         /* currentColor for the SVG */
-  }
+  <!-- =========================
+    LISTIO — RODAPÉ (HTML + CSS)
+  ========================= -->
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
 
-  .wa-fab:hover .wa-fab__outer,
-  .wa-fab:focus-visible .wa-fab__outer {
-    transform: translateY(-1px);
-  }
-</style>
+      --ink: var(--charcoal);
+      --bg: var(--off);
+      --surface: var(--white);
 
-<script>
-  // WhatsApp open event (tracking hook)
-  (function () {
-    const wa = document.querySelector("[data-wa]");
-    if (!wa) return;
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
 
-    wa.addEventListener("click", function () {
-      // Example:
-      // window.dataLayer?.push({ event: "click_whatsapp" });
-    });
-  })();
-</script>
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
 
-<!-- =========================
-  LISTIO — RODAPÉ (HTML + CSS)
-  - Visual semelhante ao print (3 colunas, links com ícones, CTA “pílula”)
-  - Paleta: #292929 / #D4DA42 / #F0F1E9 / #FFFFFF
-========================= -->
+      --container: 1120px;
+      --pad: 22px;
 
-<style>
-  :root{
-    --charcoal:#292929;
-    --lime:#D4DA42;
-    --off:#F0F1E9;
-    --white:#FFFFFF;
+      --text: 18px;
+    }
 
-    --ink: var(--charcoal);
-    --bg: var(--off);
-    --surface: var(--white);
+    .container{
+      width:min(var(--container), calc(100% - (var(--pad) * 2)));
+      margin-inline:auto;
+    }
 
-    --line: rgba(41,41,41,.14);
-    --line-strong: rgba(41,41,41,.22);
+    .listio-footer{
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
 
-    --radius-xl: 24px;
-    --radius-lg: 18px;
-    --radius-md: 14px;
-
-    --container: 1120px;
-    --pad: 22px;
-
-    --text: 18px;
-  }
-
-  .container{
-    width:min(var(--container), calc(100% - (var(--pad) * 2)));
-    margin-inline:auto;
-  }
-
-  /* =========================
-     FOOTER (print-like)
-  ========================= */
-  .listio-footer{
-    margin-top: 64px;
-    border-top: 1px solid var(--line);
-    background: var(--bg);
-  }
-
-  .listio-footer__inner{
-    padding: 26px 0 18px;
-    display: grid;
-    gap: 18px;
-  }
-
-  .listio-footer__top{
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 22px;
-    align-items: start;
-  }
-
-  .listio-footer__brand{
-    display: grid;
-    gap: 8px;
-  }
-
-  .listio-footer__logo{
-    font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    line-height: 1.1;
-  }
-
-  .listio-footer__desc{
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.55;
-    color: rgba(41,41,41,.76);
-    max-width: 56ch;
-  }
-
-  /* CTA pill (como no print) */
-  .listio-footer__pill{
-    margin-top: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    width: min(620px, 100%);
-    padding: 12px 14px;
-    border-radius: 999px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    color: rgba(41,41,41,.9);
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-  }
-  .listio-footer__pill:hover{
-    background: var(--off);
-    border-color: var(--line-strong);
-  }
-
-  /* Colunas de links com ícones */
-  .listio-footer__col{
-    display: grid;
-    gap: 12px;
-    align-content: start;
-    justify-items: start;
-  }
-
-  .listio-footer__link{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(41,41,41,.9);
-    text-decoration: none;
-    padding: 6px 0;
-  }
-  .listio-footer__link:hover{
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .listio-footer__icon{
-    width: 18px;
-    height: 18px;
-    stroke: rgba(41,41,41,.9);
-    stroke-width: 2;
-    fill: none;
-    flex: 0 0 auto;
-  }
-
-  .listio-footer__bottom{
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-  }
-
-  .listio-footer__copy{
-    font-size: 13px;
-    color: rgba(41,41,41,.72);
-    line-height: 1.4;
-  }
-
-  .listio-footer__mini-links{
-    font-size: 13px;
-    color: rgba(41,41,41,.72);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .listio-footer__mini-links a{
-    color: rgba(41,41,41,.72);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  @media (max-width: 980px){
-    .listio-footer__top{
-      grid-template-columns: 1fr;
+    .listio-footer__inner{
+      padding: 26px 0 18px;
+      display: grid;
       gap: 18px;
     }
-  }
-</style>
 
-<footer class="listio-footer" role="contentinfo">
-  <div class="container listio-footer__inner">
-    <div class="listio-footer__top">
-      <!-- Brand / texto / pill -->
-      <div class="listio-footer__brand">
-        <div class="listio-footer__logo">Listio</div>
-        <p class="listio-footer__desc">
-          Controle de estoque simples para pequenos comércios. Checklists no celular<br/>
-          e clareza para comprar sem achismo.
-        </p>
+    .listio-footer__top{
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
 
-        <a class="listio-footer__pill" href="/como-funciona">
-          <!-- ícone "menu" -->
-          <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          Feito para quem está no balcão
-        </a>
+    .listio-footer__brand{
+      display: grid;
+      gap: 8px;
+    }
+
+    .listio-footer__logo{
+      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .listio-footer__desc{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.76);
+      max-width: 56ch;
+    }
+
+    .listio-footer__pill{
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: min(620px, 100%);
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: rgba(41,41,41,.9);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .listio-footer__pill:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+
+    .listio-footer__col{
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      justify-items: start;
+    }
+
+    .listio-footer__link{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(41,41,41,.9);
+      text-decoration: none;
+      padding: 6px 0;
+    }
+    .listio-footer__link:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .listio-footer__icon{
+      width: 18px;
+      height: 18px;
+      stroke: rgba(41,41,41,.9);
+      stroke-width: 2;
+      fill: none;
+      flex: 0 0 auto;
+    }
+
+    .listio-footer__bottom{
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+
+    .listio-footer__copy{
+      font-size: 13px;
+      color: rgba(41,41,41,.72);
+      line-height: 1.4;
+    }
+
+    .listio-footer__mini-links{
+      font-size: 13px;
+      color: rgba(41,41,41,.72);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .listio-footer__mini-links a{
+      color: rgba(41,41,41,.72);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px){
+      .listio-footer__top{
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
+
+  <footer class="listio-footer" role="contentinfo">
+    <div class="container listio-footer__inner">
+      <div class="listio-footer__top">
+        <div class="listio-footer__brand">
+          <div class="listio-footer__logo">Listio</div>
+          <p class="listio-footer__desc">
+            Reposição de estoque automática para pequenos comércios. Checklists no celular<br/>
+            e clareza para comprar sem achismo.
+          </p>
+
+          <a class="listio-footer__pill" href="/como-funciona">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            Feito para quem repõe toda semana
+          </a>
+        </div>
+
+        <nav class="listio-footer__col" aria-label="Links legais">
+          <a class="listio-footer__link" href="/termos" rel="nofollow">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+            </svg>
+            Termos de Uso
+          </a>
+        </nav>
+
+        <nav class="listio-footer__col" aria-label="Links de suporte">
+          <a class="listio-footer__link" href="/privacidade" rel="nofollow">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"></path>
+            </svg>
+            Política de Privacidade
+          </a>
+
+          <a class="listio-footer__link" href="/contato">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+            </svg>
+            Contato
+          </a>
+        </nav>
       </div>
-
-      <!-- Links (coluna 1) -->
-      <nav class="listio-footer__col" aria-label="Links legais">
-        <a class="listio-footer__link" href="/termos" rel="nofollow">
-          <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <path d="M14 2v6h6"></path>
-          </svg>
-          Termos de Uso
-        </a>
-
-      </nav>
-
-      <!-- Links (coluna 2) -->
-      <nav class="listio-footer__col" aria-label="Links de suporte">
-        <a class="listio-footer__link" href="/privacidade" rel="nofollow">
-          <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"></path>
-          </svg>
-          Política de Privacidade
-        </a>
-
-        <a class="listio-footer__link" href="/contato">
-          <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
-          </svg>
-          Contato
-        </a>
-      </nav>
     </div>
+  </footer>
 
+  <!-- =========================
+    LISTIO — POPUP/BANNER DE CONSENTIMENTO (LGPD/COOKIES)
+  ========================= -->
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
 
+      --ink: var(--charcoal);
+      --bg: var(--off);
+      --surface: var(--white);
+
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1120px;
+    }
+
+    .lp-btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      line-height:1;
+    }
+    .lp-btn:hover{
+      border-color: var(--line-strong);
+      background: var(--off);
+    }
+    .lp-btn--primary{
+      background: var(--lime);
+      border-color: transparent;
+      color: var(--charcoal);
+    }
+    .lp-btn--primary:hover{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .lp-btn--ghost{
+      background: transparent;
+      border-color: transparent;
+    }
+    .lp-btn--ghost:hover{
+      background: var(--off);
+      border-color: transparent;
+    }
+
+    .cookie-banner{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px;
+      background: rgba(240,241,233,.92);
+      border-top: 1px solid var(--line);
+      display: none;
+      z-index: 9999;
+    }
+    .cookie-banner.is-open{ display: block; }
+
+    .cookie-banner__card{
+      width: min(var(--container), calc(100% - 24px));
+      margin-inline: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cookie-banner__row{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .cookie-banner__text{ max-width: 72ch; }
+
+    .cookie-banner__title{
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-banner__p{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-banner__actions{
+      display:inline-flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .cookie-modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(41,41,41,.35);
+      z-index: 10000;
+      padding: 14px;
+    }
+    .cookie-modal.is-open{ display:grid; place-items:center; }
+
+    .cookie-modal__card{
+      width: min(640px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .cookie-modal__head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .cookie-modal__head h3{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+
+    .cookie-modal__close{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 800;
+    }
+    .cookie-modal__close:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+
+    .cookie-modal__desc{
+      margin:0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-prefs{
+      display:grid;
+      gap:10px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--off);
+    }
+
+    .cookie-toggle{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+
+    .cookie-toggle__text{
+      display:grid;
+      gap:2px;
+    }
+
+    .cookie-toggle__text b{
+      font-size:14px;
+      font-weight:800;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-toggle__text span{
+      font-size:14px;
+      color: rgba(41,41,41,.74);
+      line-height:1.4;
+    }
+
+    .switch{
+      position: relative;
+      width: 48px;
+      height: 28px;
+      flex: 0 0 auto;
+    }
+    .switch input{ display:none; }
+    .switch span{
+      position:absolute;
+      inset:0;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--surface);
+      cursor:pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .switch span::after{
+      content:"";
+      position:absolute;
+      top:3px;
+      left:3px;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background: var(--charcoal);
+      transition: transform .15s ease;
+    }
+    .switch input:checked + span{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .switch input:checked + span::after{
+      transform: translateX(20px);
+    }
+
+    .cookie-modal__actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      padding-top: 6px;
+    }
+  </style>
+
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimento de cookies" data-cookie-banner>
+    <div class="cookie-banner__card">
+      <div class="cookie-banner__row">
+        <div class="cookie-banner__text">
+          <p class="cookie-banner__title">Privacidade e cookies</p>
+          <p class="cookie-banner__p">
+            Usamos cookies essenciais para o site funcionar e, com sua permissão, cookies de análise para melhorar a experiência.
+            Você pode aceitar, recusar ou ajustar suas preferências.
+            <a href="/cookies" rel="nofollow">Saiba mais</a>.
+          </p>
+        </div>
+
+        <div class="cookie-banner__actions">
+          <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Recusar</button>
+          <button class="lp-btn" type="button" data-open-cookie-settings>Preferências</button>
+          <button class="lp-btn lp-btn--primary" type="button" data-cookie-accept>Aceitar</button>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
 
-<script>
-  // ano automático
-  (function(){
-    const y = document.querySelector('[data-year]');
-    if (y) y.textContent = String(new Date().getFullYear());
-  })();
-</script>
-
-<!-- =========================
-  LISTIO — POPUP/BANNER DE CONSENTIMENTO (LGPD/COOKIES)
-  - HTML + CSS + JS (bloco separado)
-  - Paleta: #292929 / #D4DA42 / #F0F1E9 / #FFFFFF
-  - Sem sombras/gradientes/blur
-  - Salva preferências no localStorage
-========================= -->
-
-<style>
-  :root{
-    --charcoal:#292929;
-    --lime:#D4DA42;
-    --off:#F0F1E9;
-    --white:#FFFFFF;
-
-    --ink: var(--charcoal);
-    --bg: var(--off);
-    --surface: var(--white);
-
-    --line: rgba(41,41,41,.14);
-    --line-strong: rgba(41,41,41,.22);
-
-    --radius-xl: 24px;
-    --radius-lg: 18px;
-    --radius-md: 14px;
-
-    --container: 1120px;
-  }
-
-  /* =========================
-     Buttons (compatível com o rodapé)
-  ========================= */
-  .lp-btn{
-    appearance:none;
-    border:1px solid var(--line);
-    background: var(--surface);
-    color: var(--ink);
-    border-radius:999px;
-    padding:10px 14px;
-    font-size:14px;
-    font-weight:700;
-    cursor:pointer;
-    line-height:1;
-  }
-  .lp-btn:hover{
-    border-color: var(--line-strong);
-    background: var(--off);
-  }
-  .lp-btn--primary{
-    background: var(--lime);
-    border-color: transparent;
-    color: var(--charcoal);
-  }
-  .lp-btn--primary:hover{
-    background: var(--lime);
-    border-color: transparent;
-  }
-  .lp-btn--ghost{
-    background: transparent;
-    border-color: transparent;
-  }
-  .lp-btn--ghost:hover{
-    background: var(--off);
-    border-color: transparent;
-  }
-
-  /* =========================
-     Cookie Banner
-  ========================= */
-  .cookie-banner{
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 12px;
-    background: rgba(240,241,233,.92);
-    border-top: 1px solid var(--line);
-    display: none; /* abre via JS */
-    z-index: 9999;
-  }
-  .cookie-banner.is-open{ display: block; }
-
-  .cookie-banner__card{
-    width: min(var(--container), calc(100% - 24px));
-    margin-inline: auto;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 14px;
-    display: grid;
-    gap: 10px;
-  }
-
-  .cookie-banner__row{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-    justify-content:space-between;
-    flex-wrap:wrap;
-  }
-
-  .cookie-banner__text{ max-width: 72ch; }
-
-  .cookie-banner__title{
-    margin: 0 0 6px;
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: .02em;
-    color: rgba(41,41,41,.9);
-  }
-
-  .cookie-banner__p{
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.55;
-    color: rgba(41,41,41,.78);
-  }
-
-  .cookie-banner__actions{
-    display:inline-flex;
-    gap:10px;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:flex-end;
-  }
-
-  /* =========================
-     Cookie Modal (Preferências)
-  ========================= */
-  .cookie-modal{
-    position: fixed;
-    inset: 0;
-    display: none; /* abre via JS */
-    background: rgba(41,41,41,.35);
-    z-index: 10000;
-    padding: 14px;
-  }
-  .cookie-modal.is-open{ display:grid; place-items:center; }
-
-  .cookie-modal__card{
-    width: min(640px, 100%);
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
-    padding: 18px;
-    display: grid;
-    gap: 12px;
-  }
-
-  .cookie-modal__head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-  }
-
-  .cookie-modal__head h3{
-    margin:0;
-    font-size:18px;
-    font-weight:800;
-    letter-spacing:-0.02em;
-    color: var(--ink);
-  }
-
-  .cookie-modal__close{
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    cursor: pointer;
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 800;
-  }
-  .cookie-modal__close:hover{
-    background: var(--off);
-    border-color: var(--line-strong);
-  }
-
-  .cookie-modal__desc{
-    margin:0;
-    font-size: 18px;
-    line-height: 1.6;
-    color: rgba(41,41,41,.78);
-  }
-
-  .cookie-prefs{
-    display:grid;
-    gap:10px;
-    padding:10px;
-    border:1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: var(--off);
-  }
-
-  .cookie-toggle{
-    display:flex;
-    gap:10px;
-    align-items:flex-start;
-    justify-content:space-between;
-  }
-
-  .cookie-toggle__text{
-    display:grid;
-    gap:2px;
-  }
-
-  .cookie-toggle__text b{
-    font-size:14px;
-    font-weight:800;
-    color: rgba(41,41,41,.9);
-  }
-
-  .cookie-toggle__text span{
-    font-size:14px;
-    color: rgba(41,41,41,.74);
-    line-height:1.4;
-  }
-
-  /* Switch simples */
-  .switch{
-    position: relative;
-    width: 48px;
-    height: 28px;
-    flex: 0 0 auto;
-  }
-  .switch input{ display:none; }
-  .switch span{
-    position:absolute;
-    inset:0;
-    border-radius:999px;
-    border:1px solid var(--line);
-    background: var(--surface);
-    cursor:pointer;
-    transition: background .15s ease, border-color .15s ease;
-  }
-  .switch span::after{
-    content:"";
-    position:absolute;
-    top:3px;
-    left:3px;
-    width:22px;
-    height:22px;
-    border-radius:999px;
-    background: var(--charcoal);
-    transition: transform .15s ease;
-  }
-  .switch input:checked + span{
-    background: var(--lime);
-    border-color: transparent;
-  }
-  .switch input:checked + span::after{
-    transform: translateX(20px);
-  }
-
-  .cookie-modal__actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-    padding-top: 6px;
-  }
-
-  /* Acessibilidade */
-  :focus-visible{
-    outline: 3px solid var(--lime);
-    outline-offset: 3px;
-    border-radius: 12px;
-  }
-</style>
-
-<!-- =========================
-     COOKIE BANNER
-========================= -->
-<div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimento de cookies" data-cookie-banner>
-  <div class="cookie-banner__card">
-    <div class="cookie-banner__row">
-      <div class="cookie-banner__text">
-        <p class="cookie-banner__title">Privacidade e cookies</p>
-        <p class="cookie-banner__p">
-          Usamos cookies essenciais para o site funcionar e, com sua permissão, cookies de análise para melhorar a experiência.
-          Você pode aceitar, recusar ou ajustar suas preferências.
-          <a href="/cookies" rel="nofollow">Saiba mais</a>.
-        </p>
+  <div class="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferências de cookies" data-cookie-modal>
+    <div class="cookie-modal__card">
+      <div class="cookie-modal__head">
+        <h3>Preferências de cookies</h3>
+        <button class="cookie-modal__close" type="button" aria-label="Fechar" data-cookie-close>×</button>
       </div>
 
-      <div class="cookie-banner__actions">
+      <p class="cookie-modal__desc">
+        Escolha quais categorias você permite. Cookies essenciais são necessários para o funcionamento do site.
+        Você pode mudar isso a qualquer momento no rodapé.
+      </p>
+
+      <div class="cookie-prefs" role="group" aria-label="Categorias de cookies">
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Essenciais</b>
+            <span>Necessários para o site funcionar (login, segurança, preferências básicas).</span>
+          </div>
+          <label class="switch" aria-label="Cookies essenciais (sempre ativos)">
+            <input type="checkbox" checked disabled />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Análise</b>
+            <span>Ajuda a entender o uso do site (ex.: páginas visitadas), sem identificar você diretamente.</span>
+          </div>
+          <label class="switch" aria-label="Ativar cookies de análise">
+            <input type="checkbox" data-cookie-analytics />
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cookie-modal__actions">
         <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Recusar</button>
-        <button class="lp-btn" type="button" data-open-cookie-settings>Preferências</button>
-        <button class="lp-btn lp-btn--primary" type="button" data-cookie-accept>Aceitar</button>
+        <button class="lp-btn lp-btn--primary" type="button" data-cookie-save>Salvar preferências</button>
       </div>
     </div>
   </div>
-</div>
 
-<!-- =========================
-     COOKIE MODAL (PREFERÊNCIAS)
-========================= -->
-<div class="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferências de cookies" data-cookie-modal>
-  <div class="cookie-modal__card">
-    <div class="cookie-modal__head">
-      <h3>Preferências de cookies</h3>
-      <button class="cookie-modal__close" type="button" aria-label="Fechar" data-cookie-close>×</button>
-    </div>
+  <script>
+    (function(){
+      const KEY = "listio_cookie_consent_v1";
+      const DEFAULTS = { essential: true, analytics: false };
 
-    <p class="cookie-modal__desc">
-      Escolha quais categorias você permite. Cookies essenciais são necessários para o funcionamento do site.
-      Você pode mudar isso a qualquer momento no rodapé.
-    </p>
+      const banner = document.querySelector("[data-cookie-banner]");
+      const modal  = document.querySelector("[data-cookie-modal]");
+      const openButtons = document.querySelectorAll("[data-open-cookie-settings]");
 
-    <div class="cookie-prefs" role="group" aria-label="Categorias de cookies">
-      <div class="cookie-toggle">
-        <div class="cookie-toggle__text">
-          <b>Essenciais</b>
-          <span>Necessários para o site funcionar (login, segurança, preferências básicas).</span>
-        </div>
-        <label class="switch" aria-label="Cookies essenciais (sempre ativos)">
-          <input type="checkbox" checked disabled />
-          <span></span>
-        </label>
-      </div>
+      const btnAccept  = document.querySelector("[data-cookie-accept]");
+      const btnDecline = document.querySelectorAll("[data-cookie-decline]");
+      const btnSave    = document.querySelector("[data-cookie-save]");
+      const btnClose   = document.querySelector("[data-cookie-close]");
+      const analyticsToggle = document.querySelector("[data-cookie-analytics]");
 
-      <div class="cookie-toggle">
-        <div class="cookie-toggle__text">
-          <b>Análise</b>
-          <span>Ajuda a entender o uso do site (ex.: páginas visitadas), sem identificar você diretamente.</span>
-        </div>
-        <label class="switch" aria-label="Ativar cookies de análise">
-          <input type="checkbox" data-cookie-analytics />
-          <span></span>
-        </label>
-      </div>
-    </div>
-
-    <div class="cookie-modal__actions">
-      <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Recusar</button>
-      <button class="lp-btn lp-btn--primary" type="button" data-cookie-save>Salvar preferências</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function(){
-    // =========================
-    // CONFIG
-    // =========================
-    const KEY = "listio_cookie_consent_v1";
-    const DEFAULTS = { essential: true, analytics: false };
-
-    const banner = document.querySelector("[data-cookie-banner]");
-    const modal  = document.querySelector("[data-cookie-modal]");
-    const openButtons = document.querySelectorAll("[data-open-cookie-settings]");
-
-    const btnAccept  = document.querySelector("[data-cookie-accept]");
-    const btnDecline = document.querySelectorAll("[data-cookie-decline]");
-    const btnSave    = document.querySelector("[data-cookie-save]");
-    const btnClose   = document.querySelector("[data-cookie-close]");
-    const analyticsToggle = document.querySelector("[data-cookie-analytics]");
-
-    // Helpers
-    function readConsent(){
-      try{
-        const raw = localStorage.getItem(KEY);
-        return raw ? JSON.parse(raw) : null;
-      }catch(e){
-        return null;
+      function readConsent(){
+        try{
+          const raw = localStorage.getItem(KEY);
+          return raw ? JSON.parse(raw) : null;
+        }catch(e){
+          return null;
+        }
       }
-    }
-
-    function writeConsent(value){
-      try{
-        localStorage.setItem(KEY, JSON.stringify(value));
-      }catch(e){
-        // ignore
+      function writeConsent(value){
+        try{ localStorage.setItem(KEY, JSON.stringify(value)); }catch(e){}
       }
-    }
-
-    function openBanner(){
-      if (!banner) return;
-      banner.classList.add("is-open");
-    }
-
-    function closeBanner(){
-      if (!banner) return;
-      banner.classList.remove("is-open");
-    }
-
-    function openModal(){
-      if (!modal) return;
-      modal.classList.add("is-open");
-      const current = readConsent() || DEFAULTS;
-      if (analyticsToggle) analyticsToggle.checked = !!current.analytics;
-    }
-
-    function closeModal(){
-      if (!modal) return;
-      modal.classList.remove("is-open");
-    }
-
-    // Apply consent (conecte GA4/GTM aqui)
-    function applyConsent(consent){
-      // Exemplo:
-      // if (consent.analytics) { initAnalytics(); }
-      // else { disableAnalytics(); }
-      // console.log("[consent]", consent);
-    }
-
-    // Initial load: show banner only if no choice saved
-    const saved = readConsent();
-    if (!saved) openBanner();
-    else applyConsent(saved);
-
-    // Open settings (você pode usar isso no rodapé com data-open-cookie-settings)
-    openButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        closeBanner();
-        openModal();
-      });
-    });
-
-    // Accept all
-    if (btnAccept){
-      btnAccept.addEventListener("click", () => {
-        const consent = { essential: true, analytics: true, ts: Date.now() };
-        writeConsent(consent);
-        closeBanner();
-        closeModal();
-        applyConsent(consent);
-      });
-    }
-
-    // Decline (only essential)
-    btnDecline.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const consent = { essential: true, analytics: false, ts: Date.now() };
-        writeConsent(consent);
-        closeBanner();
-        closeModal();
-        applyConsent(consent);
-      });
-    });
-
-    // Save preferences
-    if (btnSave){
-      btnSave.addEventListener("click", () => {
-        const consent = {
-          essential: true,
-          analytics: !!(analyticsToggle && analyticsToggle.checked),
-          ts: Date.now()
-        };
-        writeConsent(consent);
-        closeBanner();
-        closeModal();
-        applyConsent(consent);
-      });
-    }
-
-    // Close modal
-    if (btnClose) btnClose.addEventListener("click", closeModal);
-
-    // Close modal by clicking outside
-    if (modal){
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-      });
-    }
-
-    // ESC closes modal
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-  })();
-</script>
-
-<!-- ✅ CORREÇÃO DOS ÍCONES (Lucide) -->
-<script>
-  (function () {
-    function initLucide() {
-      if (window.lucide && typeof window.lucide.createIcons === "function") {
-        window.lucide.createIcons();
+      function openBanner(){ if (banner) banner.classList.add("is-open"); }
+      function closeBanner(){ if (banner) banner.classList.remove("is-open"); }
+      function openModal(){
+        if (!modal) return;
+        modal.classList.add("is-open");
+        const current = readConsent() || DEFAULTS;
+        if (analyticsToggle) analyticsToggle.checked = !!current.analytics;
       }
-    }
+      function closeModal(){ if (modal) modal.classList.remove("is-open"); }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initLucide);
-    } else {
-      initLucide();
-    }
+      function applyConsent(consent){
+        // init analytics here if needed
+      }
 
-    let tries = 0;
-    const t = setInterval(() => {
-      tries++;
-      if (window.lucide && typeof window.lucide.createIcons === "function") {
+      const saved = readConsent();
+      if (!saved) openBanner();
+      else applyConsent(saved);
+
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", () => { closeBanner(); openModal(); });
+      });
+
+      if (btnAccept){
+        btnAccept.addEventListener("click", () => {
+          const consent = { essential: true, analytics: true, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner(); closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      btnDecline.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const consent = { essential: true, analytics: false, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner(); closeModal();
+          applyConsent(consent);
+        });
+      });
+
+      if (btnSave){
+        btnSave.addEventListener("click", () => {
+          const consent = { essential: true, analytics: !!(analyticsToggle && analyticsToggle.checked), ts: Date.now() };
+          writeConsent(consent);
+          closeBanner(); closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      if (btnClose) btnClose.addEventListener("click", closeModal);
+
+      if (modal){
+        modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+      }
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+    })();
+  </script>
+
+  <!-- ✅ CORREÇÃO DOS ÍCONES (Lucide) -->
+  <script>
+    (function () {
+      function initLucide() {
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+          window.lucide.createIcons();
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLucide);
+      } else {
         initLucide();
-        clearInterval(t);
       }
-      if (tries >= 20) clearInterval(t);
-    }, 100);
-  })();
-</script>
+
+      let tries = 0;
+      const t = setInterval(() => {
+        tries++;
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+          initLucide();
+          clearInterval(t);
+        }
+        if (tries >= 20) clearInterval(t);
+      }, 100);
+    })();
+  </script>
+
+  <!-- Mobile menu toggle (faltava no seu HTML) -->
+  <script>
+    (function(){
+      const btn = document.querySelector("[data-mobile-toggle]");
+      const menu = document.getElementById("mobileMenu");
+      if(!btn || !menu) return;
+
+      btn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // fecha ao clicar em um link
+      menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          menu.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
