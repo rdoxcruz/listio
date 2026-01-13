@@ -9,7 +9,7 @@
   <meta name="color-scheme" content="light" />
 
   <title>Listio — Preço</title>
-  <meta name="description" content="Escolha o plano do Listio: Básico, Pro ou Multilojas. Controle de estoque com checklists e recursos sob medida para o seu tamanho de operação." />
+  <meta name="description" content="O Listio tem plano gratuito e, em breve, plano Pro e Multilojas. Controle de estoque com checklists e reposição clara — sem planilha e sem achismo." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://listio.com.br/precos" />
 
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Listio" />
   <meta property="og:title" content="Listio — Preço" />
-  <meta property="og:description" content="Compare planos: Básico, Pro e Multilojas. Encontre o nível certo para sua operação." />
+  <meta property="og:description" content="O Listio tem plano gratuito e, em breve, Pro e Multilojas. Compare recursos e evolua quando a operação pedir." />
   <meta property="og:url" content="https://listio.com.br/precos" />
   <meta property="og:image" content="https://listio.com.br/og-listio.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -27,25 +27,25 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Listio — Preço" />
-  <meta name="twitter:description" content="Planos Básico, Pro e Multilojas. Compare recursos e escolha o nível certo." />
+  <meta name="twitter:description" content="Plano gratuito agora. Pro e Multilojas em breve. Controle de estoque simples, sem achismo." />
   <meta name="twitter:image" content="https://listio.com.br/og-listio.jpg" />
 
-<!-- Favicon (padrão) -->
-<link rel="icon" href="/favicon.ico" sizes="any">
+  <!-- Favicon (padrão) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
 
-<!-- PNG favicons (recomendado) -->
-<link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+  <!-- PNG favicons (recomendado) -->
+  <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
 
-<!-- Apple / iOS -->
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+  <!-- Apple / iOS -->
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
 
-<!-- PWA / Android -->
-<link rel="manifest" href="img/site.webmanifest">
-<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
+  <!-- PWA / Android -->
+  <link rel="manifest" href="img/site.webmanifest">
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
 
-<!-- Cor do tema (mobile / browser UI) -->
-<meta name="theme-color" content="#CDD544">
+  <!-- Cor do tema (mobile / browser UI) -->
+  <meta name="theme-color" content="#CDD544">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -291,16 +291,33 @@
       font-weight:600;
     }
     .hero__subtitle{
-      margin:0 0 28px;
+      margin:0 0 22px;
       font-size:16px;
       line-height:var(--lh);
       color:var(--muted);
       max-width: 640px;
     }
+
+    /* NOVO: badge de "grátis" no hero */
+    .hero__free-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: rgba(41,41,41,.9);
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 14px;
+      width: fit-content;
+    }
+
     .hero__bullets{
       list-style:none;
       padding:0;
-      margin:0 0 36px;
+      margin:0 0 30px;
       display:grid;
       gap:14px;
     }
@@ -329,7 +346,7 @@
       .hero__media{ order:-1; }
     }
 
-    /* Pricing cards (estilo do print, mas no padrão do site) */
+    /* Pricing cards */
     .pricing__grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -355,7 +372,7 @@
     .plan:hover{ background: var(--bg); border-color: var(--line-strong); }
 
     .plan--popular::before{
-      content:"Mais Popular";
+      content:"Mais indicado";
       position:absolute;
       top:-12px;
       left:22px;
@@ -367,6 +384,27 @@
       background: var(--surface);
       border: 1px solid var(--line);
       color: rgba(41,41,41,.92);
+    }
+
+    /* NOVO: estado "em breve" */
+    .plan--soon{
+      opacity: .88;
+    }
+    .plan__soon-badge{
+      position:absolute;
+      top:-12px;
+      right:18px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      background: var(--charcoal);
+      color: #fff;
+    }
+    .btn[aria-disabled="true"]{
+      pointer-events:none;
+      opacity:.75;
     }
 
     .plan__top{
@@ -464,7 +502,7 @@
     .final-cta__actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
     .final-cta__note{ margin:0; font-size:14px; color: rgba(41,41,41,.72); font-weight:650; }
 
-    /* Footer (mantido igual ao padrão anterior) */
+    /* Footer */
     .listio-footer{
       margin-top: 64px;
       border-top: 1px solid var(--line);
@@ -568,7 +606,6 @@
             <span class="brand__name">Listio</span>
           </a>
 
-          <!-- MENU: adicionado "Preço" -->
           <nav class="nav" aria-label="Navegação principal">
             <a href="/#como-funciona">Como funciona</a>
             <a href="/#recursos">Recursos</a>
@@ -592,7 +629,6 @@
           </button>
         </div>
 
-        <!-- Menu Mobile (com "Preço") -->
         <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
           <a href="/#como-funciona">Como funciona</a>
           <a href="/#recursos">Recursos</a>
@@ -621,27 +657,34 @@
         <div class="hero__content">
           <span class="section__eyebrow">
             <i data-lucide="badge-percent" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
-            Comparar Planos
+            Planos
           </span>
 
+          <!-- NOVO: informação clara de que é gratuito + planos em breve -->
+          <div class="hero__free-pill">
+            <i data-lucide="sparkles" class="icon icon--md" aria-hidden="true"></i>
+            O Listio é gratuito — Pro e Multilojas serão liberados em breve
+          </div>
+
           <h1 class="hero__title">
-            Um plano claro para cada estágio da operação.
+            Comece de graça.<br />
+            Evolua quando fizer sentido.
           </h1>
 
           <p class="hero__subtitle">
-            Comece no básico e evolua conforme o negócio cresce.
-            Planos objetivos, com limites e recursos fáceis de entender.
+            Hoje o Listio já funciona com o essencial: checklist de estoque, visão clara do que falta e reposição com critério.
+            Quando os planos <strong>Pro</strong> e <strong>Multilojas</strong> estiverem ativos, você faz upgrade em 1 clique.
           </p>
 
           <ul class="hero__bullets">
             <li><i data-lucide="check-circle-2" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
             <li><i data-lucide="package" class="icon icon--md" aria-hidden="true"></i> Estoque por produto e categoria</li>
-            <li><i data-lucide="shopping-basket" class="icon icon--md" aria-hidden="true"></i> Reposição com critério</li>
+            <li><i data-lucide="shopping-basket" class="icon icon--md" aria-hidden="true"></i> Reposição com clareza (sem achismo)</li>
           </ul>
 
           <div class="hero__ctas">
             <a href="https://app.listio.com.br/cadastro" class="btn btn--primary btn--lg" data-track="pricing_hero_cta">
-              Começar grátis
+              Criar conta grátis
               <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
             </a>
             <a href="#planos" class="btn btn--ghost btn--lg" data-track="pricing_hero_scroll">
@@ -674,107 +717,113 @@
           </span>
 
           <h2 class="section__title">
-            Compare planos e escolha<br />
-            <span>o nível certo.</span>
+            Plano gratuito agora.<br />
+            <span>Pro e Multilojas em breve.</span>
           </h2>
 
           <p class="section__subtitle">
-            Três opções objetivas: para começar, para crescer e para operar múltiplas lojas.
+            O plano gratuito já resolve a rotina do balcão. Quando liberarmos Pro e Multilojas,
+            você poderá ativar recursos avançados e crescer sem trocar de método.
           </p>
         </div>
 
         <div class="pricing__grid">
-          <!-- Básico -->
+          <!-- Gratuito -->
           <article class="plan">
             <div class="plan__top">
               <i data-lucide="zap" class="icon icon--lg" aria-hidden="true"></i>
-              <h3 class="plan__name">Básico</h3>
+              <h3 class="plan__name">Gratuito</h3>
             </div>
 
-            <div class="plan__price" aria-label="Preço do plano Básico">
+            <div class="plan__price" aria-label="Preço do plano Gratuito">
               <span class="plan__currency">R$</span>
-              <span class="plan__amount">19,90</span>
+              <span class="plan__amount">0</span>
               <span class="plan__period">/mês</span>
             </div>
 
-            <p class="plan__desc">Para pequenos negócios</p>
+            <p class="plan__desc">Para começar e organizar a rotina</p>
 
-            <ul class="plan__list" aria-label="Recursos do plano Básico">
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Até 100 produtos</li>
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> 1 usuário</li>
+            <ul class="plan__list" aria-label="Recursos do plano Gratuito">
               <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
-              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Multiusuário</li>
-              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Múltiplas lojas</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Cadastro de produtos e categorias</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Reposição com base na contagem</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Método simples (sem planilha)</li>
+              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Recursos avançados do Pro (em breve)</li>
+              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Múltiplas lojas (em breve)</li>
             </ul>
 
             <div class="plan__cta">
-              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro?plano=basico" data-track="pricing_basico_cta">
-                Fazer Upgrade
+              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro" data-track="pricing_free_cta">
+                Começar grátis
               </a>
             </div>
           </article>
 
-          <!-- Pro (Mais Popular) -->
-          <article class="plan plan--popular">
+          <!-- Pro (em breve) -->
+          <article class="plan plan--popular plan--soon">
+            <span class="plan__soon-badge" aria-label="Plano Pro em breve">EM BREVE</span>
+
             <div class="plan__top">
               <i data-lucide="crown" class="icon icon--lg" aria-hidden="true"></i>
               <h3 class="plan__name">Pro</h3>
             </div>
 
-            <div class="plan__price" aria-label="Preço do plano Pro">
+            <div class="plan__price" aria-label="Preço do plano Pro (em breve)">
               <span class="plan__currency">R$</span>
-              <span class="plan__amount">29,90</span>
+              <span class="plan__amount">—</span>
               <span class="plan__period">/mês</span>
             </div>
 
-            <p class="plan__desc">Para negócios em crescimento</p>
+            <p class="plan__desc">Para ganhar velocidade e consistência</p>
 
             <ul class="plan__list" aria-label="Recursos do plano Pro">
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Até 500 produtos</li>
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> 5 usuários</li>
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
-              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Múltiplas lojas</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Recursos avançados de reposição</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Fluxos mais rápidos na contagem</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Organização para operação em crescimento</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Upgrade em 1 clique quando liberar</li>
             </ul>
 
             <div class="plan__cta">
-              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro?plano=pro" data-track="pricing_pro_cta">
-                Fazer Upgrade
+              <a class="btn" href="#comecar" aria-disabled="true" data-track="pricing_pro_soon_cta">
+                Em breve
               </a>
             </div>
           </article>
 
-          <!-- Multilojas -->
-          <article class="plan">
+          <!-- Multilojas (em breve) -->
+          <article class="plan plan--soon">
+            <span class="plan__soon-badge" aria-label="Plano Multilojas em breve">EM BREVE</span>
+
             <div class="plan__top">
               <i data-lucide="building-2" class="icon icon--lg" aria-hidden="true"></i>
               <h3 class="plan__name">Multilojas</h3>
             </div>
 
-            <div class="plan__price" aria-label="Preço do plano Multilojas">
+            <div class="plan__price" aria-label="Preço do plano Multilojas (em breve)">
               <span class="plan__currency">R$</span>
-              <span class="plan__amount">39,90</span>
+              <span class="plan__amount">—</span>
               <span class="plan__period">/mês</span>
             </div>
 
-            <p class="plan__desc">Para redes de lojas</p>
+            <p class="plan__desc">Para operar duas ou mais lojas</p>
 
             <ul class="plan__list" aria-label="Recursos do plano Multilojas">
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Produtos ilimitados</li>
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Usuários ilimitados</li>
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
-              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Múltiplas lojas</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Gestão por loja/organização</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Operação com múltiplas unidades</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Padronização de contagem em todas as lojas</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Upgrade em 1 clique quando liberar</li>
             </ul>
 
             <div class="plan__cta">
-              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro?plano=multilojas" data-track="pricing_multilojas_cta">
-                Fazer Upgrade
+              <a class="btn" href="#comecar" aria-disabled="true" data-track="pricing_multilojas_soon_cta">
+                Em breve
               </a>
             </div>
           </article>
         </div>
 
         <div class="pricing__note">
-          * Downgrade será aplicado no próximo ciclo de faturamento
+          * Pro e Multilojas serão ativados em breve. Por enquanto, o Listio é gratuito.
         </div>
       </div>
     </section>
@@ -784,18 +833,18 @@
       <div class="container">
         <div class="final-cta__content">
           <h2 class="section__title" style="margin:0 0 14px;">
-            Pronto para parar de adivinhar<br />
-            <span>o estoque?</span>
+            Comece no gratuito.<br />
+            <span>Faça upgrade quando precisar.</span>
           </h2>
 
           <p class="final-cta__subtitle">
             Crie sua conta e comece a usar o Listio hoje.
-            Você escolhe o plano que faz sentido e evolui quando a operação pedir.
+            Quando Pro e Multilojas estiverem disponíveis, você ativa na hora — sem mudar sua rotina.
           </p>
 
           <div class="final-cta__actions">
             <a href="https://app.listio.com.br/cadastro" class="btn btn--primary btn--xl" data-track="final_cta_primary">
-              Começar grátis
+              Criar conta grátis
               <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
             </a>
             <p class="final-cta__note">Sem cartão de crédito • Comece em minutos</p>
@@ -855,8 +904,15 @@
   <script>
     /* Lucide init */
     (function(){
-      if (window.lucide && typeof window.lucide.createIcons === "function") {
-        window.lucide.createIcons();
+      function initLucide(){
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+          window.lucide.createIcons();
+        }
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLucide);
+      } else {
+        initLucide();
       }
     })();
 
@@ -1270,7 +1326,6 @@
 
       function applyConsent(consent){
         // Conecte GA4/GTM aqui se quiser condicionar analytics
-        // console.log("[consent]", consent);
       }
 
       const saved = readConsent();
