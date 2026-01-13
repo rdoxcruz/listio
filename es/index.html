@@ -1,0 +1,1925 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#292929" />
+  <meta name="color-scheme" content="light" />
+
+  <title>Listio - Checklist de inventario en minutos y sin complicaciones</title>
+  <meta name="description" content="Listio es la app simple de control de inventario para negocios que venden productos — tienda física u online. Haz checklists rápidos en el celular y descubre exactamente qué comprar — sin planillas y sin suposiciones." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://listio.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Listio" />
+  <meta property="og:title" content="Listio — Sepa exactamente qué comprar (sin planillas)" />
+  <meta property="og:description" content="Control de inventario simple para quienes venden productos — tienda física u online. Checklist en el celular y decisión de compra sin suposiciones." />
+  <meta property="og:url" content="https://listio.com.br/" />
+  <meta property="og:image" content="https://listio.com.br/og-listio.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Listio — Sepa exactamente qué comprar (sin planillas)" />
+  <meta name="twitter:description" content="App simple de control de inventario para negocios que venden productos. Checklists rápidos y decisión de compra clara." />
+  <meta name="twitter:image" content="https://listio.com.br/og-listio.jpg" />
+
+  <!-- Favicon (padrão) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+
+  <!-- PNG favicons (recomendado) -->
+  <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+
+  <!-- Apple / iOS -->
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+
+  <!-- PWA / Android -->
+  <link rel="manifest" href="img/site.webmanifest">
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
+
+  <!-- Cor do tema (mobile / browser UI) -->
+  <meta name="theme-color" content="#CDD544">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Listio",
+    "url": "https://listio.com.br/es",
+    "logo": "https://listio.com.br/es/logo.png",
+    "sameAs": [],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "contato@listio.com.br",
+      "availableLanguage": ["Portuguese"]
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Listio",
+    "url": "https://listio.com.br/es/"
+  }
+  </script>
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* =========================
+      LISTIO LP — CSS LIMPO (3 CORES)
+      - #292929 (charcoal)
+      - #D4DA42 (lime)
+      - #F0F1E9 (off)
+    ========================== */
+
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+
+      --bg: var(--off);
+      --surface: #ffffff;
+      --ink: var(--charcoal);
+
+      --line: rgba(41,41,41,.12);
+      --line-strong: rgba(41,41,41,.20);
+
+      --r-xl: 24px;
+      --r-lg: 18px;
+      --r-md: 14px;
+
+      --container: 1120px;
+      --pad: 22px;
+
+      --title-weight: 600;
+
+      --text: 18px;
+      --lh: 1.6;
+
+      --t-hero: clamp(32px, 4.2vw, 52px);
+      --t-h2: clamp(32px, 3.2vw, 40px);
+      --t-card: 20px;
+      --t-metric: 30px;
+
+      --muted: rgba(41,41,41,.78);
+      --muted-2: rgba(41,41,41,.65);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      font-size:var(--text);
+      line-height:var(--lh);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; }
+    :focus-visible{ outline:3px solid var(--lime); outline-offset:3px; border-radius:12px; }
+
+    .container{
+      width:min(var(--container), calc(100% - (var(--pad) * 2)));
+      margin-inline:auto;
+    }
+
+    /* =========================
+      ICONS (Lucide)
+    ========================== */
+    .icon{
+      width:18px;
+      height:18px;
+      stroke:var(--charcoal);
+      stroke-width:2;
+      flex:0 0 auto;
+    }
+    .icon--md{ width:20px; height:20px; }
+    .icon--lg{ width:22px; height:22px; }
+    .icon--xl{ width:26px; height:26px; }
+    .icon--on-lime{ stroke:var(--charcoal); }
+    .icon--muted{ stroke:rgba(41,41,41,.82); }
+
+    /* =========================
+      REUSO: SEÇÕES
+    ========================== */
+    .section{
+      padding: 92px 0 96px;
+    }
+    .section--tight{ padding: 34px 0 78px; }
+    .section--hero{ padding: 72px 0 96px; }
+    .section--cta{
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section__head{ max-width: 760px; margin-bottom: 42px; }
+    .section__eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: #e1e2d7;
+      color:var(--charcoal);
+      padding:6px 20px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:500;
+      letter-spacing:.02em;
+      border:none;
+      width: fit-content;
+    }
+    .section__title{
+      margin:10 0 14px;
+      font-size:var(--t-h2);
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      font-weight:var(--title-weight);
+    }
+    .section__subtitle{
+      margin:0;
+      font-size:18px;
+      line-height:var(--lh);
+      color:var(--muted);
+    }
+
+    /* =========================
+      HEADER
+    ========================== */
+    .top-wrap{ padding: 18px 0 10px; }
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .site-header::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:1px;
+      background: var(--line);
+    }
+    .site-header__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 18px;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      min-width:150px;
+    }
+    .brand__name{
+      font-family:"Space Grotesk", sans-serif;
+      font-weight:700;
+      font-size:2.25rem;
+      line-height:2.5rem;
+      letter-spacing:-0.02em;
+      color:var(--charcoal);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .nav a{
+      font-size:18px;
+      font-weight:500;
+      color:rgba(41,41,41,.92);
+      padding:10px 10px;
+      border-radius:12px;
+      transition: background .15s ease;
+    }
+    .nav a:hover{ background: var(--bg); }
+
+    .header-ctas{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:210px;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:18px;
+      line-height:1;
+      cursor:pointer;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ background: var(--bg); border-color: var(--line-strong); }
+
+    .btn--primary{
+      background: var(--lime);
+      border-color: transparent;
+      color: var(--charcoal);
+    }
+    .btn--primary:hover{ background: var(--lime); border-color: transparent; }
+
+    .btn--ghost{
+      background: transparent;
+      border-color: transparent;
+    }
+    .btn--ghost:hover{ background: var(--bg); border-color: transparent; }
+
+    .btn--lg{ padding: 14px 22px; font-size: 18px; }
+    .btn--xl{ padding: 18px 30px; font-size: 18px; }
+
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      cursor:pointer;
+      place-items:center;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding:10px 12px 14px;
+      border-top:1px solid var(--line);
+      background:var(--surface);
+      border-radius:0 0 var(--r-xl) var(--r-xl);
+    }
+    .mobile-menu a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:650;
+      color:rgba(41,41,41,.92);
+    }
+    .mobile-menu a:hover{ background: var(--bg); }
+    .mobile-menu .mobile-ctas{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      padding:6px 6px 2px;
+    }
+    .mobile-menu.is-open{ display:block; }
+
+    @media (max-width:980px){
+      .nav, .header-ctas{ display:none; }
+      .mobile-toggle{ display:inline-grid; }
+    }
+
+    /* =========================
+      HERO
+    ========================== */
+    .hero__grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:56px;
+      align-items:center;
+    }
+    .hero__title{
+      font-size: var(--t-hero);
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      margin:10 0 18px;
+      font-weight: var(--title-weight);
+    }
+    .hero__subtitle{
+      margin:0 0 28px;
+      font-size:18px;
+      line-height:var(--lh);
+      color:var(--muted);
+      max-width: 520px;
+    }
+
+    .hero__bullets{
+      list-style:none;
+      padding:0;
+      margin:0 0 36px;
+      display:grid;
+      gap:14px;
+    }
+    .hero__bullets li{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:18px;
+      font-weight:500;
+      color:rgba(41,41,41,.88);
+    }
+
+    .hero__ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+
+    .hero__image-wrap{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background: #d4da42;
+    }
+    .hero__image-wrap img{ width:100%; height:auto; display:block; }
+
+    @media (max-width:980px){
+      .section--hero{ padding: 20px 35px; }
+      .hero__grid{ grid-template-columns:1fr; gap:40px; }
+      .hero__subtitle{ max-width:100%; }
+      .hero__media{ order:-1; }
+    }
+
+    /* =========================
+      TRUST
+    ========================== */
+    .trust{ padding: 10px 0 30px; }
+    .trust__line{
+      margin:0 0 14px;
+      font-size:14px;
+      font-weight:600;
+      color: var(--muted-2);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .trust__cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .card{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 18px;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .card:hover{ background: var(--bg); border-color: var(--line-strong); }
+
+    .trust__metric{ font-weight:600; font-size: var(--t-metric); letter-spacing:-0.03em; line-height:1.1; }
+    .trust__label{ margin-top:6px; font-weight:400; color: var(--muted-2); font-size:14px; line-height:1.4; }
+
+    @media (max-width:980px){
+      .trust__cards{ grid-template-columns:1fr; }
+    }
+
+    /* =========================
+      GRID DE CARDS
+    ========================== */
+    .grid-4{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+    @media (max-width:980px){
+      .grid-4, .grid-3{ grid-template-columns:1fr; gap:12px; }
+    }
+
+    .card__icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background: var(--bg);
+      margin-bottom:12px;
+    }
+    .card__title{
+      margin:0 0 15px;
+      font-size: var(--t-card);
+      letter-spacing:-0.02em;
+      line-height:1.2;
+      font-weight: 600;
+    }
+    .card__text{
+      margin:0;
+      font-size:18px;
+      line-height:var(--lh);
+      color: var(--muted);
+    }
+
+    .pain__head{ max-width:760px; }
+    .pain__head .section__title{ margin-bottom:10px; }
+    .pain__head .section__subtitle{ margin:0; }
+
+    .solution__grid .card{ padding: 22px 20px 24px; }
+    .solution__grid .card__icon{
+      width:48px; height:48px; border-radius:18px;
+      margin-bottom:14px;
+    }
+
+    .value__metric{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background: var(--lime);
+      margin-bottom:18px;
+    }
+
+    .how__steps{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+    .how__step{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 28px 26px 30px;
+      display:flex;
+      gap:18px;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .how__step:hover{ background: var(--bg); border-color: var(--line-strong); }
+    .how__badge{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background: var(--lime);
+      color: var(--charcoal);
+      font-weight:900;
+      font-size:18px;
+      flex-shrink:0;
+    }
+    .how__content h3{
+      margin:0 0 15px;
+      font-size: var(--t-card);
+      font-weight: 600;
+      letter-spacing:-0.02em;
+      line-height:1.2;
+    }
+    .how__content p{
+      margin:0;
+      font-size:18px;
+      line-height:var(--lh);
+      color: var(--muted);
+    }
+    @media (max-width:980px){
+      .how__steps{ grid-template-columns:1fr; }
+    }
+
+    .compare__grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+    .compare__card{ position:relative; }
+    .compare__card--highlight{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .compare__badge{
+      position:absolute;
+      top:-12px;
+      right:18px;
+      background: var(--charcoal);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+    .compare__list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+    .compare__list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:18px;
+      line-height:1.5;
+      color: rgba(41,41,41,.92);
+    }
+    @media (max-width:980px){
+      .compare__grid{ grid-template-columns:1fr; }
+    }
+
+    .final-cta__wrap{ display:grid; place-items:center; text-align:center; }
+    .final-cta__subtitle{
+      margin:0 auto 28px;
+      max-width:620px;
+      font-size:18px;
+      color: var(--muted);
+      line-height:var(--lh);
+    }
+    .final-cta__actions{ display:grid; gap:12px; place-items:center; }
+    .final-cta__note{ margin:0; font-size:14px; color: var(--muted-2); line-height:1.4; }
+
+    .faq .container{ display:grid; gap:22px; }
+    .faq__list{ width:min(1078.5px, 100%); margin:0; }
+    .faq__item{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      margin-bottom: 10px;
+      overflow:hidden;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .faq__item:hover{ background: var(--bg); border-color: var(--line-strong); }
+    .faq__question{
+      list-style:none;
+      cursor:pointer;
+      padding:18px 18px;
+      font-size:17px;
+      font-weight:700;
+      letter-spacing:-0.01em;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color: rgba(41,41,41,.92);
+    }
+    .faq__question::-webkit-details-marker{ display:none; }
+    .faq__plus{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background: var(--bg);
+      transition: transform .2s ease;
+      flex-shrink:0;
+    }
+    .faq__item[open] .faq__plus{ transform: rotate(45deg); }
+    .faq__answer{
+      padding: 0 18px 18px;
+      border-top:1px solid var(--line);
+    }
+    .faq__answer p{
+      margin: 12px 0 0;
+      font-size:18px;
+      line-height:var(--lh);
+      color: var(--muted);
+    }
+
+    @media (max-width:980px){
+      .section{ padding: 30px 0 35px; }
+      .section--tight{ padding: 26px 0 58px; }
+      .section--cta{ padding: 72px 0 80px; }
+      .faq__question{ padding: 18px 18px; }
+      .faq__answer{ padding: 0 18px 18px; }
+    }
+
+    /* =========================
+      FOOTER (igual outras páginas do Listio)
+    ========================== */
+    .footer{
+      padding: 22px 0 22px;
+      border-top: 1px solid rgba(41,41,41,.12);
+      background: transparent;
+    }
+
+    .footer__grid{
+      display:grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .footer__brand{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .footer__title{
+      font-family:"Space Grotesk",system-ui,sans-serif;
+      font-weight:600;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .footer__desc{
+      margin: 0;
+      color: rgba(41,41,41,.72);
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 520px;
+    }
+
+    .footer__pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid rgba(41,41,41,.12);
+      color: rgba(41,41,41,.85);
+      font-size: 14px;
+      font-weight: 600;
+      width: fit-content;
+      min-width: 240px;
+    }
+
+    .footer__col{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      padding-top: 6px;
+    }
+
+    .footer__link{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(41,41,41,.9);
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: background .12s ease;
+      width: fit-content;
+    }
+    .footer__link:hover{ background: rgba(41,41,41,.05); }
+
+    .footer__bottom{
+      margin-top: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(41,41,41,.10);
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(41,41,41,.65);
+      font-size: 13px;
+    }
+
+    .footer__bottom a{
+      color: rgba(41,41,41,.72);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px){
+      .footer__grid{ grid-template-columns: 1fr; }
+      .footer__pill{ width: 100%; justify-content: flex-start; min-width: 0; }
+    }
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PLSN85MQ');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLSN85MQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- HEADER -->
+  <div class="top-wrap">
+    <div class="container">
+      <header class="site-header" role="banner">
+        <div class="site-header__inner">
+          <a class="brand" href="#top" aria-label="Listio — inicio">
+            <span class="brand__name">Listio</span>
+          </a>
+
+          <!-- MENU: adicionado "Preço" -->
+          <nav class="nav" aria-label="Navegación principal">
+            <a href="/es/#como-funciona">Cómo funciona</a>
+            <a href="/es/#recursos">Funciones</a>
+            <a href="/es/precios">Precio</a>
+            <a href="/es/#faq">Dudas</a>
+            <a href="/es/contacto">Contacto</a>
+          </nav>
+
+          <div class="header-ctas" aria-label="Acciones">
+            <a class="btn btn--ghost" href="https://app.listio.com.br/login" data-track="header_login">
+              Entrar
+            </a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/cadastro" data-track="header_cta">
+              Comenzar gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <button class="mobile-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu" data-mobile-toggle>
+            <i data-lucide="menu" class="icon icon--lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menú móvil">
+            <a href="/es/#como-funciona">Cómo funciona</a>
+            <a href="/es/#recursos">Funciones</a>
+            <a href="/es/precios">Precio</a>
+            <a href="/es/#faq">Dudas</a>
+            <a href="/es/contacto">Contacto</a>
+
+          <div class="mobile-ctas">
+            <a class="btn" href="https://app.listio.com.br/login" data-track="mobile_login">Entrar</a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/cadastro" data-track="mobile_cta">
+              Comenzar gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main id="top" role="main">
+    <!-- HERO -->
+    <section class="section section--hero hero">
+      <div class="container hero__grid">
+
+        <div class="hero__content">
+          <span class="section__eyebrow">
+            <i data-lucide="sparkles" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Decisión sin suposiciones
+          </span>
+
+          <h1 class="hero__title">
+            Checklist de inventario en minutos y sin complicaciones.
+          </h1>
+
+          <p class="hero__subtitle">
+            Listio organiza el conteo de inventario (checklist) y transforma los números en reposición objetiva.
+            Para que tenga <strong>claridad sobre lo que falta</strong>, <strong>lo que sobra</strong> y pueda comprar con seguridad.
+          </p>
+
+          <ul class="hero__bullets">
+            <li>
+              <i data-lucide="smartphone" class="icon icon--md" aria-hidden="true"></i>
+              Conteo en la app (rápido y estandarizado)
+            </li>
+            <li>
+              <i data-lucide="check-circle-2" class="icon icon--md" aria-hidden="true"></i>
+              Pedido por categoría o por proveedor
+            </li>
+            <li>
+              <i data-lucide="shopping-basket" class="icon icon--md" aria-hidden="true"></i>
+              Lista de compra objetiva: lo que falta y cuánto comprar
+            </li>
+          </ul>
+
+          <div class="hero__ctas">
+            <a href="https://app.listio.com.br/cadastro" class="btn btn--primary btn--lg" data-track="hero_cta_primary">
+              Comenzar ahora — es gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__image-wrap">
+            <img
+              src="https://listio.com.br/img/checklist.jpg"
+              alt="Persona verificando el conteo de inventario en la app"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust__line">
+          <i data-lucide="star" class="icon icon--md" aria-hidden="true"></i>
+          Hecho para quienes necesitan claridad en el inventario — no sistemas complicados
+        </p>
+
+        <div class="trust__cards">
+          <div class="card">
+            <div class="trust__metric" data-counter="1200">+1.200</div>
+            <div class="trust__label">conteos realizados</div>
+          </div>
+
+          <div class="card">
+            <div class="trust__metric" data-counter="9000">+9.000</div>
+            <div class="trust__label">productos organizados</div>
+          </div>
+
+          <div class="card">
+            <div class="trust__metric">Eficiente</div>
+            <div class="trust__label">conteo y reposición con claridad</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN -->
+    <section class="section section--tight pain" id="dor">
+      <div class="container">
+        <div class="pain__head">
+          <h2 class="section__title">Si el conteo se vuelve duda, la compra se vuelve riesgo.</h2>
+          <p class="section__subtitle">
+            Papel, planilla o “memoria” funcionan… hasta el día en que falta un ítem crítico o sobra producto de más.
+          </p>
+        </div>
+
+        <div class="grid-4" style="margin-top:26px;">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="ban" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Ruptura y pérdida de ventas</h3>
+            <p class="card__text">Descubre la falta demasiado tarde y pierde ventas.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="banknote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Exceso de inventario</h3>
+            <p class="card__text">Dinero inmovilizado en producto que no rota.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="file-text" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Falta de estándar</h3>
+            <p class="card__text">Cada conteo se vuelve un método distinto (papel, planilla, cabeza).</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="help-circle" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Compra por “intuición”</h3>
+            <p class="card__text">Compra por miedo, no por claridad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+ <!-- SOLUTION -->
+<section class="section solution" id="recursos">
+  <div class="container">
+    <div class="section__head">
+      <span class="section__eyebrow">
+        <i data-lucide="zap" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+        El cambio
+      </span>
+
+      <h2 class="section__title">
+        Menos complicaciones.<br />
+        <span>Más decisiones acertadas.</span>
+      </h2>
+
+      <p class="section__subtitle">
+        No necesitas otro sistema complicado. Necesitas <strong>claridad</strong> para comprar mejor.
+        Listio transforma el conteo de inventario en reposición objetiva, ítem por ítem.
+      </p>
+    </div>
+
+    <div class="solution__grid grid-4" style="gap:18px;">
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <i data-lucide="check-circle-2" class="icon icon--xl" aria-hidden="true"></i>
+        </div>
+        <h3 class="card__title">Checklists inteligentes de inventario</h3>
+        <p class="card__text">
+          Conteos rápidos desde el móvil, con un flujo simple pensado para la rutina real del comercio.
+          Sin bloqueos, sin pasos innecesarios.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <i data-lucide="sparkles" class="icon icon--xl" aria-hidden="true"></i>
+        </div>
+        <h3 class="card__title">Sugerencias automáticas de compra</h3>
+        <p class="card__text">
+          Listio analiza tu inventario actual y genera una lista lista para comprar con cantidades sugeridas:
+          menos intuición, más precisión.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <i data-lucide="triangle-alert" class="icon icon--xl" aria-hidden="true"></i>
+        </div>
+        <h3 class="card__title">Alertas de bajo stock</h3>
+        <p class="card__text">
+          Notificaciones inteligentes antes de que el producto se agote, para reponer a tiempo y evitar ventas perdidas.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <i data-lucide="trending-down" class="icon icon--xl" aria-hidden="true"></i>
+        </div>
+        <h3 class="card__title">Insights de exceso de stock</h3>
+        <p class="card__text">
+          Detecta productos de baja rotación y compras en exceso. Libera capital y mantén un inventario más eficiente.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+    <!-- VALUE -->
+    <section class="section value">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="trending-up" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Resultados en la práctica
+          </span>
+
+          <h2 class="section__title">
+            Un inventario claro genera<br />
+            <span>mejores compras.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Cuando el conteo se convierte en dato confiable, el día a día gana previsibilidad.
+            Menos sustos, menos dinero inmovilizado y más control.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-top:34px;">
+          <article class="card">
+            <div class="value__metric" aria-hidden="true">
+              <i data-lucide="arrow-down" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Menos quiebres</h3>
+            <p class="card__text">Los ítems correctos, en el momento correcto — antes de que falten.</p>
+          </article>
+
+          <article class="card">
+            <div class="value__metric" aria-hidden="true">
+              <i data-lucide="badge-dollar-sign" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Menos dinero inmovilizado</h3>
+            <p class="card__text">Compras basándote en datos, no en miedo ni “suposiciones”.</p>
+          </article>
+
+          <article class="card">
+            <div class="value__metric" aria-hidden="true">
+              <i data-lucide="calendar" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Más previsibilidad</h3>
+            <p class="card__text">El inventario empieza a trabajar a tu favor, cada semana.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section how" id="como-funciona">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="route" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Cómo funciona
+          </span>
+
+          <h2 class="section__title">
+            En 3 pasos. Sin vueltas.<br />
+            <span>Del conteo a la reposición.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Configura una vez, cuenta siempre.
+            En pocos minutos conviertes el conteo en una reposición clara.
+          </p>
+        </div>
+
+        <ol class="how__steps">
+          <li class="how__step">
+            <div class="how__badge">1</div>
+            <div class="how__content">
+              <h3>Registra tus ítems</h3>
+              <p>Nombre, categoría e inventario ideal. Sirve para cualquier tipo de producto.</p>
+            </div>
+          </li>
+
+          <li class="how__step">
+            <div class="how__badge">2</div>
+            <div class="how__content">
+              <h3>Haz el conteo de inventario</h3>
+              <p>Usa el checklist para registrar las cantidades de forma rápida y estandarizada.</p>
+            </div>
+          </li>
+
+          <li class="how__step">
+            <div class="how__badge">3</div>
+            <div class="how__content">
+              <h3>Genera la reposición</h3>
+              <p>Ve lo que falta, lo que sobra y cuánto reponer — listo para comprar.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="section compare">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="scan-line" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Comparación directa
+          </span>
+
+          <h2 class="section__title">
+            Mientras otros complican,<br />
+            <span>Listio organiza.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            No necesitas otro sistema. Necesitas un método claro
+            para contar, comparar y reponer con confianza.
+          </p>
+        </div>
+
+        <div class="compare__grid">
+          <article class="card compare__card">
+            <h3 class="card__title">Planilla</h3>
+            <ul class="compare__list">
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Requiere tiempo y disciplina</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Es fácil equivocarse u olvidar</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> No deja claro qué reponer</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Se desactualiza rápido</li>
+            </ul>
+          </article>
+
+          <article class="card compare__card">
+            <h3 class="card__title">Sistema complejo</h3>
+            <ul class="compare__list">
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Implementación lenta</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Capacitación obligatoria</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Funciones que no usas</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Más caro de lo que necesitas</li>
+            </ul>
+          </article>
+
+          <article class="card compare__card compare__card--highlight">
+            <span class="compare__badge">Recomendado</span>
+            <h3 class="card__title">Listio</h3>
+            <ul class="compare__list">
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Checklist de conteo en la app</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Muestra exactamente qué reponer</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Sirve para tienda física y online</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Operación ligera, sin exceso de funciones</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section class="section audience" id="para-quem">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="users" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Para quién es
+          </span>
+
+          <h2 class="section__title">
+            Hecho para quienes venden productos físicos<br />
+            <span>y necesitan una reposición clara.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Listio funciona para diferentes segmentos porque resuelve lo esencial:
+            convertir el conteo en decisión de compra con claridad.
+          </p>
+        </div>
+
+        <div class="grid-4" style="gap:18px;">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="store" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Tiendas de barrio</h3>
+            <p class="card__text">Estandariza el conteo y sabe qué reponer cada semana.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="pill" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Farmacias y perfumerías</h3>
+            <p class="card__text">Evita quiebres y exceso en los ítems que más salen.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="truck" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">E-commerce</h3>
+            <p class="card__text">Vista confiable del inventario para no perder pedidos por falta.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="shirt" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Moda y accesorios</h3>
+            <p class="card__text">Control por categorías y reposición con criterio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section section--cta final-cta" id="comecar">
+      <div class="container final-cta__wrap">
+        <div class="final-cta__content">
+          <h2 class="section__title" style="margin:0 0 14px;">
+            Deja de adivinar<br />
+            <span>el inventario.</span>
+          </h2>
+
+          <p class="final-cta__subtitle">
+            Comienza ahora y ve lo mucho más seguro que es decidir qué reponer,
+            con claridad y consistencia en el conteo.
+          </p>
+
+          <div class="final-cta__actions">
+            <a href="https://app.listio.com.br/cadastro" class="btn btn--primary btn--xl" data-track="final_cta_primary">
+              Crear mi cuenta gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+            <p class="final-cta__note">Sin tarjeta de crédito • Comienza en minutos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section__head" style="margin-bottom:22px;">
+          <span class="section__eyebrow">
+            <i data-lucide="help-circle" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Dudas comunes
+          </span>
+
+          <h2 class="section__title">
+            Antes de comenzar,<br />
+            <span>vale aclarar esto.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Respondemos aquí las preguntas que más escuchamos de quienes necesitan controlar inventario
+            y comprar con claridad.
+          </p>
+        </div>
+
+        <div class="faq__list" data-faq>
+          <details class="faq__item" open>
+            <summary class="faq__question">
+              ¿Necesito entender de tecnología para usar Listio?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                No. Listio fue pensado para ser directo en la operación: registras los ítems y realizas el conteo por checklist.
+                Si sabes contar productos, puedes usar Listio.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              ¿Listio reemplaza mi sistema o mi planilla?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Reemplaza lo que te estorba. Muchos mantienen el sistema de ventas,
+                y usan Listio para estandarizar el conteo y decidir la reposición con claridad.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              ¿Cuánto tiempo tarda en empezar a usarlo?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Empiezas el mismo día: registras tus ítems una vez y ya realizas el primer conteo.
+                Luego, el proceso se vuelve repetible y consistente.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              ¿Funciona para cualquier tipo de negocio?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Sí — siempre que necesites controlar ítems y decidir qué reponer.
+                Funciona bien para tienda física, e-commerce y diferentes nichos de retail.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              ¿Voy a necesitar poner tarjeta de crédito?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                No. Puedes empezar gratis, probar la app y ver valor antes de cualquier decisión.
+                Sin sorpresas y sin compromiso.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (ADICIONADO) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <h3 class="footer__title">listio</h3>
+          <p class="footer__desc">
+            Control de inventario simple para pequeños comercios. Checklists en el celular y claridad para comprar sin suposiciones.
+          </p>
+
+          <div class="footer__pill">
+            <i data-lucide="align-left" class="icon" aria-hidden="true"></i>
+            Hecho para quien está en el mostrador
+          </div>
+        </div>
+
+        <div class="footer__col" aria-label="Enlaces legales">
+          <a class="footer__link" href="/termos">
+            <i data-lucide="file-text" class="icon" aria-hidden="true"></i>
+            Términos de Uso
+          </a>
+        </div>
+
+        <div class="footer__col" aria-label="Enlaces adicionales">
+          <a class="footer__link" href="/privacidade">
+            <i data-lucide="shield" class="icon" aria-hidden="true"></i>
+            Política de Privacidad
+          </a>
+          <a class="footer__link" href="/es/contacto">
+            <i data-lucide="message-square" class="icon" aria-hidden="true"></i>
+            Contacto
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Listio. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================
+      Lucide init
+    ========================== */
+    (function(){
+      if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+      }
+    })();
+
+    /* =========================
+      Menu mobile + tracking simples
+    ========================== */
+    (function () {
+      const toggle = document.querySelector('[data-mobile-toggle]');
+      const menu = document.getElementById('mobileMenu');
+      if (!toggle || !menu) return;
+
+      function setOpen(isOpen){
+        menu.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('is-open');
+        setOpen(!isOpen);
+      });
+
+      menu.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        setOpen(false);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('[data-track]');
+        if (!el) return;
+        const ev = el.getAttribute('data-track');
+        console.log('[track]', ev);
+      });
+    })();
+
+    /* =========================
+      Contador suave nas métricas
+    ========================== */
+    (function(){
+      const els = document.querySelectorAll('.trust__metric[data-counter]');
+      if (!els.length) return;
+
+      const formatBR = (n) => {
+        try { return new Intl.NumberFormat('pt-BR').format(n); }
+        catch { return String(n); }
+      };
+
+      const animate = (el) => {
+        const target = Number(el.getAttribute('data-counter') || '0');
+        if (!target) return;
+
+        const start = 0;
+        const duration = 650;
+        const t0 = performance.now();
+
+        function frame(t){
+          const p = Math.min(1, (t - t0) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const value = Math.round(start + (target - start) * eased);
+          el.textContent = `+${formatBR(value)}`;
+          if (p < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      };
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting){
+            animate(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.35 });
+
+      els.forEach(el => io.observe(el));
+    })();
+
+    /* =========================
+      FAQ: abre 1 por vez
+    ========================== */
+    (function(){
+      const root = document.querySelector('[data-faq]');
+      if (!root) return;
+
+      const items = Array.from(root.querySelectorAll('details.faq__item'));
+
+      root.addEventListener('toggle', (e) => {
+        const current = e.target;
+        if (!(current instanceof HTMLDetailsElement)) return;
+        if (!current.open) return;
+
+        items.forEach((it) => {
+          if (it !== current) it.open = false;
+        });
+      }, true);
+    })();
+
+    /* =========================
+      Ano automático no rodapé
+    ========================== */
+    (function(){
+      const year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+
+  <!-- =========================
+    LISTIO — POPUP/BANNER DE CONSENTIMENTO (LGPD/COOKIES)
+    (mantido igual ao seu, sem mudanças de copy)
+  ========================== -->
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
+
+      --ink: var(--charcoal);
+      --bg: var(--off);
+      --surface: var(--white);
+
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1120px;
+    }
+
+    .lp-btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      line-height:1;
+    }
+    .lp-btn:hover{
+      border-color: var(--line-strong);
+      background: var(--off);
+    }
+    .lp-btn--primary{
+      background: var(--lime);
+      border-color: transparent;
+      color: var(--charcoal);
+    }
+    .lp-btn--primary:hover{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .lp-btn--ghost{
+      background: transparent;
+      border-color: transparent;
+    }
+    .lp-btn--ghost:hover{
+      background: var(--off);
+      border-color: transparent;
+    }
+
+    .cookie-banner{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px;
+      background: rgba(240,241,233,.92);
+      border-top: 1px solid var(--line);
+      display: none;
+      z-index: 9999;
+    }
+    .cookie-banner.is-open{ display: block; }
+
+    .cookie-banner__card{
+      width: min(var(--container), calc(100% - 24px));
+      margin-inline: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cookie-banner__row{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .cookie-banner__text{ max-width: 72ch; }
+
+    .cookie-banner__title{
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-banner__p{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-banner__actions{
+      display:inline-flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .cookie-modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(41,41,41,.35);
+      z-index: 10000;
+      padding: 14px;
+    }
+    .cookie-modal.is-open{ display:grid; place-items:center; }
+
+    .cookie-modal__card{
+      width: min(640px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .cookie-modal__head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .cookie-modal__head h3{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+
+    .cookie-modal__close{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 800;
+    }
+    .cookie-modal__close:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+
+    .cookie-modal__desc{
+      margin:0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-prefs{
+      display:grid;
+      gap:10px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--off);
+    }
+
+    .cookie-toggle{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+
+    .cookie-toggle__text{
+      display:grid;
+      gap:2px;
+    }
+
+    .cookie-toggle__text b{
+      font-size:14px;
+      font-weight:800;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-toggle__text span{
+      font-size:14px;
+      color: rgba(41,41,41,.74);
+      line-height:1.4;
+    }
+
+    .switch{
+      position: relative;
+      width: 48px;
+      height: 28px;
+      flex: 0 0 auto;
+    }
+    .switch input{ display:none; }
+    .switch span{
+      position:absolute;
+      inset:0;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--surface);
+      cursor:pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .switch span::after{
+      content:"";
+      position:absolute;
+      top:3px;
+      left:3px;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background: var(--charcoal);
+      transition: transform .15s ease;
+    }
+    .switch input:checked + span{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .switch input:checked + span::after{
+      transform: translateX(20px);
+    }
+
+    .cookie-modal__actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      padding-top: 6px;
+    }
+
+    :focus-visible{
+      outline: 3px solid var(--lime);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+  </style>
+
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" data-cookie-banner>
+    <div class="cookie-banner__card">
+      <div class="cookie-banner__row">
+        <div class="cookie-banner__text">
+          <p class="cookie-banner__title">Privacidad y cookies</p>
+          <p class="cookie-banner__p">
+            Usamos cookies esenciales para que el sitio funcione y, con su permiso, cookies de análisis para mejorar la experiencia.
+            Puede aceptar, rechazar o ajustar sus preferencias.
+            <a href="/cookies" rel="nofollow">Saber más</a>.
+          </p>
+        </div>
+
+        <div class="cookie-banner__actions">
+          <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Rechazar</button>
+          <button class="lp-btn" type="button" data-open-cookie-settings>Preferencias</button>
+          <button class="lp-btn lp-btn--primary" type="button" data-cookie-accept>Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferencias de cookies" data-cookie-modal>
+    <div class="cookie-modal__card">
+      <div class="cookie-modal__head">
+        <h3>Preferencias de cookies</h3>
+        <button class="cookie-modal__close" type="button" aria-label="Cerrar" data-cookie-close>×</button>
+      </div>
+
+      <p class="cookie-modal__desc">
+        Elija qué categorías permite. Las cookies esenciales son necesarias para el funcionamiento del sitio.
+        Puede cambiar esto en cualquier momento en el pie de página.
+      </p>
+
+      <div class="cookie-prefs" role="group" aria-label="Categorías de cookies">
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Esenciales</b>
+            <span>Necesarias para que el sitio funcione (inicio de sesión, seguridad, preferencias básicas).</span>
+          </div>
+          <label class="switch" aria-label="Cookies esenciales (siempre activas)">
+            <input type="checkbox" checked disabled />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Análisis</b>
+            <span>Ayuda a entender el uso del sitio (p. ej., páginas visitadas), sin identificarle directamente.</span>
+          </div>
+          <label class="switch" aria-label="Activar cookies de análisis">
+            <input type="checkbox" data-cookie-analytics />
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cookie-modal__actions">
+        <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Rechazar</button>
+        <button class="lp-btn lp-btn--primary" type="button" data-cookie-save>Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const KEY = "listio_cookie_consent_v1";
+      const DEFAULTS = { essential: true, analytics: false };
+
+      const banner = document.querySelector("[data-cookie-banner]");
+      const modal  = document.querySelector("[data-cookie-modal]");
+      const openButtons = document.querySelectorAll("[data-open-cookie-settings]");
+
+      const btnAccept  = document.querySelector("[data-cookie-accept]");
+      const btnDecline = document.querySelectorAll("[data-cookie-decline]");
+      const btnSave    = document.querySelector("[data-cookie-save]");
+      const btnClose   = document.querySelector("[data-cookie-close]");
+      const analyticsToggle = document.querySelector("[data-cookie-analytics]");
+
+      function readConsent(){
+        try{
+          const raw = localStorage.getItem(KEY);
+          return raw ? JSON.parse(raw) : null;
+        }catch(e){
+          return null;
+        }
+      }
+
+      function writeConsent(value){
+        try{
+          localStorage.setItem(KEY, JSON.stringify(value));
+        }catch(e){}
+      }
+
+      function openBanner(){
+        if (!banner) return;
+        banner.classList.add("is-open");
+      }
+
+      function closeBanner(){
+        if (!banner) return;
+        banner.classList.remove("is-open");
+      }
+
+      function openModal(){
+        if (!modal) return;
+        modal.classList.add("is-open");
+        const current = readConsent() || DEFAULTS;
+        if (analyticsToggle) analyticsToggle.checked = !!current.analytics;
+      }
+
+      function closeModal(){
+        if (!modal) return;
+        modal.classList.remove("is-open");
+      }
+
+      function applyConsent(consent){
+        // Conecte GA4/GTM aqui se quiser condicionar analytics
+        // console.log("[consent]", consent);
+      }
+
+      const saved = readConsent();
+      if (!saved) openBanner();
+      else applyConsent(saved);
+
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          closeBanner();
+          openModal();
+        });
+      });
+
+      if (btnAccept){
+        btnAccept.addEventListener("click", () => {
+          const consent = { essential: true, analytics: true, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner();
+          closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      btnDecline.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const consent = { essential: true, analytics: false, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner();
+          closeModal();
+          applyConsent(consent);
+        });
+      });
+
+      if (btnSave){
+        btnSave.addEventListener("click", () => {
+          const consent = {
+            essential: true,
+            analytics: !!(analyticsToggle && analyticsToggle.checked),
+            ts: Date.now()
+          };
+          writeConsent(consent);
+          closeBanner();
+          closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      if (btnClose) btnClose.addEventListener("click", closeModal);
+
+      if (modal){
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    })();
+  </script>
+
+</body>
+</html>

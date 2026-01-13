@@ -1,0 +1,1352 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#292929" />
+  <meta name="color-scheme" content="light" />
+
+  <title>Listio - Precios</title>
+  <meta name="description" content="Listio es la app simple de control de inventario para negocios que venden productos — en tienda física u online. Haz checklists rápidos en el celular y sabe exactamente qué comprar — sin planillas, sin suposiciones." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://listio.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Listio" />
+  <meta property="og:title" content="Listio — Sepa exactamente qué comprar (sin planillas)" />
+  <meta property="og:description" content="Control de inventario simple para quienes venden productos — en tienda física u online. Checklist en el celular y decisiones claras de reposición, sin suposiciones." />
+  <meta property="og:url" content="https://listio.com.br/" />
+  <meta property="og:image" content="https://listio.com.br/og-listio.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Listio — Sepa exactamente qué comprar (sin planillas)" />
+  <meta name="twitter:description" content="Una app simple de control de inventario para negocios que venden productos. Checklists rápidos y decisiones de compra claras." />
+  <meta name="twitter:image" content="https://listio.com.br/og-listio.jpg" />
+
+  <!-- Favicon (default) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+
+  <!-- PNG favicons (recommended) -->
+  <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+
+  <!-- Apple / iOS -->
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+
+  <!-- PWA / Android -->
+  <link rel="manifest" href="img/site.webmanifest">
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
+
+  <!-- Theme color (mobile / browser UI) -->
+  <meta name="theme-color" content="#CDD544">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Listio",
+    "url": "https://listio.com.br/es/",
+    "logo": "https://listio.com.br/es/logo.png",
+    "sameAs": [],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "ventas",
+      "email": "contato@listio.com.br",
+      "availableLanguage": ["Español"]
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Listio",
+    "url": "https://listio.com.br/"
+  }
+  </script>
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+
+      --bg: var(--off);
+      --surface: #ffffff;
+      --ink: var(--charcoal);
+
+      --line: rgba(41,41,41,.12);
+      --line-strong: rgba(41,41,41,.20);
+
+      --r-xl: 24px;
+      --r-lg: 18px;
+      --r-md: 14px;
+
+      --container: 1120px;
+      --pad: 22px;
+
+      --text: 16px;
+      --lh: 1.6;
+
+      --t-hero: clamp(32px, 4.2vw, 52px);
+      --t-h2: clamp(28px, 3.0vw, 38px);
+      --t-card: 20px;
+
+      --muted: rgba(41,41,41,.78);
+      --muted-2: rgba(41,41,41,.65);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      font-size:var(--text);
+      line-height:var(--lh);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; }
+    :focus-visible{ outline:3px solid var(--lime); outline-offset:3px; border-radius:12px; }
+
+    .container{
+      width:min(var(--container), calc(100% - (var(--pad) * 2)));
+      margin-inline:auto;
+    }
+
+    /* Lucide icons */
+    .icon{ width:18px; height:18px; stroke:var(--charcoal); stroke-width:2; flex:0 0 auto; }
+    .icon--md{ width:20px; height:20px; }
+    .icon--lg{ width:22px; height:22px; }
+    .icon--xl{ width:26px; height:26px; }
+    .icon--on-lime{ stroke:var(--charcoal); }
+
+    /* Sections */
+    .section{ padding: 92px 0 96px; }
+    .section--hero{ padding: 72px 0 58px; }
+    .section--tight{ padding: 34px 0 78px; }
+    .section--cta{
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section__head{ max-width: 860px; margin-bottom: 42px; }
+    .section__eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: #e1e2d7;
+      color:var(--charcoal);
+      padding:6px 20px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:500;
+      letter-spacing:.02em;
+      border:none;
+      width: fit-content;
+    }
+    .section__title{
+      margin:10 0 14px;
+      font-size:var(--t-h2);
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      font-weight:600;
+    }
+    .section__subtitle{
+      margin:0;
+      font-size:16px;
+      line-height:var(--lh);
+      color:var(--muted);
+    }
+
+    /* Header */
+    .top-wrap{ padding: 18px 0 10px; }
+    .site-header{ position: sticky; top: 0; z-index: 50; }
+    .site-header::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:-1px;
+      height:1px;
+      background: var(--line);
+    }
+    .site-header__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 16px;
+    }
+    .brand{ display:inline-flex; align-items:center; min-width:150px; }
+    .brand__name{
+      font-family:"Space Grotesk", sans-serif;
+      font-weight:600;
+      font-size:2.25rem;
+      line-height:2.5rem;
+      letter-spacing:-0.02em;
+      color:var(--charcoal);
+    }
+
+    .nav{ display:flex; align-items:center; gap:18px; }
+    .nav a{
+      font-size:16px;
+      font-weight:500;
+      color:rgba(41,41,41,.92);
+      padding:10px 10px;
+      border-radius:12px;
+      transition: background .15s ease;
+    }
+    .nav a:hover{ background: var(--bg); }
+
+    .header-ctas{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:210px;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:16px;
+      line-height:1;
+      cursor:pointer;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      transition: background .12s ease, border-color .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: var(--bg); border-color: var(--line-strong); }
+
+    .btn--primary{ background: var(--lime); border-color: transparent; color: var(--charcoal); }
+    .btn--primary:hover{ background: var(--lime); border-color: transparent; }
+
+    .btn--ghost{ background: transparent; border-color: transparent; }
+    .btn--ghost:hover{ background: var(--bg); border-color: transparent; }
+
+    .btn--lg{ padding: 14px 22px; font-size: 16px; }
+    .btn--xl{ padding: 18px 30px; font-size: 16px; }
+
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      cursor:pointer;
+      place-items:center;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding:10px 12px 14px;
+      border-top:1px solid var(--line);
+      background:var(--surface);
+      border-radius:0 0 var(--r-xl) var(--r-xl);
+    }
+    .mobile-menu a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:650;
+      color:rgba(41,41,41,.92);
+    }
+    .mobile-menu a:hover{ background: var(--bg); }
+    .mobile-menu .mobile-ctas{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      padding:6px 6px 2px;
+    }
+    .mobile-menu.is-open{ display:block; }
+
+    @media (max-width:980px){
+      .nav, .header-ctas{ display:none; }
+      .mobile-toggle{ display:inline-grid; }
+    }
+
+    /* Hero */
+    .hero__grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:56px;
+      align-items:center;
+    }
+    .hero__title{
+      font-size: var(--t-hero);
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      margin:10 0 18px;
+      font-weight:600;
+    }
+    .hero__subtitle{
+      margin:0 0 28px;
+      font-size:16px;
+      line-height:var(--lh);
+      color:var(--muted);
+      max-width: 640px;
+    }
+    .hero__bullets{
+      list-style:none;
+      padding:0;
+      margin:0 0 36px;
+      display:grid;
+      gap:14px;
+    }
+    .hero__bullets li{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:16px;
+      font-weight:500;
+      color:rgba(41,41,41,.88);
+    }
+    .hero__ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+
+    .hero__image-wrap{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background: #d4da42;
+    }
+    .hero__image-wrap img{ width:100%; height:auto; display:block; }
+
+    @media (max-width:980px){
+      .section--hero{ padding: 20px 0 40px; }
+      .hero__grid{ grid-template-columns:1fr; gap:40px; }
+      .hero__subtitle{ max-width:100%; }
+      .hero__media{ order:-1; }
+    }
+
+    /* Pricing cards (print style, but in the site standard) */
+    .pricing__grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width:980px){
+      .pricing__grid{ grid-template-columns:1fr; gap:12px; }
+    }
+
+    .plan{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 22px 20px 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      position: relative;
+      min-height: 100%;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .plan:hover{ background: var(--bg); border-color: var(--line-strong); }
+
+    .plan--popular::before{
+      content:"Más popular";
+      position:absolute;
+      top:-12px;
+      left:22px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: rgba(41,41,41,.92);
+    }
+
+    .plan__top{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding-top: 4px;
+    }
+    .plan__name{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-0.02em;
+      line-height:1.1;
+      font-weight: 600;
+    }
+
+    .plan__price{
+      margin-top: 2px;
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .plan__currency{
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing:-0.01em;
+    }
+    .plan__amount{
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing:-0.03em;
+      line-height:1;
+    }
+    .plan__period{
+      font-size: 14px;
+      color: rgba(41,41,41,.72);
+      font-weight: 600;
+    }
+
+    .plan__desc{
+      margin: 0;
+      font-size: 14px;
+      color: rgba(41,41,41,.72);
+      line-height: 1.55;
+    }
+
+    .plan__list{
+      list-style:none;
+      padding:0;
+      margin: 8px 0 0;
+      display:grid;
+      gap:10px;
+    }
+    .plan__list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(41,41,41,.92);
+    }
+    .plan__list .x{
+      opacity:.7;
+    }
+
+    .plan__cta{
+      margin-top: auto;
+      padding-top: 14px;
+    }
+    .plan__cta .btn{
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .pricing__note{
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(41,41,41,.62);
+      text-align:center;
+    }
+
+    /* Final CTA */
+    .final-cta__wrap{ padding: 0; }
+    .final-cta__content{ max-width: 840px; padding: 0; }
+    .final-cta__subtitle{
+      margin:0 0 18px;
+      font-size:16px;
+      line-height:var(--lh);
+      color: var(--muted);
+      max-width: 72ch;
+    }
+    .final-cta__actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+    .final-cta__note{ margin:0; font-size:14px; color: rgba(41,41,41,.72); font-weight:650; }
+
+    /* Footer (kept the same as the previous standard) */
+    .listio-footer{
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .listio-footer__inner{
+      padding: 26px 0 18px;
+      display: grid;
+      gap: 16px;
+    }
+    .listio-footer__top{
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .listio-footer__brand{ display: grid; gap: 8px; }
+    .listio-footer__logo{
+      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .listio-footer__desc{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.76);
+      max-width: 56ch;
+    }
+    .listio-footer__pill{
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: min(620px, 100%);
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: rgba(41,41,41,.9);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .listio-footer__pill:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+    .listio-footer__col{
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      justify-items: start;
+    }
+    .listio-footer__link{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(41,41,41,.9);
+      text-decoration: none;
+      padding: 6px 0;
+    }
+    .listio-footer__link:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .listio-footer__icon{
+      width: 18px;
+      height: 18px;
+      stroke: rgba(41,41,41,.9);
+      stroke-width: 2;
+      fill: none;
+      flex: 0 0 auto;
+    }
+    @media (max-width: 980px){
+      .listio-footer__top{ grid-template-columns: 1fr; gap: 16px; }
+      .section{ padding: 48px 0 58px; }
+      .section--tight{ padding: 22px 0 58px; }
+      .section--cta{ padding: 58px 0 64px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLSN85MQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- HEADER -->
+  <div class="top-wrap">
+    <div class="container">
+      <header class="site-header" role="banner">
+        <div class="site-header__inner">
+          <a class="brand" href="/en/" aria-label="Listio — inicio">
+            <span class="brand__name">Listio</span>
+          </a>
+
+          <!-- MENU: added "Pricing" -->
+          <nav class="nav" aria-label="Navegación principal">
+            <a href="/es/#como-funciona">Cómo funciona</a>
+            <a href="/es/#recursos">Funciones</a>
+            <a href="/es/precios">Precio</a>
+            <a href="/es/#faq">Dudas</a>
+            <a href="/es/contacto">Contacto</a>
+          </nav>
+
+          <div class="header-ctas" aria-label="Acciones">
+            <a class="btn btn--ghost" href="https://app.listio.com.br/login" data-track="header_login">
+              Iniciar sesión
+            </a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/cadastro" data-track="header_cta">
+              Comenzar gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <button class="mobile-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu" data-mobile-toggle>
+            <i data-lucide="menu" class="icon icon--lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu (with "Pricing") -->
+        <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menú móvil">
+            <a href="/es/#como-funciona">Cómo funciona</a>
+            <a href="/es/#recursos">Funciones</a>
+            <a href="/es/precios">Precio</a>
+            <a href="/es/#faq">Dudas</a>
+            <a href="/es/contacto">Contacto</a>
+
+          <div class="mobile-ctas">
+            <a class="btn" href="https://app.listio.com.br/login" data-track="mobile_login">Iniciar sesión</a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/cadastro" data-track="mobile_cta">
+              Comenzar gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main id="top" role="main">
+    <!-- HERO -->
+    <section class="section section--hero hero">
+      <div class="container hero__grid">
+
+        <div class="hero__content">
+          <span class="section__eyebrow">
+            <i data-lucide="badge-percent" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Comparar planes
+          </span>
+
+          <h1 class="hero__title">
+            Un plan claro para cada etapa de tu operación.
+          </h1>
+
+          <p class="hero__subtitle">
+            Empieza con lo básico y sube de nivel a medida que el negocio crece.
+            Planes directos, con límites y funciones fáciles de entender.
+          </p>
+
+          <ul class="hero__bullets">
+            <li><i data-lucide="check-circle-2" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
+            <li><i data-lucide="package" class="icon icon--md" aria-hidden="true"></i> Inventario por producto y categoría</li>
+            <li><i data-lucide="shopping-basket" class="icon icon--md" aria-hidden="true"></i> Reposición más inteligente</li>
+          </ul>
+
+          <div class="hero__ctas">
+            <a href="https://app.listio.com.br/cadastro" class="btn btn--primary btn--lg" data-track="pricing_hero_cta">
+              Comenzar gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+            <a href="#planos" class="btn btn--ghost btn--lg" data-track="pricing_hero_scroll">
+              Ver planes
+              <i data-lucide="arrow-down" class="icon icon--md" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__image-wrap">
+            <img
+              src="https://listio.com.br/img/conferente.jpg"
+              alt="Pantalla de Listio con vista de inventario"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section class="section section--tight" id="planos" aria-label="Planes y precios">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="layers" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Precios
+          </span>
+
+          <h2 class="section__title">
+            Compara planes y elige<br />
+            <span>el nivel ideal.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Tres opciones directas: para empezar, para crecer y para operar varias tiendas.
+          </p>
+        </div>
+
+        <div class="pricing__grid">
+          <!-- Basic -->
+          <article class="plan">
+            <div class="plan__top">
+              <i data-lucide="zap" class="icon icon--lg" aria-hidden="true"></i>
+              <h3 class="plan__name">Básico</h3>
+            </div>
+
+            <div class="plan__price" aria-label="Precio del plan Básico">
+              <span class="plan__currency">R$</span>
+              <span class="plan__amount">19,90</span>
+              <span class="plan__period">/mes</span>
+            </div>
+
+            <p class="plan__desc">Para pequeños negocios</p>
+
+            <ul class="plan__list" aria-label="Funciones del plan Básico">
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Hasta 100 productos</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> 1 usuario</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
+              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Multiusuario</li>
+              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Varias tiendas</li>
+            </ul>
+
+            <div class="plan__cta">
+              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro?plano=basico" data-track="pricing_basico_cta">
+                Actualizar plan
+              </a>
+            </div>
+          </article>
+
+          <!-- Pro (Most Popular) -->
+          <article class="plan plan--popular">
+            <div class="plan__top">
+              <i data-lucide="crown" class="icon icon--lg" aria-hidden="true"></i>
+              <h3 class="plan__name">Pro</h3>
+            </div>
+
+            <div class="plan__price" aria-label="Precio del plan Pro">
+              <span class="plan__currency">R$</span>
+              <span class="plan__amount">29,90</span>
+              <span class="plan__period">/mes</span>
+            </div>
+
+            <p class="plan__desc">Para negocios en crecimiento</p>
+
+            <ul class="plan__list" aria-label="Funciones del plan Pro">
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Hasta 500 productos</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> 5 usuarios</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
+              <li class="x"><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Varias tiendas</li>
+            </ul>
+
+            <div class="plan__cta">
+              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro?plano=pro" data-track="pricing_pro_cta">
+                Actualizar plan
+              </a>
+            </div>
+          </article>
+
+          <!-- Multi-store -->
+          <article class="plan">
+            <div class="plan__top">
+              <i data-lucide="building-2" class="icon icon--lg" aria-hidden="true"></i>
+              <h3 class="plan__name">Multitiendas</h3>
+            </div>
+
+            <div class="plan__price" aria-label="Precio del plan Multitiendas">
+              <span class="plan__currency">R$</span>
+              <span class="plan__amount">39,90</span>
+              <span class="plan__period">/mes</span>
+            </div>
+
+            <p class="plan__desc">Para redes de tiendas</p>
+
+            <ul class="plan__list" aria-label="Funciones del plan Multitiendas">
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Productos ilimitados</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Usuarios ilimitados</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Checklists ilimitados</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> Varias tiendas</li>
+            </ul>
+
+            <div class="plan__cta">
+              <a class="btn btn--primary" href="https://app.listio.com.br/cadastro?plano=multilojas" data-track="pricing_multilojas_cta">
+                Actualizar plan
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pricing__note">
+          * La reducción de plan se aplicará en el próximo ciclo de facturación
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section section--cta" id="comecar">
+      <div class="container">
+        <div class="final-cta__content">
+          <h2 class="section__title" style="margin:0 0 14px;">
+            ¿Listo para dejar de adivinar<br />
+            <span>tu inventario?</span>
+          </h2>
+
+          <p class="final-cta__subtitle">
+            Crea tu cuenta y empieza a usar Listio hoy.
+            Tú eliges el plan que tiene sentido y lo actualizas cuando tu operación lo necesite.
+          </p>
+
+          <div class="final-cta__actions">
+            <a href="https://app.listio.com.br/cadastro" class="btn btn--primary btn--xl" data-track="final_cta_primary">
+              Comenzar gratis
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+            <p class="final-cta__note">Sin tarjeta de crédito • Empieza en minutos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="listio-footer" role="contentinfo">
+    <div class="container listio-footer__inner">
+      <div class="listio-footer__top">
+        <div class="listio-footer__brand">
+          <div class="listio-footer__logo">Listio</div>
+          <p class="listio-footer__desc">
+            Control de inventario simple para quienes venden productos — en tienda física u online.<br/>
+            Checklists en el celular y claridad para comprar sin suposiciones.
+          </p>
+
+          <a class="listio-footer__pill" href="/como-funciona">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            Hecho para quienes llevan la operación
+          </a>
+        </div>
+
+        <nav class="listio-footer__col" aria-label="Enlaces legales">
+          <a class="listio-footer__link" href="/es/terminos" rel="nofollow">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+            </svg>
+            Términos de uso
+          </a>
+        </nav>
+
+        <nav class="listio-footer__col" aria-label="Enlaces de soporte">
+          <a class="listio-footer__link" href="/en/privacidad" rel="nofollow">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"></path>
+            </svg>
+            Política de privacidad
+          </a>
+
+          <a class="listio-footer__link" href="/es/contacto">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+            </svg>
+            Contacto
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Lucide init */
+    (function(){
+      if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+      }
+    })();
+
+    /* Mobile menu + simple tracking */
+    (function () {
+      const toggle = document.querySelector('[data-mobile-toggle]');
+      const menu = document.getElementById('mobileMenu');
+      if (!toggle || !menu) return;
+
+      function setOpen(isOpen){
+        menu.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('is-open');
+        setOpen(!isOpen);
+      });
+
+      menu.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        setOpen(false);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('[data-track]');
+        if (!el) return;
+        const ev = el.getAttribute('data-track');
+        console.log('[track]', ev);
+      });
+    })();
+  </script>
+
+  <!-- =========================
+    LISTIO — POPUP/BANNER DE CONSENTIMIENTO (LGPD/COOKIES)
+    (mantenido igual al tuyo, sin cambios de copy)
+  ========================== -->
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
+
+      --ink: var(--charcoal);
+      --bg: var(--off);
+      --surface: var(--white);
+
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1120px;
+    }
+
+    .lp-btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      line-height:1;
+    }
+    .lp-btn:hover{
+      border-color: var(--line-strong);
+      background: var(--off);
+    }
+    .lp-btn--primary{
+      background: var(--lime);
+      border-color: transparent;
+      color: var(--charcoal);
+    }
+    .lp-btn--primary:hover{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .lp-btn--ghost{
+      background: transparent;
+      border-color: transparent;
+    }
+    .lp-btn--ghost:hover{
+      background: var(--off);
+      border-color: transparent;
+    }
+
+    .cookie-banner{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px;
+      background: rgba(240,241,233,.92);
+      border-top: 1px solid var(--line);
+      display: none;
+      z-index: 9999;
+    }
+    .cookie-banner.is-open{ display: block; }
+
+    .cookie-banner__card{
+      width: min(var(--container), calc(100% - 24px));
+      margin-inline: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cookie-banner__row{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .cookie-banner__text{ max-width: 72ch; }
+
+    .cookie-banner__title{
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-banner__p{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-banner__actions{
+      display:inline-flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .cookie-modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(41,41,41,.35);
+      z-index: 10000;
+      padding: 14px;
+    }
+    .cookie-modal.is-open{ display:grid; place-items:center; }
+
+    .cookie-modal__card{
+      width: min(640px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .cookie-modal__head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .cookie-modal__head h3{
+      margin:0;
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+
+    .cookie-modal__close{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 600;
+    }
+    .cookie-modal__close:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+
+    .cookie-modal__desc{
+      margin:0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-prefs{
+      display:grid;
+      gap:10px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--off);
+    }
+
+    .cookie-toggle{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+
+    .cookie-toggle__text{
+      display:grid;
+      gap:2px;
+    }
+
+    .cookie-toggle__text b{
+      font-size:14px;
+      font-weight:600;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-toggle__text span{
+      font-size:14px;
+      color: rgba(41,41,41,.74);
+      line-height:1.4;
+    }
+
+    .switch{
+      position: relative;
+      width: 48px;
+      height: 28px;
+      flex: 0 0 auto;
+    }
+    .switch input{ display:none; }
+    .switch span{
+      position:absolute;
+      inset:0;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--surface);
+      cursor:pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .switch span::after{
+      content:"";
+      position:absolute;
+      top:3px;
+      left:3px;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background: var(--charcoal);
+      transition: transform .15s ease;
+    }
+    .switch input:checked + span{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .switch input:checked + span::after{
+      transform: translateX(20px);
+    }
+
+    .cookie-modal__actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      padding-top: 6px;
+    }
+
+    :focus-visible{
+      outline: 3px solid var(--lime);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+  </style>
+
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" data-cookie-banner>
+    <div class="cookie-banner__card">
+      <div class="cookie-banner__row">
+        <div class="cookie-banner__text">
+          <p class="cookie-banner__title">Privacidad y cookies</p>
+          <p class="cookie-banner__p">
+            Usamos cookies esenciales para que el sitio funcione y, con tu permiso, cookies de analítica para mejorar la experiencia.
+            Puedes aceptar, rechazar o ajustar tus preferencias.
+            <a href="/cookies" rel="nofollow">Saber más</a>.
+          </p>
+        </div>
+
+        <div class="cookie-banner__actions">
+          <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Rechazar</button>
+          <button class="lp-btn" type="button" data-open-cookie-settings>Preferencias</button>
+          <button class="lp-btn lp-btn--primary" type="button" data-cookie-accept>Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferencias de cookies" data-cookie-modal>
+    <div class="cookie-modal__card">
+      <div class="cookie-modal__head">
+        <h3>Preferencias de cookies</h3>
+        <button class="cookie-modal__close" type="button" aria-label="Cerrar" data-cookie-close>×</button>
+      </div>
+
+      <p class="cookie-modal__desc">
+        Elige qué categorías permites. Las cookies esenciales son necesarias para que el sitio funcione.
+        Puedes cambiarlo en cualquier momento en el pie de página.
+      </p>
+
+      <div class="cookie-prefs" role="group" aria-label="Categorías de cookies">
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Esenciales</b>
+            <span>Necesarias para que el sitio funcione (inicio de sesión, seguridad, preferencias básicas).</span>
+          </div>
+          <label class="switch" aria-label="Cookies esenciales (siempre activas)">
+            <input type="checkbox" checked disabled />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Analítica</b>
+            <span>Ayuda a entender el uso del sitio (p. ej., páginas visitadas) sin identificarte directamente.</span>
+          </div>
+          <label class="switch" aria-label="Activar cookies de analítica">
+            <input type="checkbox" data-cookie-analytics />
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cookie-modal__actions">
+        <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Rechazar</button>
+        <button class="lp-btn lp-btn--primary" type="button" data-cookie-save>Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const KEY = "listio_cookie_consent_v1";
+      const DEFAULTS = { essential: true, analytics: false };
+
+      const banner = document.querySelector("[data-cookie-banner]");
+      const modal  = document.querySelector("[data-cookie-modal]");
+      const openButtons = document.querySelectorAll("[data-open-cookie-settings]");
+
+      const btnAccept  = document.querySelector("[data-cookie-accept]");
+      const btnDecline = document.querySelectorAll("[data-cookie-decline]");
+      const btnSave    = document.querySelector("[data-cookie-save]");
+      const btnClose   = document.querySelector("[data-cookie-close]");
+      const analyticsToggle = document.querySelector("[data-cookie-analytics]");
+
+      function readConsent(){
+        try{
+          const raw = localStorage.getItem(KEY);
+          return raw ? JSON.parse(raw) : null;
+        }catch(e){
+          return null;
+        }
+      }
+
+      function writeConsent(value){
+        try{
+          localStorage.setItem(KEY, JSON.stringify(value));
+        }catch(e){}
+      }
+
+      function openBanner(){
+        if (!banner) return;
+        banner.classList.add("is-open");
+      }
+
+      function closeBanner(){
+        if (!banner) return;
+        banner.classList.remove("is-open");
+      }
+
+      function openModal(){
+        if (!modal) return;
+        modal.classList.add("is-open");
+        const current = readConsent() || DEFAULTS;
+        if (analyticsToggle) analyticsToggle.checked = !!current.analytics;
+      }
+
+      function closeModal(){
+        if (!modal) return;
+        modal.classList.remove("is-open");
+      }
+
+      function applyConsent(consent){
+        // Conecta GA4/GTM aquí si quieres condicionar la analítica
+        // console.log("[consent]", consent);
+      }
+
+      const saved = readConsent();
+      if (!saved) openBanner();
+      else applyConsent(saved);
+
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          closeBanner();
+          openModal();
+        });
+      });
+
+      if (btnAccept){
+        btnAccept.addEventListener("click", () => {
+          const consent = { essential: true, analytics: true, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner();
+          closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      btnDecline.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const consent = { essential: true, analytics: false, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner();
+          closeModal();
+          applyConsent(consent);
+        });
+      });
+
+      if (btnSave){
+        btnSave.addEventListener("click", () => {
+          const consent = {
+            essential: true,
+            analytics: !!(analyticsToggle && analyticsToggle.checked),
+            ts: Date.now()
+          };
+          writeConsent(consent);
+          closeBanner();
+          closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      if (btnClose) btnClose.addEventListener("click", closeModal);
+
+      if (modal){
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    })();
+  </script>
+
+</body>
+</html>

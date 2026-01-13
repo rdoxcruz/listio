@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#292929" />
+  <meta name="color-scheme" content="light" />
+
+  <title>Termos de Uso — Listio</title>
+  <meta name="description" content="Termos de Uso do Listio." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://listio.com.br/termos" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide (icons) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
+
+      --bg: var(--off);
+      --surface: var(--white);
+      --ink: var(--charcoal);
+
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1120px;
+      --pad: 22px;
+
+      --text: 16px;
+      --lh: 1.65;
+
+      --r-xl: 24px; /* compat mobile menu */
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+      font-size:var(--text);
+      line-height:var(--lh);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; }
+
+    .container{
+      width:min(var(--container), calc(100% - (var(--pad) * 2)));
+      margin-inline:auto;
+    }
+
+    :focus-visible{
+      outline:3px solid var(--lime);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+    .top-wrap{ padding:18px 0 10px; }
+
+    .site-header{
+      position: relative;
+    }
+
+    .site-header__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 4px;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:150px;
+    }
+
+    .brand__name{
+      font-family:"Space Grotesk",system-ui,sans-serif;
+      font-weight:600;
+      font-size:2.25rem;
+      line-height:2.5rem;
+      letter-spacing:-0.02em;
+      color:var(--charcoal);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .nav a{
+      font-size:14px;
+      font-weight:600;
+      color:rgba(41,41,41,.92);
+      padding:10px 10px;
+      border-radius:12px;
+      transition:background .15s ease;
+    }
+    .nav a:hover{ background: rgba(41,41,41,.05); }
+
+    .header-ctas{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--ink);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:14px;
+      line-height:1;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      cursor:pointer;
+      transition:background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      background:rgba(41,41,41,.05);
+      border-color:var(--line-strong);
+    }
+    .btn--primary{
+      background:var(--lime);
+      border-color:transparent;
+      color:var(--charcoal);
+    }
+    .btn--primary:hover{
+      background:var(--lime);
+      border-color:transparent;
+    }
+    .btn--ghost{
+      background:transparent;
+      border-color:transparent;
+    }
+    .btn--ghost:hover{
+      background:rgba(41,41,41,.05);
+      border-color:transparent;
+    }
+
+    /* Mobile menu */
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      cursor:pointer;
+      place-items:center;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding:10px 12px 14px;
+      border-top:1px solid var(--line);
+      background:var(--surface);
+      border-radius:0 0 var(--r-xl) var(--r-xl);
+    }
+    .mobile-menu a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:600;
+      color:rgba(41,41,41,.92);
+    }
+    .mobile-menu a:hover{ background: rgba(41,41,41,.05); }
+    .mobile-menu .mobile-ctas{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      padding:6px 6px 2px;
+    }
+    .mobile-menu.is-open{ display:block; }
+
+    @media (max-width:980px){
+      .nav, .header-ctas{ display:none; }
+      .mobile-toggle{ display:inline-grid; }
+      .site-header__inner{ padding-inline:0; }
+    }
+
+    /* =========================
+       LEGAL PAGE
+    ========================= */
+    .legal{
+      padding: 18px 0 84px;
+    }
+
+    .legal__card{
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 28px 26px;
+    }
+
+    .legal__top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .legal__eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: var(--lime);
+      color: var(--charcoal);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .legal__title{
+      margin: 14px 0 6px;
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .legal__meta{
+      margin: 0;
+      color: rgba(41,41,41,.70);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .legal__toc{
+      margin: 18px 0 0;
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: var(--off);
+      border: 1px solid rgba(41,41,41,.10);
+    }
+    .legal__toc strong{
+      display:block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: rgba(41,41,41,.85);
+    }
+    .legal__toc a{
+      display:inline-block;
+      margin: 6px 10px 0 0;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(41,41,41,.12);
+      background: var(--white);
+      font-size: 14px;
+      color: rgba(41,41,41,.92);
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .legal__toc a:hover{
+      background: rgba(41,41,41,.05);
+      border-color: rgba(41,41,41,.18);
+    }
+
+    .legal__divider{
+      height: 1px;
+      background: rgba(41,41,41,.10);
+      border: 0;
+      margin: 10px 0 0;
+    }
+
+    .legal__content{
+      margin-top: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .legal__section{ padding-top: 6px; scroll-margin-top: 40px; }
+
+    .legal__h2{
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .legal__p{
+      margin: 0 0 10px;
+      color: rgba(41,41,41,.82);
+      font-size: 16px;
+      line-height: var(--lh);
+    }
+
+    .legal__list{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(41,41,41,.82);
+      font-size: 16px;
+      line-height: var(--lh);
+    }
+    .legal__list li{ margin: 6px 0; }
+
+    .legal__callout{
+      margin-top: 12px;
+      background: var(--off);
+      border: 1px solid rgba(41,41,41,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+      color: rgba(41,41,41,.82);
+      font-size: 16px;
+      line-height: var(--lh);
+    }
+
+    /* =========================
+       FOOTER (igual ao print)
+    ========================= */
+    .footer{
+      padding: 22px 0 22px;
+      border-top: 1px solid rgba(41,41,41,.12);
+      background: transparent;
+    }
+
+    .footer__grid{
+      display:grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .footer__brand{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .footer__title{
+      font-family:"Space Grotesk",system-ui,sans-serif;
+      font-weight:600;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .footer__desc{
+      margin: 0;
+      color: rgba(41,41,41,.72);
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 520px;
+    }
+
+    .footer__pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--white);
+      border: 1px solid rgba(41,41,41,.12);
+      color: rgba(41,41,41,.85);
+      font-size: 14px;
+      font-weight: 600;
+      width: fit-content;
+      min-width: 240px;
+    }
+
+    .footer__col{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      padding-top: 6px;
+    }
+
+    .footer__link{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(41,41,41,.9);
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: background .12s ease;
+      width: fit-content;
+    }
+    .footer__link:hover{ background: rgba(41,41,41,.05); }
+
+    .footer__bottom{
+      margin-top: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(41,41,41,.10);
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(41,41,41,.65);
+      font-size: 13px;
+    }
+
+    .footer__bottom a{
+      color: rgba(41,41,41,.72);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Icons */
+    .icon{
+      width: 18px;
+      height: 18px;
+      stroke: var(--charcoal);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width:980px){
+      .legal__card{ padding: 22px 18px; }
+      .footer__grid{ grid-template-columns: 1fr; }
+      .footer__pill{ width: 100%; justify-content: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <div class="top-wrap" id="top">
+    <div class="container">
+      <header class="site-header" role="banner">
+        <div class="site-header__inner">
+          <a class="brand" href="/#top" aria-label="Listio — início">
+            <span class="brand__name">listio</span>
+          </a>
+
+          <!-- MENU: adicionado "Preço" -->
+          <nav class="nav" aria-label="Navegação principal">
+            <a href="/#como-funciona">Como funciona</a>
+            <a href="/#recursos">Recursos</a>
+            <a href="/precos">Preço</a>
+            <a href="/#faq">Dúvidas</a>
+            <a href="/contato">Contato</a>
+          </nav>
+
+          <div class="header-ctas" aria-label="Ações">
+            <a class="btn btn--ghost" href="https://app.listio.com.br/login">Entrar</a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/cadastro">
+              Começar grátis
+              <i data-lucide="arrow-right" class="icon" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <button class="mobile-toggle" type="button"
+                  aria-label="Abrir menu"
+                  aria-expanded="false"
+                  aria-controls="mobileMenu"
+                  data-mobile-toggle>
+            <i data-lucide="menu" class="icon" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
+          <a href="/#como-funciona">Como funciona</a>
+          <a href="/#recursos">Recursos</a>
+          <a href="/#para-quem">Para quem</a>
+          <a href="/#faq">Dúvidas</a>
+          <a href="/contato">Contato</a>
+
+          <div class="mobile-ctas">
+            <a class="btn" href="https://app.listio.com.br/login">Entrar</a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/cadastro">
+              Começar grátis
+              <i data-lucide="arrow-right" class="icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <main class="legal" role="main">
+    <div class="container">
+      <article class="legal__card">
+        <div class="legal__top">
+          <div>
+            <div class="legal__eyebrow">
+              <i data-lucide="file-text" class="icon" aria-hidden="true"></i>
+              Termos de Uso
+            </div>
+            <h1 class="legal__title">Termos de Uso do Listio</h1>
+            <p class="legal__meta">Última atualização: 19 de Dezembro de 2025</p>
+          </div>
+
+          <a class="btn" href="https://app.listio.com.br/cadastro" style="align-self:flex-start;">
+            Criar conta grátis
+            <i data-lucide="arrow-right" class="icon" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="legal__toc" aria-label="Navegação rápida">
+          <strong>Ir para:</strong>
+          <a href="#sobre">Sobre</a>
+          <a href="#conta">Conta</a>
+          <a href="#regras">Regras</a>
+          <a href="#planos">Planos e pagamentos</a>
+          <a href="#propriedade">Propriedade intelectual</a>
+          <a href="#responsabilidade">Responsabilidades</a>
+          <a href="#cancelamento">Cancelamento</a>
+          <a href="#contato">Contato</a>
+          <a href="#foro">Foro</a>
+        </div>
+
+        <hr class="legal__divider" />
+
+        <div class="legal__content">
+          <!-- ✅ “Termos gerados inicialmente” (mantive a linha do que você já tinha e completei para ficar utilizável) -->
+          <section class="legal__section" id="sobre">
+            <h2 class="legal__h2">1. Sobre o Listio</h2>
+            <p class="legal__p">
+              O <strong>Listio</strong> é uma plataforma de gestão de estoque simplificada para pequenos negócios.
+              Nosso objetivo é transformar a maneira como você compra e controla seus produtos, com mais clareza e menos achismo.
+            </p>
+            <p class="legal__p">
+              Ao acessar o site e/ou utilizar o aplicativo, você concorda com estes Termos e com a Política de Privacidade.
+            </p>
+          </section>
+
+          <section class="legal__section" id="conta">
+            <h2 class="legal__h2">2. Cadastro, acesso e segurança</h2>
+            <p class="legal__p">
+              Para utilizar determinadas funcionalidades, você deverá criar uma conta, fornecendo informações verídicas e atualizadas.
+              Você é responsável por manter a confidencialidade de suas credenciais e por todas as atividades realizadas na sua conta.
+            </p>
+            <div class="legal__callout">
+              <strong>Importante:</strong> o Listio nunca solicitará sua senha por e-mail, WhatsApp ou ligação.
+            </div>
+          </section>
+
+          <section class="legal__section" id="regras">
+            <h2 class="legal__h2">3. Regras de uso</h2>
+            <ul class="legal__list">
+              <li>Não utilize o app para fins ilícitos, fraudulentos ou que violem direitos de terceiros.</li>
+              <li>Não tente acessar áreas restritas, burlar segurança, explorar vulnerabilidades ou realizar engenharia reversa.</li>
+              <li>O uso é destinado ao seu negócio/loja, conforme as permissões e limites do plano contratado.</li>
+              <li>Você é responsável pelos dados inseridos (ex.: produtos, categorias, quantidades e estoque ideal).</li>
+            </ul>
+          </section>
+
+          <section class="legal__section" id="planos">
+            <h2 class="legal__h2">4. Planos, cobranças e pagamentos</h2>
+            <p class="legal__p">
+              O Listio pode oferecer planos gratuitos e pagos. Os recursos disponíveis, limites e valores podem variar conforme o plano.
+              Quando aplicável, cobranças poderão ser processadas por parceiros de pagamento.
+            </p>
+            <ul class="legal__list">
+              <li>Ao contratar um plano pago, você autoriza a cobrança recorrente conforme periodicidade e preço informado no momento da contratação.</li>
+              <li>Impostos e tarifas eventualmente aplicáveis podem ser cobrados conforme a legislação.</li>
+              <li>O Listio pode ajustar preços e condições, informando previamente quando exigido.</li>
+            </ul>
+          </section>
+
+          <section class="legal__section" id="propriedade">
+            <h2 class="legal__h2">5. Propriedade intelectual</h2>
+            <p class="legal__p">
+              O Listio, suas marcas, interface, textos, design e software são protegidos por direitos de propriedade intelectual.
+              Você não adquire qualquer direito sobre eles, exceto a licença limitada de uso conforme estes Termos.
+            </p>
+          </section>
+
+          <section class="legal__section" id="responsabilidade">
+            <h2 class="legal__h2">6. Limitações e responsabilidades</h2>
+            <p class="legal__p">
+              O Listio busca manter o serviço disponível e seguro, mas não garante funcionamento ininterrupto ou livre de falhas.
+              Podemos realizar manutenções, atualizações e melhorias a qualquer momento.
+            </p>
+            <p class="legal__p">
+              Você entende que decisões de compra e gestão de estoque são de sua responsabilidade, mesmo que apoiadas por relatórios e indicadores do app.
+            </p>
+          </section>
+
+          <section class="legal__section" id="cancelamento">
+            <h2 class="legal__h2">7. Suspensão, cancelamento e encerramento</h2>
+            <p class="legal__p">
+              Podemos suspender ou encerrar sua conta se houver violação destes Termos, exigência legal, risco de segurança ou uso indevido.
+              Você pode cancelar seu plano a qualquer momento, conforme regras de cobrança e renovação apresentadas no app.
+            </p>
+          </section>
+
+          <section class="legal__section" id="contato">
+            <h2 class="legal__h2">8. Contato</h2>
+            <p class="legal__p">
+              Dúvidas, solicitações ou suporte: <strong>contato@listio.com.br</strong>.
+            </p>
+          </section>
+
+          <section class="legal__section" id="foro">
+            <h2 class="legal__h2">9. Legislação e foro</h2>
+            <p class="legal__p">
+              Estes Termos são regidos pelas leis brasileiras. Fica eleito o foro da comarca de <strong>São Paulo/SP</strong>,
+              salvo disposições legais em contrário.
+            </p>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- FOOTER (igual ao print) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Col 1 -->
+        <div class="footer__brand">
+          <h3 class="footer__title">listio</h3>
+          <p class="footer__desc">
+            Controle de estoque simples para pequenos comércios. Checklists no celular e clareza para comprar sem achismo.
+          </p>
+          <div class="footer__pill">
+            <i data-lucide="align-left" class="icon" aria-hidden="true"></i>
+            Feito para quem está no balcão
+          </div>
+          <div class="footer__bottom" style="border-top:none; padding-top:0; margin-top:4px;">
+            <span>© <span id="year"></span> Listio. Todos os direitos reservados.</span>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="footer__col" aria-label="Links legais">
+          <a class="footer__link" href="/termos">
+            <i data-lucide="file-text" class="icon" aria-hidden="true"></i>
+            Termos de Uso
+          </a>
+
+        </div>
+
+        <!-- Col 3 -->
+        <div class="footer__col" aria-label="Links adicionais">
+          <a class="footer__link" href="/privacidade">
+            <i data-lucide="shield" class="icon" aria-hidden="true"></i>
+            Política de Privacidade
+          </a>
+          <a class="footer__link" href="/contato">
+            <i data-lucide="message-square" class="icon" aria-hidden="true"></i>
+            Contato
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Icons
+    (function(){
+      if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+      }
+    })();
+
+    // Ano
+    (function(){
+      const year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+    })();
+
+    // Menu mobile (funciona + fecha no clique fora + ESC)
+    (function () {
+      const toggle = document.querySelector("[data-mobile-toggle]");
+      const menu = document.getElementById("mobileMenu");
+      if (!toggle || !menu) return;
+
+      function setOpen(isOpen){
+        menu.classList.toggle("is-open", isOpen);
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      }
+
+      toggle.addEventListener("click", () => {
+        setOpen(!menu.classList.contains("is-open"));
+      });
+
+      menu.addEventListener("click", (e) => {
+        const link = e.target.closest("a,button");
+        if (!link) return;
+        setOpen(false);
+      });
+
+      document.addEventListener("click", (e) => {
+        const insideMenu = e.target.closest("#mobileMenu");
+        const insideToggle = e.target.closest("[data-mobile-toggle]");
+        if (insideMenu || insideToggle) return;
+        setOpen(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+</body>
+</html>
