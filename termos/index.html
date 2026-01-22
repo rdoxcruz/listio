@@ -125,6 +125,54 @@
     }
     .nav a:hover{ background: rgba(41,41,41,.05); }
 
+    /* Dropdown de Segmentos */
+    .nav__dropdown{
+      position:relative;
+    }
+    .nav__dropdown-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      color:rgba(41,41,41,.92);
+      padding:10px 10px;
+      border-radius:12px;
+      transition:background .15s ease;
+    }
+    .nav__dropdown-toggle:hover{ background: rgba(41,41,41,.05); }
+    .nav__dropdown-menu{
+      position:absolute;
+      top:100%;
+      left:0;
+      margin-top:8px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--r-lg);
+      padding:8px;
+      min-width:280px;
+      display:none;
+      flex-direction:column;
+      gap:4px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      z-index:100;
+    }
+    .nav__dropdown:hover .nav__dropdown-menu,
+    .nav__dropdown.is-open .nav__dropdown-menu{
+      display:flex;
+    }
+    .nav__dropdown-menu a{
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:15px;
+      font-weight:500;
+      white-space:nowrap;
+    }
+    .nav__dropdown-menu a:hover{
+      background:var(--bg);
+    }
+
     .header-ctas{
       display:inline-flex;
       align-items:center;
@@ -197,6 +245,31 @@
       color:rgba(41,41,41,.92);
     }
     .mobile-menu a:hover{ background: rgba(41,41,41,.05); }
+    .mobile-menu__item{
+      display:block;
+    }
+    .mobile-menu__submenu{
+      display:none;
+      padding-left:12px;
+      margin-top:4px;
+    }
+    .mobile-menu__submenu.is-open{ display:block; }
+    .mobile-menu__submenu a{
+      font-size:15px;
+      font-weight:500;
+      padding:10px 12px;
+    }
+    .mobile-menu__toggle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:600;
+      color:rgba(41,41,41,.92);
+      cursor:pointer;
+    }
+    .mobile-menu__toggle:hover{ background: rgba(41,41,41,.05); }
     .mobile-menu .mobile-ctas{
       display:grid;
       gap:10px;
@@ -468,6 +541,29 @@
           <nav class="nav" aria-label="Navegação principal">
             <a href="/#como-funciona">Como funciona</a>
             <a href="/#recursos">Recursos</a>
+            <div class="nav__dropdown">
+              <span class="nav__dropdown-toggle">
+                Segmentos
+                <i data-lucide="chevron-down" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+              <div class="nav__dropdown-menu">
+                <a href="/segmentos/lojas-de-conveniencia">Lojas de Conveniência</a>
+                <a href="/segmentos/lojas-de-suplementos">Lojas de Suplementos</a>
+                <a href="/segmentos/mercados-de-bairro-mercearias">Mercados de Bairro / Mercearias</a>
+                <a href="/segmentos/distribuidores">Distribuidores</a>
+                <a href="/segmentos/bebidas">Bebidas (Adegas, Distribuidoras, Depósitos)</a>
+                <a href="/segmentos/restaurantes-bares">Restaurantes & Bares</a>
+                <a href="/segmentos/farmacias-perfumarias">Farmácias & Perfumarias</a>
+                <a href="/segmentos/lojas-de-cosmeticos-beleza">Lojas de Cosméticos e Beleza</a>
+                <a href="/segmentos/lojas-de-roupas">Lojas de Roupas</a>
+                <a href="/segmentos/material-de-construcao">Lojas de Material de Construção</a>
+                <a href="/segmentos/e-commerce">E-commerce Pequeno e Médio</a>
+                <a href="/segmentos/cafeterias-torrefacoes">Cafeterias & Torrefações</a>
+                <a href="/segmentos/emporios-lojas-especializadas">Empórios & Lojas Especializadas</a>
+                <a href="/segmentos/pet-shops-agropecuaria">Pet Shops e Agropecuária</a>
+                <a href="/segmentos/auto-pecas">Auto Peças</a>
+              </div>
+            </div>
             <a href="/precos">Preço</a>
             <a href="/#faq">Dúvidas</a>
             <a href="/contato">Contato</a>
@@ -495,6 +591,30 @@
           <a href="/#como-funciona">Como funciona</a>
           <a href="/#recursos">Recursos</a>
           <a href="/#para-quem">Para quem</a>
+          <div class="mobile-menu__item">
+            <div class="mobile-menu__toggle" data-mobile-submenu-toggle>
+              <span>Segmentos</span>
+              <i data-lucide="chevron-down" class="icon icon--md" aria-hidden="true"></i>
+            </div>
+            <div class="mobile-menu__submenu" id="mobileSegmentosSubmenu">
+              <a href="/segmentos/lojas-de-conveniencia">Lojas de Conveniência</a>
+              <a href="/segmentos/lojas-de-suplementos">Lojas de Suplementos</a>
+              <a href="/segmentos/mercados-de-bairro-mercearias">Mercados de Bairro / Mercearias</a>
+              <a href="/segmentos/distribuidores">Distribuidores</a>
+              <a href="/segmentos/bebidas">Bebidas (Adegas, Distribuidoras, Depósitos)</a>
+              <a href="/segmentos/restaurantes-bares">Restaurantes & Bares</a>
+              <a href="/segmentos/farmacias-perfumarias">Farmácias & Perfumarias</a>
+              <a href="/segmentos/lojas-de-cosmeticos-beleza">Lojas de Cosméticos e Beleza</a>
+              <a href="/segmentos/lojas-de-roupas">Lojas de Roupas</a>
+              <a href="/segmentos/material-de-construcao">Lojas de Material de Construção</a>
+              <a href="/segmentos/e-commerce">E-commerce Pequeno e Médio</a>
+              <a href="/segmentos/cafeterias-torrefacoes">Cafeterias & Torrefações</a>
+              <a href="/segmentos/emporios-lojas-especializadas">Empórios & Lojas Especializadas</a>
+              <a href="/segmentos/pet-shops-agropecuaria">Pet Shops e Agropecuária</a>
+              <a href="/segmentos/auto-pecas">Auto Peças</a>
+            </div>
+          </div>
+          <a href="/precos">Preço</a>
           <a href="/#faq">Dúvidas</a>
           <a href="/contato">Contato</a>
 
@@ -726,6 +846,22 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") setOpen(false);
       });
+
+      // Submenu de Segmentos no mobile
+      const submenuToggle = document.querySelector("[data-mobile-submenu-toggle]");
+      const submenu = document.getElementById("mobileSegmentosSubmenu");
+      if(submenuToggle && submenu){
+        submenuToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          submenu.classList.toggle("is-open");
+          const icon = submenuToggle.querySelector("i[data-lucide]");
+          if(icon){
+            const isOpen = submenu.classList.contains("is-open");
+            icon.setAttribute("data-lucide", isOpen ? "chevron-up" : "chevron-down");
+            if(window.lucide) window.lucide.createIcons();
+          }
+        });
+      }
     })();
   </script>
 </body>
