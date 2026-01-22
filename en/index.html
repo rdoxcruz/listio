@@ -1,0 +1,2326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#292929" />
+  <meta name="color-scheme" content="light" />
+
+  <title>Listio: Automatic Stock Replenishment (no spreadsheets)</title>
+  <meta name="description" content="Automatic stock replenishment solution for small businesses. Run fast checklists on your phone and get a shopping list — with suggested quantities, no spreadsheets and no guesswork." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://listio.com.br/en/en/" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Listio" />
+  <meta property="og:title" content="Listio — Automatic stock replenishment (no spreadsheets)" />
+  <meta property="og:description" content="Phone checklist + automatic reorder suggestions. Stop restocking on gut feeling and avoid stockouts and overstock." />
+  <meta property="og:url" content="https://listio.com.br/en/en/" />
+  <meta property="og:image" content="https://listio.com.br/en/en/og-listio.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Listio — Automatic stock replenishment (no spreadsheets)" />
+  <meta name="twitter:description" content="Phone checklist + automatic reorder suggestions. Avoid stockouts and overstock with clarity." />
+  <meta name="twitter:image" content="https://listio.com.br/en/en/og-listio.jpg" />
+
+  <!-- Favicon (default) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="img/site.webmanifest">
+  <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#292929">
+  <meta name="theme-color" content="#CDD544">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Listio",
+    "url": "https://listio.com.br/en/en/",
+    "logo": "https://listio.com.br/en/en/logo.png",
+    "sameAs": [],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "contato@listio.com.br",
+      "availableLanguage": ["English"]
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Listio",
+    "url": "https://listio.com.br/en/"
+  }
+  </script>
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* =========================
+      LISTIO LP — CLEAN CSS (3 COLORS)
+      - #292929 (charcoal)
+      - #D4DA42 (lime)
+      - #F0F1E9 (off)
+    ========================== */
+
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+
+      --bg: var(--off);
+      --surface: #ffffff;
+      --ink: var(--charcoal);
+
+      --line: rgba(41,41,41,.12);
+      --line-strong: rgba(41,41,41,.20);
+
+      --r-xl: 24px;
+      --r-lg: 18px;
+      --r-md: 14px;
+
+      --container: 1120px;
+      --pad: 22px;
+
+      --title-weight: 600;
+
+      --text: 18px;
+      --lh: 1.6;
+
+      --t-hero: clamp(32px, 4.2vw, 52px);
+      --t-h2: clamp(32px, 3.2vw, 40px);
+      --t-card: 20px;
+      --t-metric: 30px;
+
+      --muted: rgba(41,41,41,.78);
+      --muted-2: rgba(41,41,41,.65);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      font-size:var(--text);
+      line-height:var(--lh);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; }
+    :focus-visible{ outline:3px solid var(--lime); outline-offset:3px; border-radius:12px; }
+
+    .container{
+      width:min(var(--container), calc(100% - (var(--pad) * 2)));
+      margin-inline:auto;
+    }
+
+    /* =========================
+      ICONS (Lucide)
+    ========================== */
+    .icon{
+      width:18px;
+      height:18px;
+      stroke:var(--charcoal);
+      stroke-width:2;
+      flex:0 0 auto;
+    }
+    .icon--md{ width:20px; height:20px; }
+    .icon--lg{ width:22px; height:22px; }
+    .icon--xl{ width:26px; height:26px; }
+    .icon--on-lime{ stroke:var(--charcoal); }
+    .icon--muted{ stroke:rgba(41,41,41,.82); }
+
+    /* =========================
+      REUSE: SECTIONS
+    ========================== */
+    .section{
+      padding: 92px 0 96px;
+    }
+    .section--tight{ padding: 34px 0 78px; }
+    .section--hero{ padding: 72px 0 96px; }
+    .section--cta{
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section__head{ max-width: 760px; margin-bottom: 42px; }
+    .section__eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: #e1e2d7;
+      color:var(--charcoal);
+      padding:6px 20px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:500;
+      letter-spacing:.02em;
+      border:none;
+      width: fit-content;
+    }
+    .section__title{
+      margin:10 0 14px;
+      font-size:var(--t-h2);
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      font-weight:var(--title-weight);
+    }
+    .section__subtitle{
+      margin:0;
+      font-size:18px;
+      line-height:var(--lh);
+      color:var(--muted);
+    }
+
+    /* =========================
+      HEADER
+    ========================== */
+    .top-wrap{ padding: 18px 0 10px; }
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+    }
+    .site-header::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:1px;
+      background: var(--line);
+    }
+    .site-header__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 18px;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      min-width:150px;
+    }
+    .brand__name{
+      font-family:"Space Grotesk", sans-serif;
+      font-weight:700;
+      font-size:2.25rem;
+      line-height:2.5rem;
+      letter-spacing:-0.02em;
+      color:var(--charcoal);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .nav a{
+      font-size:18px;
+      font-weight:500;
+      color:rgba(41,41,41,.92);
+      padding:10px 10px;
+      border-radius:12px;
+      transition: background .15s ease;
+    }
+    .nav a:hover{ background: var(--bg); }
+
+    .header-ctas{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:210px;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:18px;
+      line-height:1;
+      cursor:pointer;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ background: var(--bg); border-color: var(--line-strong); }
+
+    .btn--primary{
+      background: var(--lime);
+      border-color: transparent;
+      color: var(--charcoal);
+    }
+    .btn--primary:hover{ background: var(--lime); border-color: transparent; }
+
+    .btn--ghost{
+      background: transparent;
+      border-color: transparent;
+    }
+    .btn--ghost:hover{ background: var(--bg); border-color: transparent; }
+
+    .btn--lg{ padding: 14px 22px; font-size: 18px; }
+    .btn--xl{ padding: 18px 30px; font-size: 18px; }
+
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      cursor:pointer;
+      place-items:center;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding:10px 12px 14px;
+      border-top:1px solid var(--line);
+      background:var(--surface);
+      border-radius:0 0 var(--r-xl) var(--r-xl);
+    }
+    .mobile-menu a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:650;
+      color:rgba(41,41,41,.92);
+    }
+    .mobile-menu a:hover{ background: var(--bg); }
+    .mobile-menu .mobile-ctas{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      padding:6px 6px 2px;
+    }
+    .mobile-menu.is-open{ display:block; }
+
+    @media (max-width:980px){
+      .nav, .header-ctas{ display:none; }
+      .mobile-toggle{ display:inline-grid; }
+    }
+
+    /* =========================
+      HERO
+    ========================== */
+    .hero__grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:56px;
+      align-items:center;
+    }
+    .hero__title{
+      font-size: var(--t-hero);
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      margin:10 0 18px;
+      font-weight: var(--title-weight);
+    }
+    .hero__subtitle{
+      margin:0 0 22px;
+      font-size:18px;
+      line-height:var(--lh);
+      color:var(--muted);
+      max-width: 560px;
+    }
+
+    .hero__bullets{
+      list-style:none;
+      padding:0;
+      margin:0 0 30px;
+      display:grid;
+      gap:14px;
+    }
+    .hero__bullets li{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:18px;
+      font-weight:500;
+      color:rgba(41,41,41,.88);
+    }
+
+    .hero__ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+
+    .hero__image-wrap{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background: #d4da42;
+    }
+    .hero__image-wrap img{ width:100%; height:auto; display:block; }
+
+    /* Microproof strip in hero */
+    .hero__microproof{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: var(--surface);
+      border:1px solid var(--line);
+      font-size:14px;
+      font-weight:650;
+      color: rgba(41,41,41,.86);
+    }
+
+    @media (max-width:980px){
+      .section--hero{ padding: 20px 35px; }
+      .hero__grid{ grid-template-columns:1fr; gap:40px; }
+      .hero__subtitle{ max-width:100%; }
+      .hero__media{ order:-1; }
+    }
+
+    /* =========================
+      TRUST
+    ========================== */
+    .trust{ padding: 10px 0 30px; }
+    .trust__line{
+      margin:0 0 14px;
+      font-size:14px;
+      font-weight:600;
+      color: var(--muted-2);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .trust__cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .card{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 18px;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .card:hover{ background: var(--bg); border-color: var(--line-strong); }
+
+    .trust__metric{ font-weight:600; font-size: var(--t-metric); letter-spacing:-0.03em; line-height:1.1; }
+    .trust__label{ margin-top:6px; font-weight:400; color: var(--muted-2); font-size:14px; line-height:1.4; }
+
+    @media (max-width:980px){
+      .trust__cards{ grid-template-columns:1fr; }
+    }
+
+    /* =========================
+      CARD GRIDS
+    ========================== */
+    .grid-4{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+    @media (max-width:980px){
+      .grid-4, .grid-3{ grid-template-columns:1fr; gap:12px; }
+    }
+
+    .card__icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background: var(--bg);
+      margin-bottom:12px;
+    }
+    .card__title{
+      margin:0 0 15px;
+      font-size: var(--t-card);
+      letter-spacing:-0.02em;
+      line-height:1.2;
+      font-weight: 600;
+    }
+    .card__text{
+      margin:0;
+      font-size:18px;
+      line-height:var(--lh);
+      color: var(--muted);
+    }
+
+    .pain__head{ max-width:760px; }
+    .pain__head .section__title{ margin-bottom:10px; }
+    .pain__head .section__subtitle{ margin:0; }
+
+    .solution__grid .card{ padding: 22px 20px 24px; }
+    .solution__grid .card__icon{
+      width:48px; height:48px; border-radius:18px;
+      margin-bottom:14px;
+    }
+
+    .value__metric{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background: var(--lime);
+      margin-bottom:18px;
+    }
+
+    /* =========================
+      HOW
+    ========================== */
+    .how__steps{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+    .how__step{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 28px 26px 30px;
+      display:flex;
+      gap:18px;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .how__step:hover{ background: var(--bg); border-color: var(--line-strong); }
+    .how__badge{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background: var(--lime);
+      color: var(--charcoal);
+      font-weight:900;
+      font-size:18px;
+      flex-shrink:0;
+    }
+    .how__content h3{
+      margin:0 0 15px;
+      font-size: var(--t-card);
+      font-weight: 600;
+      letter-spacing:-0.02em;
+      line-height:1.2;
+    }
+    .how__content p{
+      margin:0;
+      font-size:18px;
+      line-height:var(--lh);
+      color: var(--muted);
+    }
+    @media (max-width:980px){
+      .how__steps{ grid-template-columns:1fr; }
+    }
+
+    /* =========================
+      NEW SECTION: "Automation in practice"
+    ========================== */
+    .auto{
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .auto__grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .auto__panel{
+      background: var(--bg);
+      border:1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: 22px;
+    }
+    .auto__panel h3{
+      margin:0 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing:-0.02em;
+    }
+    .auto__panel p{
+      margin:0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: var(--lh);
+    }
+    .auto__list{
+      margin: 14px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap: 12px;
+    }
+    .auto__list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color: rgba(41,41,41,.9);
+      font-weight: 550;
+    }
+    .auto__note{
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted-2);
+    }
+    @media (max-width:980px){
+      .auto__grid{ grid-template-columns:1fr; }
+    }
+
+    .compare__grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+    .compare__card{ position:relative; }
+    .compare__card--highlight{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .compare__badge{
+      position:absolute;
+      top:-12px;
+      right:18px;
+      background: var(--charcoal);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+    .compare__list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+    .compare__list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:18px;
+      line-height:1.5;
+      color: rgba(41,41,41,.92);
+    }
+    @media (max-width:980px){
+      .compare__grid{ grid-template-columns:1fr; }
+    }
+
+    .final-cta__wrap{ display:grid; place-items:center; text-align:center; }
+    .final-cta__subtitle{
+      margin:0 auto 28px;
+      max-width:680px;
+      font-size:18px;
+      color: var(--muted);
+      line-height:var(--lh);
+    }
+    .final-cta__actions{ display:grid; gap:12px; place-items:center; }
+    .final-cta__note{ margin:0; font-size:14px; color: var(--muted-2); line-height:1.4; }
+
+    .faq .container{ display:grid; gap:22px; }
+    .faq__list{ width:min(1078.5px, 100%); margin:0; }
+    .faq__item{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      margin-bottom: 10px;
+      overflow:hidden;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .faq__item:hover{ background: var(--bg); border-color: var(--line-strong); }
+    .faq__question{
+      list-style:none;
+      cursor:pointer;
+      padding:18px 18px;
+      font-size:17px;
+      font-weight:700;
+      letter-spacing:-0.01em;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color: rgba(41,41,41,.92);
+    }
+    .faq__question::-webkit-details-marker{ display:none; }
+    .faq__plus{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background: var(--bg);
+      transition: transform .2s ease;
+      flex-shrink:0;
+    }
+    .faq__item[open] .faq__plus{ transform: rotate(45deg); }
+    .faq__answer{
+      padding: 0 18px 18px;
+      border-top:1px solid var(--line);
+    }
+    .faq__answer p{
+      margin: 12px 0 0;
+      font-size:18px;
+      line-height:var(--lh);
+      color: var(--muted);
+    }
+
+    @media (max-width:980px){
+      .section{ padding: 30px 0 35px; }
+      .section--tight{ padding: 26px 0 58px; }
+      .section--cta{ padding: 72px 0 80px; }
+      .faq__question{ padding: 18px 18px; }
+      .faq__answer{ padding: 0 18px 18px; }
+    }
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PLSN85MQ');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLSN85MQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- HEADER -->
+  <div class="top-wrap">
+    <div class="container">
+      <header class="site-header" role="banner">
+        <div class="site-header__inner">
+          <a class="brand" href="#top" aria-label="Listio — home">
+            <span class="brand__name">Listio</span>
+          </a>
+
+          <nav class="nav" aria-label="Main navigation">
+            <a href="/en/#como-funciona">How it works</a>
+            <a href="/en/#recursos">Features</a>
+            <a href="/en/pricing">Pricing</a>
+            <a href="/en/#faq">FAQ</a>
+            <a href="/en/contact">Contact</a>
+          </nav>
+
+          <div class="header-ctas" aria-label="Actions">
+            <a class="btn btn--ghost" href="https://app.listio.com.br/en/login" data-track="header_login">
+              Log in
+            </a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/en/cadastro" data-track="header_cta">
+              Start free
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" data-mobile-toggle>
+            <i data-lucide="menu" class="icon icon--lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+          <a href="/en/#como-funciona">How it works</a>
+          <a href="/en/#recursos">Features</a>
+          <a href="/en/#para-quem">Who it’s for</a>
+          <a href="/en/pricing">Pricing</a>
+          <a href="/en/#faq">FAQ</a>
+          <a href="/en/contact">Contact</a>
+
+          <div class="mobile-ctas">
+            <a class="btn" href="https://app.listio.com.br/en/login" data-track="mobile_login">Log in</a>
+            <a class="btn btn--primary" href="https://app.listio.com.br/en/cadastro" data-track="mobile_cta">
+              Start free
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main id="top" role="main">
+    <!-- HERO -->
+    <section class="section section--hero hero">
+      <div class="container hero__grid">
+
+        <div class="hero__content">
+          <span class="section__eyebrow">
+            <i data-lucide="sparkles" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Automatic replenishment (no guesswork)
+          </span>
+
+          <h1 class="hero__title">
+            Automatic stock replenishment, no spreadsheets.
+          </h1>
+
+          <p class="hero__subtitle">
+            You run a phone checklist and Listio turns the count into a <strong>reorder suggestion</strong>:
+            <strong>what to restock</strong>, <strong>how much to restock</strong>, and <strong>what’s tying up your cash</strong>.
+            Stop ordering by “gut feel” — and restock with confidence, every week.
+          </p>
+
+          <ul class="hero__bullets">
+            <li>
+              <i data-lucide="smartphone" class="icon icon--md" aria-hidden="true"></i>
+              Fast checklists (standard operating routine)
+            </li>
+            <li>
+              <i data-lucide="wand-2" class="icon icon--md" aria-hidden="true"></i>
+              Automatic “what to buy” suggestions
+            </li>
+            <li>
+              <i data-lucide="shopping-basket" class="icon icon--md" aria-hidden="true"></i>
+              Orders by category or supplier (ready to send)
+            </li>
+          </ul>
+
+          <div class="hero__ctas">
+            <a href="https://app.listio.com.br/en/cadastro" class="btn btn--primary btn--lg" data-track="hero_cta_primary">
+              Start now — it’s free
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+            <a href="#automacao" class="btn btn--ghost btn--lg" data-track="hero_cta_secondary">
+              See how replenishment works
+            </a>
+          </div>
+
+          <div class="hero__microproof" aria-label="Highlights">
+            <span class="chip"><i data-lucide="credit-card" class="icon icon--md" aria-hidden="true"></i> No card required</span>
+            <span class="chip"><i data-lucide="clock-3" class="icon icon--md" aria-hidden="true"></i> Set up in minutes</span>
+            <span class="chip"><i data-lucide="store" class="icon icon--md" aria-hidden="true"></i> Physical + online</span>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__image-wrap">
+            <img
+              src="https://listio.com.br/en/img/checklist.jpg"
+              alt="Person counting inventory inside the app"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust__line">
+          <i data-lucide="star" class="icon icon--md" aria-hidden="true"></i>
+          Built for people who need clear replenishment — not complicated systems
+        </p>
+
+        <div class="trust__cards">
+          <div class="card">
+            <div class="trust__metric" data-counter="1200">+1,200</div>
+            <div class="trust__label">counts completed</div>
+          </div>
+
+          <div class="card">
+            <div class="trust__metric" data-counter="9000">+9,000</div>
+            <div class="trust__label">products organized</div>
+          </div>
+
+          <div class="card">
+            <div class="trust__metric">Consistent</div>
+            <div class="trust__label">weekly replenishment, without guesswork</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN -->
+    <section class="section section--tight pain" id="dor">
+      <div class="container">
+        <div class="pain__head">
+          <h2 class="section__title">If replenishment depends on memory, you’re operating at risk.</h2>
+          <p class="section__subtitle">
+            The problem isn’t “lack of control”. It’s lack of a clear decision on what to buy — before you run out.
+          </p>
+        </div>
+
+        <div class="grid-4" style="margin-top:26px;">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="ban" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Stockouts and lost sales</h3>
+            <p class="card__text">A critical item runs out and you only notice after you’ve already lost the sale.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="banknote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Cash tied up</h3>
+            <p class="card__text">You overbuy what doesn’t move and lock your cash into dead stock.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="file-text" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">No replenishment standard</h3>
+            <p class="card__text">Every week becomes a different method (paper, spreadsheet, “I think”).</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="help-circle" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Ordering by “feeling”</h3>
+            <p class="card__text">You buy out of fear of running out — and pay the price in excess.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Automation in practice -->
+    <section class="section auto" id="automacao">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="zap" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            A solution for automatic replenishment
+          </span>
+
+          <h2 class="section__title">
+            Automation isn’t “guessing”.<br />
+            <span>It’s consistency.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Listio starts from what you already do: a checklist. Then it compares periods and delivers a simple,
+            objective replenishment plan — without needing complex integrations.
+          </p>
+        </div>
+
+        <div class="auto__grid">
+          <div class="auto__panel">
+            <h3>What Listio reads automatically</h3>
+            <p>
+              Every time you finish a checklist, Listio can see what changed in your stock
+              — and turns that into replenishment decisions.
+            </p>
+
+            <ul class="auto__list">
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> What <strong>moved out</strong> since the last count</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> What <strong>didn’t move</strong> (dead stock)</li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> What’s <strong>near stockout</strong></li>
+              <li><i data-lucide="check" class="icon icon--md" aria-hidden="true"></i> What’s in <strong>excess</strong> (cash tied up)</li>
+            </ul>
+
+            <div class="auto__note">
+              *You don’t need to “organize data”. You just need to count.
+            </div>
+          </div>
+
+          <div class="auto__panel" style="background: var(--surface);">
+            <h3>What you get at the end</h3>
+            <p>
+              Instead of a report, Listio gives you an answer:
+              <strong>what to buy now</strong>.
+            </p>
+
+            <ul class="auto__list">
+              <li><i data-lucide="shopping-bag" class="icon icon--md" aria-hidden="true"></i> Shopping list with <strong>suggested quantities</strong></li>
+              <li><i data-lucide="layers" class="icon icon--md" aria-hidden="true"></i> Orders by <strong>category</strong> or <strong>supplier</strong></li>
+              <li><i data-lucide="triangle-alert" class="icon icon--md" aria-hidden="true"></i> Alerts before you run out (avoid lost sales)</li>
+              <li><i data-lucide="trending-down" class="icon icon--md" aria-hidden="true"></i> Signals for items tying up your cash</li>
+            </ul>
+
+            <div class="hero__ctas" style="margin-top:16px;">
+              <a href="https://app.listio.com.br/en/cadastro" class="btn btn--primary" data-track="auto_cta_primary">
+                Automate my inventory
+                <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section solution" id="recursos">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="cpu" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            The replenishment core
+          </span>
+
+          <h2 class="section__title">
+            Less manual work.<br />
+            <span>More automatic replenishment.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Features focused on one thing: turning counts into the right purchase, with clarity.
+          </p>
+        </div>
+
+        <div class="solution__grid grid-3" style="gap:18px;">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="check-circle-2" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Fast, standardized checklists</h3>
+            <p class="card__text">
+              Count on your phone with a simple flow. Less friction, more consistency every week.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="wand-2" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Automatic replenishment suggestions</h3>
+            <p class="card__text">
+              Listio generates what to buy with suggested quantities — so you can decide with confidence.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="triangle-alert" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Alerts before you run out</h3>
+            <p class="card__text">
+              Spot items at risk and restock on time to avoid stockouts.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="trending-down" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Overstock and dead stock</h3>
+            <p class="card__text">
+              See where cash is stuck and tune your buying to stay lighter.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="layout-list" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Nothing gets forgotten</h3>
+            <p class="card__text">
+              Full item list during counting — no relying on search fields and missing products.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="sliders-horizontal" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Quick quantity adjustments</h3>
+            <p class="card__text">
+              Fix and update stock in a few taps. Reliable numbers lead to reliable decisions.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE -->
+    <section class="section value">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="trending-up" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            What clarity delivers
+          </span>
+
+          <h2 class="section__title">
+            When replenishment becomes automatic,<br />
+            <span>inventory works for you.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Fewer surprises, less excess, and weekly predictability. You get out of “firefighting mode”.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-top:34px;">
+          <article class="card">
+            <div class="value__metric" aria-hidden="true">
+              <i data-lucide="shield-check" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Fewer stockouts</h3>
+            <p class="card__text">Restock before you run out and stop losing sales due to missed items.</p>
+          </article>
+
+          <article class="card">
+            <div class="value__metric" aria-hidden="true">
+              <i data-lucide="badge-dollar-sign" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Less cash tied up</h3>
+            <p class="card__text">Reduce excess and buy with criteria — not fear.</p>
+          </article>
+
+          <article class="card">
+            <div class="value__metric" aria-hidden="true">
+              <i data-lucide="calendar" class="icon icon--lg icon--on-lime" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">More predictability</h3>
+            <p class="card__text">Repeatable routine: count, compare, restock. Every week.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section how" id="como-funciona">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="route" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            How it works
+          </span>
+
+          <h2 class="section__title">
+            Checklist → compare → replenish.<br />
+            <span>In 3 steps.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Listio is built for operations: you do the basics well and replenishment comes out ready.
+          </p>
+        </div>
+
+        <ol class="how__steps">
+          <li class="how__step">
+            <div class="how__badge">1</div>
+            <div class="how__content">
+              <h3>Add your items</h3>
+              <p>Name, category and (optionally) ideal stock — to guide replenishment.</p>
+            </div>
+          </li>
+
+          <li class="how__step">
+            <div class="how__badge">2</div>
+            <div class="how__content">
+              <h3>Count on your phone</h3>
+              <p>Fast, standardized checklist so your inventory stays reliable.</p>
+            </div>
+          </li>
+
+          <li class="how__step">
+            <div class="how__badge">3</div>
+            <div class="how__content">
+              <h3>Get automatic replenishment</h3>
+              <p>A “what to buy” list with suggested quantities — ready to order.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="section compare">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="scan-line" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            A straight comparison
+          </span>
+
+          <h2 class="section__title">
+            While others complicate,<br />
+            <span>Listio answers.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            You don’t need “more data”. You need a simple answer: <strong>what to buy now</strong>.
+          </p>
+        </div>
+
+        <div class="compare__grid">
+          <article class="card compare__card">
+            <h3 class="card__title">Spreadsheet</h3>
+            <ul class="compare__list">
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Requires discipline and time</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Easy to forget items</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> “What to buy” becomes a guess</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Gets outdated quickly</li>
+            </ul>
+          </article>
+
+          <article class="card compare__card">
+            <h3 class="card__title">Complex system</h3>
+            <ul class="compare__list">
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Slow implementation</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Training required</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> Too many features, not enough clarity</li>
+              <li><i data-lucide="x" class="icon icon--md" aria-hidden="true"></i> More expensive than you need</li>
+            </ul>
+          </article>
+
+          <article class="card compare__card compare__card--highlight">
+            <span class="compare__badge">Recommended</span>
+            <h3 class="card__title">Listio</h3>
+            <ul class="compare__list">
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> In-app checklist (standard)</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Automatic replenishment (what/how much)</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Lightweight and operational</li>
+              <li><i data-lucide="check" class="icon icon--md icon--on-lime" aria-hidden="true"></i> Works for physical + online stores</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section class="section audience" id="para-quem">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="users" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Who it’s for
+          </span>
+
+          <h2 class="section__title">
+            For businesses that restock weekly<br />
+            <span>and want automation.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            Listio works across segments because it solves the essential:
+            turning counts into automatic replenishment with clarity.
+          </p>
+        </div>
+
+        <div class="grid-4" style="gap:18px;">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="store" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Neighborhood stores</h3>
+            <p class="card__text">Consistent replenishment without relying on memory.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="beer" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Convenience & beverage shops</h3>
+            <p class="card__text">Avoid stockouts on fast movers (and excess on what doesn’t move).</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="truck" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">E-commerce</h3>
+            <p class="card__text">Don’t lose orders to stockouts: replenish from reliable counts.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="shopping-cart" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="card__title">Retail in general</h3>
+            <p class="card__text">Physical goods, real routine, and recurring purchasing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section reviews" id="avaliacoes">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">
+            <i data-lucide="star" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Reviews
+          </span>
+
+          <h2 class="section__title">
+            What Listio users say<br />
+            <span>In real-life operations.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            People don’t use Listio as “another app”. They use <strong>clarity</strong> to restock better,
+            avoid stockouts, and stop wasting time on paper and spreadsheets.
+          </p>
+        </div>
+
+        <div class="reviews__grid grid-3" style="gap:18px;">
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “I tested several apps to organize my inventory. Listio was the only one that actually gave me clarity —
+              I can count fast and I immediately know what I need to buy.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 stars">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Poliana Silva</strong>
+                <span class="review__handle">@policalcados</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “I’ve tried many systems and none were this practical. The web version helps a lot.
+              Listio is excellent for finishing the count and turning it into the right replenishment.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 stars">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Diego Molina</strong>
+                <span class="review__handle">@casa22.shop</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Totally worth it. Counting stock without paper or Excel changed my routine.
+              Now I do it in minutes and I don’t forget anything.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 stars">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Luana Santos</strong>
+                <span class="review__handle">@santagrana</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Listio is super easy and intuitive. I stopped losing sales due to stockouts
+              and I can clearly track what I have and what I don’t.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 stars">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Erika Peres</strong>
+                <span class="review__handle">@perescalcados</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “Really good. I can track inventory value, replenishment, and what’s missing.
+              Listio makes my operation more organized and more credible.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 stars">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Loriene Cruz</strong>
+                <span class="review__handle">@larishop</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--review">
+            <div class="card__icon" aria-hidden="true">
+              <i data-lucide="quote" class="icon icon--xl" aria-hidden="true"></i>
+            </div>
+
+            <p class="card__text">
+              “My business became more professional. The value for money is great
+              and I wouldn’t trade it — I finally have control without complexity.”
+            </p>
+
+            <div class="review__footer">
+              <div class="review__stars" aria-label="5 stars">
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+                <i data-lucide="star" class="icon icon--sm" aria-hidden="true"></i>
+              </div>
+
+              <div class="review__meta">
+                <strong class="review__name">Maria Peçanha</strong>
+                <span class="review__handle">@brejabox</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .card--review { position: relative; }
+      .review__footer{
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .review__stars{
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        opacity: .92;
+      }
+      .review__meta{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        text-align: right;
+      }
+      .review__name{ font-weight: 700; }
+      .review__handle{ opacity: .75; font-size: .95em; }
+    </style>
+
+    <!-- FINAL CTA -->
+    <section class="section section--cta final-cta" id="comecar">
+      <div class="container final-cta__wrap">
+        <div class="final-cta__content">
+          <h2 class="section__title" style="margin:0 0 14px;">
+            Stop ordering by “gut feeling”.<br />
+            <span>Automate replenishment.</span>
+          </h2>
+
+          <p class="final-cta__subtitle">
+            Run one checklist, get a replenishment list with suggested quantities
+            and start operating with predictability — no spreadsheets, no headaches.
+          </p>
+
+          <div class="final-cta__actions">
+            <a href="https://app.listio.com.br/en/cadastro" class="btn btn--primary btn--xl" data-track="final_cta_primary">
+              Create my free account
+              <i data-lucide="arrow-right" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            </a>
+            <p class="final-cta__note">No credit card • Start in minutes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section__head" style="margin-bottom:22px;">
+          <span class="section__eyebrow">
+            <i data-lucide="help-circle" class="icon icon--md icon--on-lime" aria-hidden="true"></i>
+            Common questions
+          </span>
+
+          <h2 class="section__title">
+            Automatic replenishment<br />
+            <span>in practice.</span>
+          </h2>
+
+          <p class="section__subtitle">
+            The questions we hear most from people who want to stop ordering on guesswork.
+          </p>
+        </div>
+
+        <div class="faq__list" data-faq>
+          <details class="faq__item" open>
+            <summary class="faq__question">
+              How can Listio be “automatic” if I don’t have sales integrations?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Listio uses what you control with 100% certainty: your real inventory.
+                With every checklist, it compares the previous count, understands what moved out, and
+                turns that into replenishment suggestions — without needing a heavy ERP.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Do the purchase suggestions include quantities?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Yes. The replenishment list comes with suggested quantities based on your count
+                and the movement between periods. You can adjust before sending the order.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Does this replace my buying spreadsheet?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                In practice, yes. Instead of manually building orders, you run a checklist and
+                get replenishment ready. Many keep their sales system and use Listio for replenishment.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Will I forget fewer items in my orders?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Yes — because the checklist is the full list. You count your whole inventory and replenishment is generated
+                from that, reducing the risk of “forgetting” items due to relying on search.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Do I need a credit card?
+              <span class="faq__plus" aria-hidden="true">
+                <i data-lucide="plus" class="icon icon--md" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                No. You can start for free, test automatic replenishment in your routine,
+                and decide later.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a
+    class="wa-fab"
+    href="https://wa.me/5519974013453?text=Hi!%20I%20want%20to%20learn%20more%20about%20Listio."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open WhatsApp"
+    data-wa
+  >
+    <span class="wa-fab__outer" aria-hidden="true">
+      <span class="wa-fab__inner" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg>
+      </span>
+    </span>
+  </a>
+
+  <style>
+    .wa-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .wa-fab__outer {
+      width: 74px;
+      height: 74px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #1f1f1f;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+      transition: transform 160ms ease;
+    }
+    .wa-fab__inner {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #d4da42;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .wa-fab__inner svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      line-height: 0;
+      color: #111;
+    }
+    .wa-fab:hover .wa-fab__outer,
+    .wa-fab:focus-visible .wa-fab__outer {
+      transform: translateY(-1px);
+    }
+  </style>
+
+  <script>
+    (function () {
+      const wa = document.querySelector("[data-wa]");
+      if (!wa) return;
+      wa.addEventListener("click", function () {
+        // window.dataLayer?.push({ event: "click_whatsapp" });
+      });
+    })();
+  </script>
+
+  <!-- FOOTER + COOKIE CONSENT + LUCIDE INIT -->
+
+  <!-- =========================
+    LISTIO — FOOTER (HTML + CSS)
+  ========================= -->
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
+
+      --ink: var(--charcoal);
+      --bg: var(--off);
+      --surface: var(--white);
+
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1120px;
+      --pad: 22px;
+
+      --text: 18px;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - (var(--pad) * 2)));
+      margin-inline:auto;
+    }
+
+    .listio-footer{
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .listio-footer__inner{
+      padding: 26px 0 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .listio-footer__top{
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .listio-footer__brand{
+      display: grid;
+      gap: 8px;
+    }
+
+    .listio-footer__logo{
+      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .listio-footer__desc{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.76);
+      max-width: 56ch;
+    }
+
+    .listio-footer__pill{
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: min(620px, 100%);
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: rgba(41,41,41,.9);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .listio-footer__pill:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+
+    .listio-footer__col{
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      justify-items: start;
+    }
+
+    .listio-footer__link{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(41,41,41,.9);
+      text-decoration: none;
+      padding: 6px 0;
+    }
+    .listio-footer__link:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .listio-footer__icon{
+      width: 18px;
+      height: 18px;
+      stroke: rgba(41,41,41,.9);
+      stroke-width: 2;
+      fill: none;
+      flex: 0 0 auto;
+    }
+
+    .listio-footer__bottom{
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+
+    .listio-footer__copy{
+      font-size: 13px;
+      color: rgba(41,41,41,.72);
+      line-height: 1.4;
+    }
+
+    .listio-footer__mini-links{
+      font-size: 13px;
+      color: rgba(41,41,41,.72);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .listio-footer__mini-links a{
+      color: rgba(41,41,41,.72);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px){
+      .listio-footer__top{
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
+
+  <footer class="listio-footer" role="contentinfo">
+    <div class="container listio-footer__inner">
+      <div class="listio-footer__top">
+        <div class="listio-footer__brand">
+          <div class="listio-footer__logo">Listio</div>
+          <p class="listio-footer__desc">
+            Automatic stock replenishment for small businesses. Phone checklists<br/>
+            and clarity to restock without guesswork.
+          </p>
+
+          <a class="listio-footer__pill" href="/como-funciona">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            Built for weekly restocking
+          </a>
+        </div>
+
+        <nav class="listio-footer__col" aria-label="Legal links">
+          <a class="listio-footer__link" href="/terms" rel="nofollow">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+            </svg>
+            Terms of Use
+          </a>
+        </nav>
+
+        <nav class="listio-footer__col" aria-label="Support links">
+          <a class="listio-footer__link" href="/privacy" rel="nofollow">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"></path>
+            </svg>
+            Privacy Policy
+          </a>
+
+          <a class="listio-footer__link" href="/contact">
+            <svg class="listio-footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+            </svg>
+            Contact
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+    LISTIO — COOKIE CONSENT POPUP/BANNER
+  ========================= -->
+  <style>
+    :root{
+      --charcoal:#292929;
+      --lime:#D4DA42;
+      --off:#F0F1E9;
+      --white:#FFFFFF;
+
+      --ink: var(--charcoal);
+      --bg: var(--off);
+      --surface: var(--white);
+
+      --line: rgba(41,41,41,.14);
+      --line-strong: rgba(41,41,41,.22);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1120px;
+    }
+
+    .lp-btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      line-height:1;
+    }
+    .lp-btn:hover{
+      border-color: var(--line-strong);
+      background: var(--off);
+    }
+    .lp-btn--primary{
+      background: var(--lime);
+      border-color: transparent;
+      color: var(--charcoal);
+    }
+    .lp-btn--primary:hover{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .lp-btn--ghost{
+      background: transparent;
+      border-color: transparent;
+    }
+    .lp-btn--ghost:hover{
+      background: var(--off);
+      border-color: transparent;
+    }
+
+    .cookie-banner{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px;
+      background: rgba(240,241,233,.92);
+      border-top: 1px solid var(--line);
+      display: none;
+      z-index: 9999;
+    }
+    .cookie-banner.is-open{ display: block; }
+
+    .cookie-banner__card{
+      width: min(var(--container), calc(100% - 24px));
+      margin-inline: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cookie-banner__row{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .cookie-banner__text{ max-width: 72ch; }
+
+    .cookie-banner__title{
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-banner__p{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-banner__actions{
+      display:inline-flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .cookie-modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(41,41,41,.35);
+      z-index: 10000;
+      padding: 14px;
+    }
+    .cookie-modal.is-open{ display:grid; place-items:center; }
+
+    .cookie-modal__card{
+      width: min(640px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .cookie-modal__head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .cookie-modal__head h3{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+
+    .cookie-modal__close{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 800;
+    }
+    .cookie-modal__close:hover{
+      background: var(--off);
+      border-color: var(--line-strong);
+    }
+
+    .cookie-modal__desc{
+      margin:0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(41,41,41,.78);
+    }
+
+    .cookie-prefs{
+      display:grid;
+      gap:10px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--off);
+    }
+
+    .cookie-toggle{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+
+    .cookie-toggle__text{
+      display:grid;
+      gap:2px;
+    }
+
+    .cookie-toggle__text b{
+      font-size:14px;
+      font-weight:800;
+      color: rgba(41,41,41,.9);
+    }
+
+    .cookie-toggle__text span{
+      font-size:14px;
+      color: rgba(41,41,41,.74);
+      line-height:1.4;
+    }
+
+    .switch{
+      position: relative;
+      width: 48px;
+      height: 28px;
+      flex: 0 0 auto;
+    }
+    .switch input{ display:none; }
+    .switch span{
+      position:absolute;
+      inset:0;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--surface);
+      cursor:pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .switch span::after{
+      content:"";
+      position:absolute;
+      top:3px;
+      left:3px;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background: var(--charcoal);
+      transition: transform .15s ease;
+    }
+    .switch input:checked + span{
+      background: var(--lime);
+      border-color: transparent;
+    }
+    .switch input:checked + span::after{
+      transform: translateX(20px);
+    }
+
+    .cookie-modal__actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      padding-top: 6px;
+    }
+  </style>
+
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" data-cookie-banner>
+    <div class="cookie-banner__card">
+      <div class="cookie-banner__row">
+        <div class="cookie-banner__text">
+          <p class="cookie-banner__title">Privacy & cookies</p>
+          <p class="cookie-banner__p">
+            We use essential cookies for the site to work and, with your permission, analytics cookies to improve the experience.
+            You can accept, decline, or adjust your preferences.
+            <a href="/cookies" rel="nofollow">Learn more</a>.
+          </p>
+        </div>
+
+        <div class="cookie-banner__actions">
+          <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Decline</button>
+          <button class="lp-btn" type="button" data-open-cookie-settings>Preferences</button>
+          <button class="lp-btn lp-btn--primary" type="button" data-cookie-accept>Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal" role="dialog" aria-modal="true" aria-label="Cookie preferences" data-cookie-modal>
+    <div class="cookie-modal__card">
+      <div class="cookie-modal__head">
+        <h3>Cookie preferences</h3>
+        <button class="cookie-modal__close" type="button" aria-label="Close" data-cookie-close>×</button>
+      </div>
+
+      <p class="cookie-modal__desc">
+        Choose which categories you allow. Essential cookies are necessary for the site to function.
+        You can change this at any time in the footer.
+      </p>
+
+      <div class="cookie-prefs" role="group" aria-label="Cookie categories">
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Essential</b>
+            <span>Required for the site to work (login, security, basic preferences).</span>
+          </div>
+          <label class="switch" aria-label="Essential cookies (always on)">
+            <input type="checkbox" checked disabled />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__text">
+            <b>Analytics</b>
+            <span>Helps us understand site usage (e.g., pages visited) without directly identifying you.</span>
+          </div>
+          <label class="switch" aria-label="Enable analytics cookies">
+            <input type="checkbox" data-cookie-analytics />
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cookie-modal__actions">
+        <button class="lp-btn lp-btn--ghost" type="button" data-cookie-decline>Decline</button>
+        <button class="lp-btn lp-btn--primary" type="button" data-cookie-save>Save preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const KEY = "listio_cookie_consent_v1";
+      const DEFAULTS = { essential: true, analytics: false };
+
+      const banner = document.querySelector("[data-cookie-banner]");
+      const modal  = document.querySelector("[data-cookie-modal]");
+      const openButtons = document.querySelectorAll("[data-open-cookie-settings]");
+
+      const btnAccept  = document.querySelector("[data-cookie-accept]");
+      const btnDecline = document.querySelectorAll("[data-cookie-decline]");
+      const btnSave    = document.querySelector("[data-cookie-save]");
+      const btnClose   = document.querySelector("[data-cookie-close]");
+      const analyticsToggle = document.querySelector("[data-cookie-analytics]");
+
+      function readConsent(){
+        try{
+          const raw = localStorage.getItem(KEY);
+          return raw ? JSON.parse(raw) : null;
+        }catch(e){
+          return null;
+        }
+      }
+      function writeConsent(value){
+        try{ localStorage.setItem(KEY, JSON.stringify(value)); }catch(e){}
+      }
+      function openBanner(){ if (banner) banner.classList.add("is-open"); }
+      function closeBanner(){ if (banner) banner.classList.remove("is-open"); }
+      function openModal(){
+        if (!modal) return;
+        modal.classList.add("is-open");
+        const current = readConsent() || DEFAULTS;
+        if (analyticsToggle) analyticsToggle.checked = !!current.analytics;
+      }
+      function closeModal(){ if (modal) modal.classList.remove("is-open"); }
+
+      function applyConsent(consent){
+        // init analytics here if needed
+      }
+
+      const saved = readConsent();
+      if (!saved) openBanner();
+      else applyConsent(saved);
+
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", () => { closeBanner(); openModal(); });
+      });
+
+      if (btnAccept){
+        btnAccept.addEventListener("click", () => {
+          const consent = { essential: true, analytics: true, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner(); closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      btnDecline.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const consent = { essential: true, analytics: false, ts: Date.now() };
+          writeConsent(consent);
+          closeBanner(); closeModal();
+          applyConsent(consent);
+        });
+      });
+
+      if (btnSave){
+        btnSave.addEventListener("click", () => {
+          const consent = { essential: true, analytics: !!(analyticsToggle && analyticsToggle.checked), ts: Date.now() };
+          writeConsent(consent);
+          closeBanner(); closeModal();
+          applyConsent(consent);
+        });
+      }
+
+      if (btnClose) btnClose.addEventListener("click", closeModal);
+
+      if (modal){
+        modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+      }
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+    })();
+  </script>
+
+  <!-- ✅ ICON FIX (Lucide) -->
+  <script>
+    (function () {
+      function initLucide() {
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+          window.lucide.createIcons();
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLucide);
+      } else {
+        initLucide();
+      }
+
+      let tries = 0;
+      const t = setInterval(() => {
+        tries++;
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+          initLucide();
+          clearInterval(t);
+        }
+        if (tries >= 20) clearInterval(t);
+      }, 100);
+    })();
+  </script>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    (function(){
+      const btn = document.querySelector("[data-mobile-toggle]");
+      const menu = document.getElementById("mobileMenu");
+      if(!btn || !menu) return;
+
+      btn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // close on link click
+      menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          menu.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
